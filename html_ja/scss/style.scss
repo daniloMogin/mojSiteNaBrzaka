@@ -1,0 +1,274 @@
+/*----------  config
+------------------------------------------------------------------------------*/
+@import "compass";
+@import "config/reset";
+@import "config/variables";
+@import "config/typography";
+
+/*----------  helpers
+------------------------------------------------------------------------------*/
+@import "helpers/mixins";
+
+/*----------  layout
+------------------------------------------------------------------------------*/
+@import "layout/layout";
+@import "layout/icons";
+@import "layout/buttons";
+
+/*----------  libs
+------------------------------------------------------------------------------*/
+@import "libs/flexslider";
+@import "libs/tooltip-box";
+
+/*----------  partials
+------------------------------------------------------------------------------*/
+@import "partials/header";
+@import "partials/footer";
+
+/*----------  slider
+------------------------------------------------------------------------------*/
+.slider {
+    clear: both;
+    text-align: center;
+    .overlay {
+        max-width: 980px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        padding: 15px 0;
+        z-index: 999;
+        margin: 0 auto;
+    }
+    .flexslider {
+        margin: 0;
+        border: 0;
+    }
+    .flex-direction-nav {
+        display: none !important;
+    }
+    .flex-caption{
+        left:0 !important;
+    }
+    .flex-control-nav {
+        bottom: 50px;
+    }
+    .flex-control-paging li a {
+        background: #fff;
+        background: rgba(255, 255, 255, 0.5);
+    }
+    .flex-control-paging li a:hover {
+        background: #fff;
+        background: rgba(255, 255, 255, 0.7);
+    }
+    .flex-control-paging li a.flex-active {
+        background: #fff;
+        background: rgba(255, 255, 255, 0.9);
+    }
+    .slides {
+        img {
+            min-height: 339px;
+        }
+        li {
+            position: relative;
+            max-height: 650px;
+            .flex-caption {
+                position: absolute;
+                top: 0;
+                padding: 2%;
+                color: #fff;
+                text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+                font-size: 14px;
+                line-height: 18px;
+                .gray-bck {
+                    background: rgba($green, 0.5);
+                    @include border-radius(10px);
+                }
+                h2 {
+                    color: $white;   
+                    padding: 15px 0;
+                }
+                p {
+                    padding: 15px 15px;
+                }
+            }
+        }
+    }
+    @include breakpoint(tablet) {
+        .slides li {
+            min-height: 339px;
+            max-height: 500px;
+        }
+        .flex-control-nav {
+            bottom: 40px;
+        }
+        .flex-caption {
+            h2 {
+                font-size: 30px;
+                line-height: 40px;
+                margin: 48px 0 3px 0;
+            }
+            .slider-caption-wrap {
+                padding-top: 18px;
+                i {
+                    margin: 10px 34px 0 35px;
+                }
+                p {
+                    font-size: 15px;
+                    line-height: 22px;
+                    padding-top: 3px;
+                }
+                .cite {
+                    font-size: 15px;
+                    line-height: 22px;
+                }
+                .right {
+                    margin: 10px 17px 0 30px;
+                }
+            }
+        }
+    }
+    @include breakpoint(phone) {
+        .overlay {
+            padding: 1px 0 0 21px;
+        }
+        .show {
+            display: none;
+        }
+        .hide {
+            display: block;
+            float: left;
+            padding-left: 5px;
+        }
+        .slides li {
+            min-height: 339px;
+            max-height: 500px;
+        }
+        .flex-control-nav {
+            bottom: 30px;
+            left: 15px;
+            text-align: left;
+            width: 50%;
+        }
+        .flex-caption {
+            h2 {
+                font-size: 20px;
+                text-align: left;
+                border: 0;
+                margin: 0;
+            }
+            .slider-caption-wrap {
+                padding: 0;
+                p {
+                    font-size: 15px;
+                    line-height: 22px;
+                    text-align: left;
+                    clear: both;
+                    padding-top: 7px;
+                }
+                .cite {
+                    font-size: 15px;
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
+
+/*----------  stats
+------------------------------------------------------------------------------*/
+.stats {
+    width: 100%;
+//    float: left;
+//    background-position: center;
+//    background-size: cover;
+//    background-attachment: fixed;
+    background: rgba($white, 0.7);
+    .stats-overlay {
+        width: 100%;
+        float: left;
+        background-attachment: fixed;
+        padding: 50px 0;
+    }
+    .statsbar { 
+        width: 100%;
+    }
+    .stat-one { 
+        width: 25%;
+        float:left;
+    }
+    .stat-two { 
+        width: 25%;
+        float:left;
+    }
+    .stat-three { 
+        width: 25%;
+        float:left;
+    }
+    .stat-four { 
+        width: 25%;
+        float:left;
+    }
+    .stat-number { 
+        width: 100%;
+        float:left;
+        text-align:center;
+        color:#FFF;
+        font-size: 60px;
+        font-weight: 100;
+        text-transform: uppercase;
+        color:#FFF;
+    }
+    .stat-title { 
+        width: 100%;
+        float:left;
+        text-align:center;
+        color:#FFF;
+        font-size: 14px;
+        font-weight: 100;
+        text-transform: uppercase;
+        color:#FFF;
+    }
+    
+    @include breakpoint(tablet) {
+    }
+    @include breakpoint(phone) {
+        
+    }
+}
+
+/*----------  about us
+------------------------------------------------------------------------------*/
+.about-us {
+    text-align: center;
+    padding-bottom: 40px;
+    clear: both;
+    span {
+        > a {
+            > img {
+                width: 150px;
+                height: 150px;
+                padding-bottom: 25px;
+                border-bottom: 1px solid $gray;
+            }
+        }
+    }
+    p {
+        padding: 25px 0;
+        width: 50%;
+        margin: 0 auto;
+    }
+}
+
+/*----------  what we do
+------------------------------------------------------------------------------*/
+.what-we-do {
+
+}
+
+/*----------  our work
+------------------------------------------------------------------------------*/
+.our-work {
+    text-align: center;
+    height: 500px;
+    padding-bottom: 40px;
+}
