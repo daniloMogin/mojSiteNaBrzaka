@@ -1,5 +1,11 @@
 /*----------  icons
 ------------------------------------------------------------------------------*/
+i {
+    @include transition(all .8s ease-out);
+    &:hover {
+        color: $gray-light;
+    }
+}
 //.ico {
 //    display: inline-block;
 ////    @include transition(all .25s ease-out);
@@ -63,12 +69,7 @@
 //}
 
 
-i {
-    @include transition(all .5s ease-out);
-    &:hover {
-        color: $blue-face;
-    }
-}
+
 
 
 

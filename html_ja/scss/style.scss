@@ -1,5 +1,6 @@
 /*----------  config
 ------------------------------------------------------------------------------*/
+
 @import "compass";
 @import "config/reset";
 @import "config/variables";
@@ -7,21 +8,25 @@
 
 /*----------  helpers
 ------------------------------------------------------------------------------*/
+
 @import "helpers/mixins";
 
 /*----------  layout
 ------------------------------------------------------------------------------*/
+
 @import "layout/layout";
 @import "layout/icons";
 @import "layout/buttons";
 
 /*----------  libs
 ------------------------------------------------------------------------------*/
+
 @import "libs/flexslider";
 @import "libs/tooltip-box";
 
 /*----------  partials
 ------------------------------------------------------------------------------*/
+
 @import "partials/header";
 @import "partials/footer";
 
@@ -46,8 +51,8 @@
     .flex-direction-nav {
         display: none !important;
     }
-    .flex-caption{
-        left:0 !important;
+    .flex-caption {
+        left: 0 !important;
     }
     .flex-control-nav {
         bottom: 50px;
@@ -66,7 +71,10 @@
     }
     .slides {
         img {
-            min-height: 339px;
+            min-height: 139px;
+            background-position: center;
+            background-size: 100%;
+            background-repeat: repeat;
         }
         li {
             position: relative;
@@ -76,7 +84,7 @@
                 top: 0;
                 padding: 2%;
                 color: #fff;
-                text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+                text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
                 font-size: 14px;
                 line-height: 18px;
                 .gray-bck {
@@ -84,7 +92,7 @@
                     @include border-radius(10px);
                 }
                 h2 {
-                    color: $white;   
+                    color: $white;
                     padding: 15px 0;
                 }
                 p {
@@ -178,61 +186,73 @@
 ------------------------------------------------------------------------------*/
 .stats {
     width: 100%;
-//    float: left;
-//    background-position: center;
-//    background-size: cover;
-//    background-attachment: fixed;
-    background: rgba($white, 0.7);
-    .stats-overlay {
+    background-color: $gray;
+    .statsbar {
         width: 100%;
-        float: left;
-        background-attachment: fixed;
-        padding: 50px 0;
+        color: $black;
+        .stat {
+            width: 25%;
+            float: left;
+            position: relative;
+            padding: 40px 0;
+            .stat-sign {
+                position: absolute;
+                top: 40px;
+                left: 55%;
+                font-size: 60px;
+                font-weight: 300;
+            }
+            .stat-number {
+                width: 100%;
+                float: left;
+                text-align: center;
+                font-size: 60px;
+                font-weight: 300;
+                text-transform: uppercase;
+                transform: translateX(-26px);
+            }
+            .stat-title {
+                width: 100%;
+                float: left;
+                text-align: center;
+                font-size: 14px;
+                font-weight: 100;
+                text-transform: uppercase;
+            }
+        }
     }
-    .statsbar { 
-        width: 100%;
-    }
-    .stat-one { 
-        width: 25%;
-        float:left;
-    }
-    .stat-two { 
-        width: 25%;
-        float:left;
-    }
-    .stat-three { 
-        width: 25%;
-        float:left;
-    }
-    .stat-four { 
-        width: 25%;
-        float:left;
-    }
-    .stat-number { 
-        width: 100%;
-        float:left;
-        text-align:center;
-        color:#FFF;
-        font-size: 60px;
-        font-weight: 100;
-        text-transform: uppercase;
-        color:#FFF;
-    }
-    .stat-title { 
-        width: 100%;
-        float:left;
-        text-align:center;
-        color:#FFF;
-        font-size: 14px;
-        font-weight: 100;
-        text-transform: uppercase;
-        color:#FFF;
-    }
-    
     @include breakpoint(tablet) {
+        .statsbar {
+            .stat {
+                .stat-sign {
+                    left: 55%;
+                    font-size: 50px;
+                }
+                .stat-number {
+                    font-size: 50px;
+                }
+                .stat-title {
+                    font-size: 12px;
+                }
+            }
+        }
     }
     @include breakpoint(phone) {
-        
+        .statsbar {
+            .stat {
+                .stat-sign {
+                    left: 54%;
+                    font-size: 30px;
+                }
+                .stat-number {
+                    font-size: 30px;
+                    transform: translateX(-13px);
+                }
+                .stat-title {
+                    font-size: 8px;
+                }
+            }
+        }
     }
 }
 
@@ -242,6 +262,7 @@
     text-align: center;
     padding-bottom: 40px;
     clear: both;
+    background-color: $white;
     span {
         > a {
             > img {
@@ -252,17 +273,60 @@
             }
         }
     }
-    p {
-        padding: 25px 0;
-        width: 50%;
-        margin: 0 auto;
+    .about-warapper {
+        width: 100%;
+        h3 {
+            font-size: 34px;
+            font-weight: 700;
+            text-align: center;
+            padding: 25px 0;
+            text-transform:  uppercase;
+        }
+        p {
+            
+        }
+    }
+    @include breakpoint(tablet) {
+        h3 {
+            font-size: 24px;
+        }
+        p {
+            font-size: 18px;
+        }
+    }
+    @include breakpoint(phone) {
+        h2 {
+            font-size: 35px;
+        }
+        .col-three {
+            width: 100%;
+            float: none;
+            h3 {
+                font-size: 23px;
+                padding: 20px 0;
+            }
+            p {
+                font-size: 16px;
+            }
+        }
     }
 }
 
 /*----------  what we do
 ------------------------------------------------------------------------------*/
 .what-we-do {
-
+    text-align: center;
+    padding-bottom: 40px;
+    background-color: $white;
+    
+    @include breakpoint(tablet) {
+ 
+    }
+    @include breakpoint(phone) {
+        h2 {
+            font-size: 35px;
+        }
+    }
 }
 
 /*----------  our work
@@ -271,4 +335,14 @@
     text-align: center;
     height: 500px;
     padding-bottom: 40px;
+    background-color: $gray;
+    
+    @include breakpoint(tablet) {
+
+    }
+    @include breakpoint(phone) {
+        h2 {
+            font-size: 35px;
+        }
+    }
 }

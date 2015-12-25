@@ -21,14 +21,13 @@ html {
         display: table;
         clear: both;
     }
-    .stats-col {
+    .col-three {
         box-sizing: border-box;
-        width: 24%;
+        width: 32%;
         float: left;
         margin-right: 2%;
-        padding: 5px 5px;
+        padding: 5px 0;
         text-align: center;
-        background-color: aqua;
         position: relative;
         &:last-of-type {
             margin-right: 0;

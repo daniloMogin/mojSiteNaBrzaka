@@ -34,6 +34,7 @@
             position: relative;
             margin-top: 39px;
             > a {
+                font-size: 18px;
                 color: $black;
                 display: block;
                 margin: 0 10px;
@@ -69,6 +70,14 @@
     }
 
     @include breakpoint(tablet) {
+        ul.menubar {
+            > li {
+                margin-top: 39px;
+                > a {
+                    font-size: 15px;
+                }
+            }
+        }
     }
     @include breakpoint(phone) {
         .mob-nav-on {
