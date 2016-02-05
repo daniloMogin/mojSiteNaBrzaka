@@ -37,26 +37,28 @@
                 font-size: 18px;
                 color: $black;
                 display: block;
-                margin: 0 10px;
+                margin: 0 12px;
                 padding: 10px 0;
                 text-decoration: none;
-                @include transition-duration(.8s);
-                @include transition-timing-function(ease-out);
+                //                @include transition-duration(.8s);
+                //                @include transition-timing-function(ease-out);
                 &:hover {
                     color: $gray-light;
+                    padding-bottom: 44px;
+                    border-bottom: 2px solid red;
                 }
             }
-            &.is-selected {
-                > a {
-                    color: $gray-light;
-                }
-            }
+        }
+        .active {
+            color: $gray-light;
+            padding-bottom: 44px;
+            border-bottom: 2px solid red;
         }
         > span {
             float: right;
             margin-top: 45px;
             > a {
-                margin-right: 15px;
+                margin-right: 13px;
             }
         }
     }
@@ -74,8 +76,12 @@
             > li {
                 margin-top: 39px;
                 > a {
-                    font-size: 15px;
+                    margin: 0 4px;
+                    font-size: 13px;
                 }
+            }
+            .active {
+                padding-bottom: 51px;
             }
         }
     }

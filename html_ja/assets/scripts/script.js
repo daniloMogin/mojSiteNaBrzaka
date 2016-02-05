@@ -10,7 +10,7 @@ equalheight = function (container) {
     $(container).each(function () {
 
         $el = $(this);
-        $($el).height('auto')
+        $($el).height("auto")
         topPostion = $el.position().top;
 
         if (currentRowStart != topPostion) {
@@ -35,13 +35,13 @@ $(window).load(function () {
 
     /*----------  equal height call
     ------------------------------------------------------------------------------*/
-    equalheight('.footer-mid li');
-    
+    equalheight(".footer-mid li");
+
     //equalheight('.col-three > h3');
 
     /*----------  flex slider call
     ------------------------------------------------------------------------------*/
-    $('.flexslider').flexslider({
+    $(".flexslider").flexslider({
         animation: "slide",
         slideshow: false
     });
@@ -51,21 +51,103 @@ $(window).resize(function () {
 
     /*----------  equal height call
     ------------------------------------------------------------------------------*/
-    equalheight('.footer-mid li');
-    
+    equalheight(".footer-mid li");
+
     //equalheight('.main-grid > h2');
 });
 
-$('document').ready(function ($) {
+$("document").ready(function ($) {
+
+    /*----------  Loading
+    ------------------------------------------------------------------------------*/
+    $(".bar-percentage[data-percentage]").each(function () {
+        var progress = $(this);
+        var percentage = Math.ceil($(this).attr("data-percentage"));
+        $({countNum: 0}).animate({countNum: percentage}, {
+            duration: 2000,
+            easing:"linear",
+            step: function() {
+                // What todo on every count
+                var pct = '';
+                if(percentage == 0){
+                    pct = Math.floor(this.countNum) + "%";
+                }else{
+                    pct = Math.floor(this.countNum+1) + "%";
+                }
+                progress.text(pct) && progress.siblings().children().css("width",pct);
+            }
+        }); 
+    });
+    
+    /*----------  Scroll to location
+    ------------------------------------------------------------------------------*/
+    $(document).on("scroll", onScroll);
+
+    //smoothscroll
+    $("a[href^='#']").on("click", function (e) {
+        e.preventDefault();
+        $(document).off("scroll");
+
+        $("a").each(function () {
+            $(this).removeClass("active");
+        })
+        $(this).addClass("active");
+
+        var target = this.hash,
+            menu = target;
+        $target = $(target);
+        $("html, body").stop().animate({
+            'scrollTop': $target.offset().top+2 - 120 + "px"
+        }, 500, "swing", function () {
+            window.location.hash = target;
+            $(document).on("scroll", onScroll);
+        });
+    });
+    
+    
+    
+    
+    
+    //    $triggered_times = 0;
+    //
+    //    $(window).on('scroll', function() {
+    //        var y_scroll_pos = window.pageYOffset;
+    //        var scroll_pos_test = 150;   // set to whatever you want it to be
+    //
+    //        if(y_scroll_pos > scroll_pos_test && $triggered_times == 0 ) {
+    //            //do your stuff over here
+    //            $('.bar-percentage[data-percentage]').each(function () {
+    //                var progress = $(this);
+    //                var percentage = Math.ceil($(this).attr('data-percentage'));
+    //                $({countNum: 0}).animate({countNum: percentage}, {
+    //                    duration: 2000,
+    //                    easing:'linear',
+    //                    step: function() {
+    //                        // What todo on every count
+    //                        var pct = '';
+    //                        if(percentage == 0){
+    //                            pct = Math.floor(this.countNum) + '%';
+    //                        }else{
+    //                            pct = Math.floor(this.countNum+1) + '%';
+    //                        }
+    //                        progress.text(pct) && progress.siblings().children().css('width',pct);
+    //                    }
+    //                });
+    //            });
+    //            
+    //            $triggered_times = 1;   // to make sure the above action triggers only once
+    //        }
+    //    });
+
     /*----------  fixed nav
     ------------------------------------------------------------------------------*/
-    var nav = $('.main-nav');
-    var navM = $('.mobile-wrap');
+    var nav = $(".main-nav");
+    var navM = $(".mobile-wrap");
     var pos = nav.offset().top;
     $(window).scroll(function () {
         var fix = ($(this).scrollTop() > pos) ? true : false;
-        nav.toggleClass('fix-nav', fix);
-        navM.toggleClass('fix-nav', fix);
+        nav.toggleClass("fix-nav", fix);
+        navM.toggleClass("fix-nav", fix);
         $('body').toggleClass('fix-body', fix);
     });
 
@@ -75,13 +157,13 @@ $('document').ready(function ($) {
 
     /*----------  mobile nav
     ------------------------------------------------------------------------------*/
-    $('.nav-btn').click(function () {
-        if ($('.mobile-nav').hasClass('none')) {
-            $('.mobile-nav').height($('.mobile-nav').find('.header .mobile-nav').height());
-            $('.mobile-nav').removeClass('none');
+    $(".nav-btn").click(function () {
+        if ($(".mobile-nav").hasClass("none")) {
+            $(".mobile-nav").height($(".mobile-nav").find(".header .mobile-nav").height());
+            $(".mobile-nav").removeClass("none");
         } else {
-            $('.mobile-nav').height('');
-            $('.mobile-nav').addClass('none');
+            $(".mobile-nav").height('');
+            $(".mobile-nav").addClass("none");
         }
     });
 
@@ -94,7 +176,7 @@ $(function () {
         $(".stat-number").each(function (i, el) {
             var data = parseInt(this.dataset.n, 10);
             var props = {
-                "from": {
+                "from": { 
                     "count": 0
                 },
                 "to": {
@@ -128,38 +210,56 @@ $(function () {
 
 /*----------  link to tags
 ------------------------------------------------------------------------------*/
-$("ul>li>a").click(function (event) {
-    event.preventDefault();
-    //calculate destination place
-    var dest = 0;
-    if ($(this.hash).offset().top > $(document).height() - $(window).height()) {
-        dest = $(document).height() - $(window).height();
-    } else {
-        dest = $(this.hash).offset().top - 120 + "px";
-    }
-    //go to destination
-    $('html,body').animate({
-        scrollTop: dest
-    }, 1000, 'swing');
-});
+//$("ul>li>a").click(function (event) {
+//    event.preventDefault();
+//    //calculate destination place
+//    var dest = 0;
+//    if ($(this.hash).offset().top > $(document).height() - $(window).height()) {
+//        dest = $(document).height() - $(window).height();
+//    } else {
+//        dest = $(this.hash).offset().top - 120 + "px";
+//    }
+//    //go to destination
+//    $('html,body').animate({
+//        scrollTop: dest
+//    }, 1000, 'swing');
+//});
 
 /*----------  add class to menu bar links
 ------------------------------------------------------------------------------*/
-$("ul>li").click(function (event) {
-    event.preventDefault();
+function onScroll(event){
+    var scrollPos = $(document).scrollTop() + 120;
+    $("ul.nav-script>li a").each(function () {
+        var currLink = $(this);
+        var refElement = $(currLink.attr("href"));
+        if (refElement.position().top <= scrollPos  && refElement.position().top + refElement.height() > scrollPos) {
+            $("ul.nav-script>li").removeClass("active");
+            currLink.addClass("active");
+        }
+        else{
+            currLink.removeClass("active");
+        }
+    });
+}
+//$("ul.nav-script>li").click(function (event) {
+//    event.preventDefault();
+//
+//    if ($(this).hasClass("active")) {
+//        $(this).removeClass("active");
+//    } else {
+//        $(this).addClass("active");
+//        $(this).siblings().removeClass("active");
+//    }
+//});
 
-    if ($(this).hasClass("is-selected")) {
-        $(this).removeClass("is-selected");
-    } else {
-        $(this).addClass("is-selected");
-        $(this).siblings().removeClass('is-selected');
-    }
+/*----------  moving hover
+------------------------------------------------------------------------------*/
+$(function() {
+    $(" #da-thumbs > li ").each( function() { $(this).hoverdir({
+        hoverDelay : 75
+    }); } );
+    
 });
-
-
-
-
-
 
 
 //// This example displays a marker at the center of Australia.

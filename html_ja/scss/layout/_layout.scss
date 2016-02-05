@@ -21,30 +21,44 @@ html {
         display: table;
         clear: both;
     }
-    .col-three {
-        box-sizing: border-box;
-        width: 32%;
+    .col-two {
         float: left;
+        text-align: center;
+        position: relative;
+        width: 48%;
         margin-right: 2%;
         padding: 5px 0;
-        text-align: center;
-        position: relative;
+
         &:last-of-type {
             margin-right: 0;
         }
     }
-    .what-we-do-col {
-        box-sizing: border-box;
-        width: 19%;
+    .col-three {
         float: left;
-        margin-right: 1.2%;
         text-align: center;
         position: relative;
-        cursor: pointer;
+        width: 32%;
+        margin-right: 2%;
+        padding: 5px 0;
+
         &:last-of-type {
             margin-right: 0;
         }
     }
+    .col-four {
+        float: left;
+        text-align: center;
+        position: relative;
+        width: 24.1%;
+        margin-right: 1.2%;
+        cursor: pointer;
+        background-color: aqua;
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+
     @include breakpoint(tablet) {
     }
     @include breakpoint(phone) {
