@@ -45,6 +45,7 @@ $(window).load(function () {
         animation: "slide",
         slideshow: false
     });
+    
 });
 
 $(window).resize(function () {
@@ -84,7 +85,7 @@ $("document").ready(function ($) {
     $(document).on("scroll", onScroll);
 
     //smoothscroll
-    $("a[href^='#']").on("click", function (e) {
+    $("li>a[href^='#']").on("click", function (e) {
         e.preventDefault();
         $(document).off("scroll");
 
@@ -97,7 +98,7 @@ $("document").ready(function ($) {
             menu = target;
         $target = $(target);
         $("html, body").stop().animate({
-            'scrollTop': $target.offset().top+2 - 120 + "px"
+            'scrollTop': $target.offset().top+2 - 90 + "px"
         }, 500, "swing", function () {
             window.location.hash = target;
             $(document).on("scroll", onScroll);
@@ -139,6 +140,11 @@ $("document").ready(function ($) {
     //        }
     //    });
 
+
+    /*----------  smooth scroll
+    ------------------------------------------------------------------------------*/
+    //    jQuery.scrollSpeed(150, 900);
+
     /*----------  fixed nav
     ------------------------------------------------------------------------------*/
     var nav = $(".main-nav");
@@ -148,13 +154,9 @@ $("document").ready(function ($) {
         var fix = ($(this).scrollTop() > pos) ? true : false;
         nav.toggleClass("fix-nav", fix);
         navM.toggleClass("fix-nav", fix);
-        $('body').toggleClass('fix-body', fix);
+        //        $('body').toggleClass('fix-body', fix);
     });
-
-    /*----------  smooth scroll
-    ------------------------------------------------------------------------------*/
-    //    jQuery.scrollSpeed(150, 900);
-
+    
     /*----------  mobile nav
     ------------------------------------------------------------------------------*/
     $(".nav-btn").click(function () {
@@ -199,7 +201,7 @@ $(function () {
 
     var reset = function reset() {
         console.log($(this).scrollTop())
-        if ($(this).scrollTop() > 120) {
+        if ($(this).scrollTop() > 2200) {
             $(this).off("scroll");
             fx()
         }
@@ -228,7 +230,7 @@ $(function () {
 /*----------  add class to menu bar links
 ------------------------------------------------------------------------------*/
 function onScroll(event){
-    var scrollPos = $(document).scrollTop() + 120;
+    var scrollPos = $(document).scrollTop() + 90;
     $("ul.nav-script>li a").each(function () {
         var currLink = $(this);
         var refElement = $(currLink.attr("href"));
@@ -259,8 +261,25 @@ $(function() {
         hoverDelay : 75
     }); } );
     
+    $(" .ff-items > li ").each( function() { $(this).hoverdir({
+        hoverDelay : 75
+    }); } );
+    
 });
 
+/*----------  load font awesome
+------------------------------------------------------------------------------*/
+(function() {
+    var css = document.createElement('link');
+    css.href = 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css';
+    css.rel = 'stylesheet';
+    css.type = 'text/css';
+    document.getElementsByTagName('head')[0].appendChild(css);
+})();
+
+$('#reload').click(function() {
+    location.reload();
+});
 
 //// This example displays a marker at the center of Australia.
 //// When the user clicks the marker, an info window opens.

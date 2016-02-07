@@ -1,9 +1,9 @@
 /*----------  icons
 ------------------------------------------------------------------------------*/
 i {
-    @include transition(all .8s ease-out);
+    @include transition-duration(.3s); 
     &:hover {
-        color: $gray-light;
+        color: $gray;
     }
 }
 //.ico {
