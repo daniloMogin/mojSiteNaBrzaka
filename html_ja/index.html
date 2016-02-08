@@ -44,10 +44,10 @@
                     <div class="nav">
                         <ul class="menubar nav-script">
                             <a id="reload" href="#"><img src="assets/img/logo.png" alt="Logo" class="logo" /></a>
-                            <li><a href="#destination1">About Us</a></li>
-                            <li><a href="#destination2">What We Do</a></li>
-                            <li><a href="#destination3">Why Choose Us</a></li>
-                            <li><a href="#destination4">Our Work</a></li>
+                            <li><a href="#destination1" data-scroll="about-us">About Us</a></li>
+                            <li><a href="#destination2" data-scroll="what-we-do">What We Do</a></li>
+                            <li><a href="#destination3" data-scroll="why-choose-us">Why Choose Us</a></li>
+                            <li><a href="#destination4" data-scroll="our-work">Our Work</a></li>
                         </ul>
                     </div>
                 </div>
@@ -56,14 +56,14 @@
             <div class="mobile-wrap">
                 <a id="reload" href="#"><img src="assets/img/logo.png" alt="Logo" class="logo none-logo" /></a>
                 <div class="nav-btn hide-nav-btn">
-                    <a href="#"><i class="fa fa-bars fa-3x mobile-icon"></i></a>
+                    <a href="javascript:;"><i class="fa fa-bars fa-3x mobile-icon"></i></a>
                 </div>
                 <nav class="mobile-nav none">
                     <ul>
                         <li>
                             <a id="reload" href="#"><img src="assets/img/logo.png" alt="Logo" class="logo-mob-nav" /></a>
                             <div class="nav-btn hide-nav-btn">
-                                <a href="#"><i class="fa fa-times fa-3x mobile-icon up-icon"></i></a>
+                                <a href="javascript:;"><i class="fa fa-times fa-3x mobile-icon up-icon"></i></a>
                             </div>
                         </li>
                     </ul>
@@ -124,13 +124,15 @@
             </div>
         </section>
 
-        <section id="destination1" class="about-us">
+        <section id="destination1" data-anchor="about-us" class="about-us">
             <div class="main-grid">
                 <div class="about-warapper">
                     <h2>About Us</h2>
                     <div class="col-two levo">
-                        <p><b>Lorem ipsum</b> dolor sit amet, consectetur adipisicing elit. Natus molestias aperiam, repellat veniam animi quidem tenetur, voluptate nulla laudantium a aspernatur odio earum molestiae illum quae, expedita dolorum hic, voluptatem.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus molestias aperiam, repellat veniam animi quidem tenetur, voluptate nulla laudantium a aspernatur odio earum molestiae illum quae, expedita dolorum hic, voluptatem.</p>
-                        <a href="#destination4" class="btn">Get in touch</a>
+                        <h5><b>We believe</b> that a well-designed website or interface is a thing of beauty — but unlike some agencies we’re equally focused on the aesthetic and technical aspects.</h5>
+                        <p>For us it’s all about clear, usable design and using the most up-to-date web technologies to create great user experiences.</p>
+                        <p>We have worked hard to achieve our reputation, and whether we’re working for small start-ups or large blue-chip corporations we apply the same levels of thought, care and attention to detail.</p>
+                        <li><a href="#destination4" class="btn">Get in touch</a></li>
                     </div>
                     <div class="col-two">
                         <div class="loading-bar-wrapper">
@@ -202,7 +204,7 @@
             </div>
         </section>
 
-        <section id="destination2" class="what-we-do">
+        <section id="destination2" data-anchor="what-we-do" class="what-we-do">
             <div class="main-grid">
                 <h2>What We Do</h2>
                 <section class="thumbs-wrapper">
@@ -236,7 +238,7 @@
             </div>
         </section>
 
-        <section id="destination3" class="why-choose-us">
+        <section id="destination3" data-anchor="why-choose-us" class="why-choose-us">
             <div class="main-grid">
                 <h2>Why Choose Us</h2>
                 <section class="ac-container">
@@ -297,9 +299,10 @@
             </div>
         </section>
 
-        <section id="destination4" class="our-work">
+        <section id="destination4" data-anchor="our-work" class="our-work">
             <div class="main-grid">
                 <h2>Our Work</h2>
+<!--
                 <section class="ff-container">
 
                     <input id="select-type-all" name="radio-set-1" type="radio" class="ff-selector-type-all" checked="checked" />
@@ -319,13 +322,11 @@
                     <ul class="ff-items">
                         <li class="ff-item-type-2">
                             <a href="http://dribbble.com/shots/366400-Chameleon">
-                                <span>Chameleon</span>
                                 <img src="assets/img/content/1.jpg" />
                             </a>
                         </li>
                         <li class="ff-item-type-1">
                             <a href="http://dribbble.com/shots/272575-Tutorials-wip-">
-                                <span>Tutorials (wip)</span>
                                 <img src="assets/img/content/2.jpg" />
                             </a>
                         </li>
@@ -373,8 +374,44 @@
                         </li>
                     </ul>
                 </section> 
+-->
             </div>
         </section>
+        
+<!--
+        <section class="quote-rotator">
+            <div id="cbp-qtrotator" class="cbp-qtrotator">
+                <div class="cbp-qtcontent">
+                    <img src="assets/img/content/1.jpg" alt="img01" />
+                    <blockquote>
+                        <p>People eat meat and think they will become as strong as an ox, forgetting that the ox eats grass.</p>
+                        <footer>Pino Caruso</footer>
+                    </blockquote>
+                </div>
+                <div class="cbp-qtcontent">
+                    <img src="images/2.jpg" alt="img02" />
+                    <blockquote>
+                        <p>Nothing will benefit human health and increase the chances for survival of life on Earth as much as the evolution to a vegetarian diet.</p>
+                        <footer>Albert Einstein</footer>
+                    </blockquote>
+                </div>
+                <div class="cbp-qtcontent">
+                    <img src="images/3.jpg" alt="img03" />
+                    <blockquote>
+                        <p>If you don't want to be beaten, imprisoned, mutilated, killed or tortured then you shouldn't condone such behaviour towards anyone, be they human or not.</p>
+                        <footer>Moby</footer>
+                    </blockquote>
+                </div>
+                <div class="cbp-qtcontent">
+                    <img src="images/4.jpg" alt="img04" />
+                    <blockquote>
+                        <p>My body will not be a tomb for other creatures.</p>
+                        <footer>Leonardo Da Vinci</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+-->
 
         <footer class="footer">
             <section class="footer-top">
@@ -383,7 +420,7 @@
                         <li><a href="#"><span><i class="fa fa-facebook fa-2x"></i></span></a></li>
                         <li><a href="#"><span><i class="fa fa-linkedin fa-2x"></i></span></a></li>
                         <span class="logo-span">
-                            <a href="#">
+                            <a id="reload" href="#">
                                 <img class="logo" src="assets/img/logo.png" alt="logo" />
                             </a>
                         </span>
@@ -442,9 +479,9 @@
         </footer>
 
         <script src="assets/scripts/jquery.flexslider-min.js"></script>
-        <script src="assets/scripts/jQuery.scrollSpeed.js"></script>
         <script src="assets/scripts/jquery.hoverdir.js"></script>
         <script src="assets/scripts/script.js"></script>
+       
         <!--
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD03T5FJ2ungRgmdERijSrfASBKuz4dCE0&signed_in=true&callback=initMap"></script>

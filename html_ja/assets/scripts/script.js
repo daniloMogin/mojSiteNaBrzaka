@@ -83,67 +83,27 @@ $("document").ready(function ($) {
     /*----------  Scroll to location
     ------------------------------------------------------------------------------*/
     $(document).on("scroll", onScroll);
-
-    //smoothscroll
-    $("li>a[href^='#']").on("click", function (e) {
-        e.preventDefault();
-        $(document).off("scroll");
-
-        $("a").each(function () {
-            $(this).removeClass("active");
-        })
-        $(this).addClass("active");
-
-        var target = this.hash,
-            menu = target;
-        $target = $(target);
-        $("html, body").stop().animate({
-            'scrollTop': $target.offset().top+2 - 90 + "px"
-        }, 500, "swing", function () {
-            window.location.hash = target;
-            $(document).on("scroll", onScroll);
-        });
-    });
-    
-    
-    
-    
-    
-    //    $triggered_times = 0;
-    //
-    //    $(window).on('scroll', function() {
-    //        var y_scroll_pos = window.pageYOffset;
-    //        var scroll_pos_test = 150;   // set to whatever you want it to be
-    //
-    //        if(y_scroll_pos > scroll_pos_test && $triggered_times == 0 ) {
-    //            //do your stuff over here
-    //            $('.bar-percentage[data-percentage]').each(function () {
-    //                var progress = $(this);
-    //                var percentage = Math.ceil($(this).attr('data-percentage'));
-    //                $({countNum: 0}).animate({countNum: percentage}, {
-    //                    duration: 2000,
-    //                    easing:'linear',
-    //                    step: function() {
-    //                        // What todo on every count
-    //                        var pct = '';
-    //                        if(percentage == 0){
-    //                            pct = Math.floor(this.countNum) + '%';
-    //                        }else{
-    //                            pct = Math.floor(this.countNum+1) + '%';
-    //                        }
-    //                        progress.text(pct) && progress.siblings().children().css('width',pct);
-    //                    }
-    //                });
-    //            });
-    //            
-    //            $triggered_times = 1;   // to make sure the above action triggers only once
-    //        }
-    //    });
-
-
-    /*----------  smooth scroll
-    ------------------------------------------------------------------------------*/
-    //    jQuery.scrollSpeed(150, 900);
+//
+//    //smoothscroll
+//    $("li>a[href^='#']").on("click", function (e) {
+//        e.preventDefault();
+//        $(document).off("scroll");
+//
+//        $("a").each(function () {
+//            $(this).removeClass("active");
+//        })
+//        $(this).addClass("active");
+//
+//        var target = this.hash,
+//            menu = target;
+//        $target = $(target);
+//        $("html, body").stop().animate({
+//            'scrollTop': $target.offset().top - 88
+//        }, 800, "swing", function () {
+//            window.location.hash = target;
+//            $(document).on("scroll", onScroll);
+//        });
+//    });
 
     /*----------  fixed nav
     ------------------------------------------------------------------------------*/
@@ -154,7 +114,7 @@ $("document").ready(function ($) {
         var fix = ($(this).scrollTop() > pos) ? true : false;
         nav.toggleClass("fix-nav", fix);
         navM.toggleClass("fix-nav", fix);
-        //        $('body').toggleClass('fix-body', fix);
+//        $('body').toggleClass('fix-body', fix);
     });
     
     /*----------  mobile nav
@@ -219,7 +179,7 @@ $(function () {
 //    if ($(this.hash).offset().top > $(document).height() - $(window).height()) {
 //        dest = $(document).height() - $(window).height();
 //    } else {
-//        dest = $(this.hash).offset().top - 120 + "px";
+//        dest = $(this.hash).offset().top - 90 + "px";
 //    }
 //    //go to destination
 //    $('html,body').animate({
@@ -243,6 +203,19 @@ function onScroll(event){
         }
     });
 }
+
+$('ul.nav-script>li>a').on('click', function() {
+
+    var scrollAnchor = $(this).attr('data-scroll'),
+        scrollPoint = $('section[data-anchor="' + scrollAnchor + '"]').offset().top - 88;
+
+    $('body,html').animate({
+        scrollTop: scrollPoint
+    }, 500);
+
+    return false;
+})
+
 //$("ul.nav-script>li").click(function (event) {
 //    event.preventDefault();
 //
@@ -259,12 +232,7 @@ function onScroll(event){
 $(function() {
     $(" #da-thumbs > li ").each( function() { $(this).hoverdir({
         hoverDelay : 75
-    }); } );
-    
-    $(" .ff-items > li ").each( function() { $(this).hoverdir({
-        hoverDelay : 75
-    }); } );
-    
+    }); } );    
 });
 
 /*----------  load font awesome
@@ -278,7 +246,7 @@ $(function() {
 })();
 
 $('#reload').click(function() {
-    location.reload();
+    window.location.href=window.location.href;
 });
 
 //// This example displays a marker at the center of Australia.

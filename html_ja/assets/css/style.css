@@ -248,9 +248,6 @@ body {
   color: #000;
   background-color: #fff; }
 
-.fix-body {
-  margin-top: 90px; }
-
 h1 {
   font-weight: 900;
   font-size: 60px;
@@ -274,8 +271,8 @@ h4 {
   line-height: 60px; }
 
 h5 {
-  font-weight: 900;
-  font-size: 20px;
+  font-weight: 700;
+  font-size: 16px;
   line-height: 30px; }
 
 p {
@@ -1513,4 +1510,4 @@ html[xmlns] .flexslider .slides {
 .our-work {
   text-align: center;
   padding-bottom: 40px;
-  background-color: #DDDAD6; }
+  background-color: #fff; }
