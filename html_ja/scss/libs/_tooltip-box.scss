@@ -3,7 +3,7 @@
 .tooltip {
 	display: inline;
 	position: relative;
-	z-index: 999;
+	z-index: 99;
 }
 
 /* Trigger text */
@@ -29,13 +29,13 @@
 
 .tooltip-content {
 	position: absolute;
-	z-index: 99;
+	z-index: 15;
 	width: 215px;
 	left: 70%;
 	margin-left: -180px;
 	bottom: -5px;
 	text-align: left;
-	background: $silver;
+	background: $white;
 	opacity: 0;
 	font-size: 0.75em;
 	line-height: 1.5;

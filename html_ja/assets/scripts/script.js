@@ -45,7 +45,7 @@ $(window).load(function () {
         animation: "slide",
         slideshow: false
     });
-    
+
 });
 
 $(window).resize(function () {
@@ -54,86 +54,12 @@ $(window).resize(function () {
     ------------------------------------------------------------------------------*/
     equalheight(".footer-mid li");
 
-    //equalheight('.main-grid > h2');
 });
 
 $("document").ready(function ($) {
 
-    /*----------  Loading
+    /*----------  stats numbers
     ------------------------------------------------------------------------------*/
-    $(".bar-percentage[data-percentage]").each(function () {
-        var progress = $(this);
-        var percentage = Math.ceil($(this).attr("data-percentage"));
-        $({countNum: 0}).animate({countNum: percentage}, {
-            duration: 2000,
-            easing:"linear",
-            step: function() {
-                // What todo on every count
-                var pct = '';
-                if(percentage == 0){
-                    pct = Math.floor(this.countNum) + "%";
-                }else{
-                    pct = Math.floor(this.countNum+1) + "%";
-                }
-                progress.text(pct) && progress.siblings().children().css("width",pct);
-            }
-        }); 
-    });
-    
-    /*----------  Scroll to location
-    ------------------------------------------------------------------------------*/
-    $(document).on("scroll", onScroll);
-//
-//    //smoothscroll
-//    $("li>a[href^='#']").on("click", function (e) {
-//        e.preventDefault();
-//        $(document).off("scroll");
-//
-//        $("a").each(function () {
-//            $(this).removeClass("active");
-//        })
-//        $(this).addClass("active");
-//
-//        var target = this.hash,
-//            menu = target;
-//        $target = $(target);
-//        $("html, body").stop().animate({
-//            'scrollTop': $target.offset().top - 88
-//        }, 800, "swing", function () {
-//            window.location.hash = target;
-//            $(document).on("scroll", onScroll);
-//        });
-//    });
-
-    /*----------  fixed nav
-    ------------------------------------------------------------------------------*/
-    var nav = $(".main-nav");
-    var navM = $(".mobile-wrap");
-    var pos = nav.offset().top;
-    $(window).scroll(function () {
-        var fix = ($(this).scrollTop() > pos) ? true : false;
-        nav.toggleClass("fix-nav", fix);
-        navM.toggleClass("fix-nav", fix);
-//        $('body').toggleClass('fix-body', fix);
-    });
-    
-    /*----------  mobile nav
-    ------------------------------------------------------------------------------*/
-    $(".nav-btn").click(function () {
-        if ($(".mobile-nav").hasClass("none")) {
-            $(".mobile-nav").height($(".mobile-nav").find(".header .mobile-nav").height());
-            $(".mobile-nav").removeClass("none");
-        } else {
-            $(".mobile-nav").height('');
-            $(".mobile-nav").addClass("none");
-        }
-    });
-
-});
-
-/*----------  stats numbers
-------------------------------------------------------------------------------*/
-$(function () {
     var fx = function fx() {
         $(".stat-number").each(function (i, el) {
             var data = parseInt(this.dataset.n, 10);
@@ -161,31 +87,110 @@ $(function () {
 
     var reset = function reset() {
         console.log($(this).scrollTop())
-        if ($(this).scrollTop() > 2200) {
+        if ($(this).scrollTop() > 1600) {
             $(this).off("scroll");
             fx()
         }
     };
 
     $(window).on("scroll", reset);
-});
 
-/*----------  link to tags
-------------------------------------------------------------------------------*/
-//$("ul>li>a").click(function (event) {
-//    event.preventDefault();
-//    //calculate destination place
-//    var dest = 0;
-//    if ($(this.hash).offset().top > $(document).height() - $(window).height()) {
-//        dest = $(document).height() - $(window).height();
-//    } else {
-//        dest = $(this.hash).offset().top - 90 + "px";
-//    }
-//    //go to destination
-//    $('html,body').animate({
-//        scrollTop: dest
-//    }, 1000, 'swing');
-//});
+    /*----------  load font awesome
+    ------------------------------------------------------------------------------*/
+    var css = document.createElement('link');
+    css.href = 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css';
+    css.rel = 'stylesheet';
+    css.type = 'text/css';
+    document.getElementsByTagName('head')[0].appendChild(css);
+
+
+    /*----------  moving hover
+    ------------------------------------------------------------------------------*/
+    $(" #da-thumbs > li ").each( function() { $(this).hoverdir({
+        hoverDelay : 75
+    }); } );
+
+    $(" #grid > li ").each( function() { $(this).hoverdir({
+        hoverDelay : 75
+    }); } );
+
+    /*----------  Mix it up
+    ------------------------------------------------------------------------------*/
+    $('#grid').mixItUp({
+        animation: {
+            duration: 1000
+        }
+    });
+
+    /*----------  Loading
+    ------------------------------------------------------------------------------*/
+    $(".bar-percentage[data-percentage]").each(function () {
+        var progress = $(this);
+        var percentage = Math.ceil($(this).attr("data-percentage"));
+        $({countNum: 0}).animate({countNum: percentage}, {
+            duration: 2000,
+            easing:"linear",
+            step: function() {
+                // What todo on every count
+                var pct = '';
+                if(percentage == 0){
+                    pct = Math.floor(this.countNum) + "%";
+                }else{
+                    pct = Math.floor(this.countNum+1) + "%";
+                }
+                progress.text(pct) && progress.siblings().children().css("width",pct);
+            }
+        }); 
+    });
+
+    /*----------  Scroll to location
+    ------------------------------------------------------------------------------*/
+    $(document).on("scroll", onScroll);
+
+    /*----------  fixed nav
+    ------------------------------------------------------------------------------*/
+    var nav = $(".main-nav");
+    var navM = $(".mobile-wrap");
+    var pos = nav.offset().top;
+    $(window).scroll(function () {
+        var fix = ($(this).scrollTop() > pos) ? true : false;
+        nav.toggleClass("fix-nav", fix);
+        navM.toggleClass("fix-nav", fix);
+    });
+
+    /*----------  mobile nav
+    ------------------------------------------------------------------------------*/
+    $(".nav-btn").click(function () {
+        if ($(".mobile-nav").hasClass("none")) {
+            $(".mobile-nav").height($(".mobile-nav").find(".header .mobile-nav").height());
+            $(".mobile-nav").removeClass("none");
+        } else {
+            $(".mobile-nav").height('');
+            $(".mobile-nav").addClass("none");
+        }
+    });
+    
+    /*----------  filter selection active class
+    ------------------------------------------------------------------------------*/
+    $("li.filter > a").click(function () {
+        if ($("li.filter > a").hasClass("active")) {
+            $("li.filter > a").addClass("active");
+        } else {
+            $("li.filter > a").removeClass("active");
+        }
+    });
+    
+    /*----------  contact form active class
+    ------------------------------------------------------------------------------*/
+    $("input, textarea").click(function () {
+        if ($("input, textarea").hasClass("active")) {
+            $("input, textarea").addClass("active");
+        } else {
+            $("input, textarea").removeClass("active");
+        }
+    });
+
+});
 
 /*----------  add class to menu bar links
 ------------------------------------------------------------------------------*/
@@ -216,38 +221,11 @@ $('ul.nav-script>li>a').on('click', function() {
     return false;
 })
 
-//$("ul.nav-script>li").click(function (event) {
-//    event.preventDefault();
-//
-//    if ($(this).hasClass("active")) {
-//        $(this).removeClass("active");
-//    } else {
-//        $(this).addClass("active");
-//        $(this).siblings().removeClass("active");
-//    }
-//});
-
-/*----------  moving hover
-------------------------------------------------------------------------------*/
-$(function() {
-    $(" #da-thumbs > li ").each( function() { $(this).hoverdir({
-        hoverDelay : 75
-    }); } );    
-});
-
-/*----------  load font awesome
-------------------------------------------------------------------------------*/
-(function() {
-    var css = document.createElement('link');
-    css.href = 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css';
-    css.rel = 'stylesheet';
-    css.type = 'text/css';
-    document.getElementsByTagName('head')[0].appendChild(css);
-})();
-
 $('#reload').click(function() {
-    window.location.href=window.location.href;
+    location.reload();
 });
+
+
 
 //// This example displays a marker at the center of Australia.
 //// When the user clicks the marker, an info window opens.
