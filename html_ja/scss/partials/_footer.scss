@@ -22,47 +22,6 @@
             }
         }
     }
-    .footer-mid {
-        padding: 40px 0;
-        margin: 0 auto;
-        background-color: $gray-dark;
-
-        li {
-            display: inline-block;
-            text-align: left;
-            float: left;
-            width: 46.9%;
-            border-right: 1px dashed $blue;
-            padding-right: 3%;
-            #map {
-                width: 243px;
-                height: 300px;
-                .firstHeading {
-                    font-size: 15px;
-                }
-                #bodyContent {
-                    p {
-                        font-size: 10px;
-                    }
-                }
-            }
-            &:nth-of-type(2) {
-                padding-left: 3%;
-            }
-            &:last-of-type {
-                padding: 0 0 0 3%;
-                border: 0;
-            }
-            p {
-                font-size: 20px;
-                .phone {
-                    font-size: 20px;
-                    color: $yellow;
-                }
-
-            }
-        }
-    }
     .footer-bottom {
         padding: 25px 0;
         border-top: 1px solid $gray-light;
@@ -79,16 +38,18 @@
             li {
                 display: inline-block;
                 padding: 0 10px;
-                border-right: 1px solid $gray-light;
+                border-right: 1px solid $gray-light; 
                 &:last-of-type {
                     border: 0;
                 }
                 > a {
-                    @include transition(all .25s ease-out); 
-                    color: $gray-light;
+                    @include transition(all .3s ease-out);
+                    color: $white;
                     font-weight: 300;
                     &:hover {
-                        color: $gray;
+                        color: $gray-light;
+                        padding-bottom: 5px;
+                        border-bottom: 1px solid $red;
                     }
                 }
             }
@@ -96,22 +57,56 @@
     }
 
     @include breakpoint(tablet) {
-        .footer-mid {
-            li {
-                h4 {
-                    font-size: 18px;
-                }
+        .footer-bottom {
+            .left {
                 p {
-                    font-size: 14.5px;
+                    font-size: 11.4px;
                 }
+            }
+            .right {
+                li {
+                    padding: 0 3.92187px;
+                    &:first-of-type {
+                        padding-left: 0;
+                    }
+                    a {
+                        font-size: 9.9px;
+                    }
+                }
+            }
+            ul {
+                @include translateY(4px);
             }
         }
     }
     @include breakpoint(phone) {
-        .footer-mid {
-            li {
-                max-width: 100%;
-                width: 100%;
+        .footer-top {
+            .social-icons {
+                li {
+                    margin: 0 2px;
+                }
+            }
+        }
+        .footer-bottom {
+            .left {
+                overflow: hidden;
+                p {
+                    font-size: 11.4px;
+                }
+            }
+            .right {
+                li {
+                    padding: 0 3.92187px;
+                    &:first-of-type {
+                        padding-left: 0;
+                    }
+                    a {
+                        font-size: 8.5px;
+                    }
+                }
+            }
+            ul {
+                float: none;
             }
         }
     }

@@ -48,9 +48,6 @@
     .flex-direction-nav {
         display: none !important;
     }
-    .flex-caption {
-        left: 0 !important;
-    }
     .flex-control-nav {
         bottom: 50px;
     }
@@ -76,24 +73,33 @@
         li {
             position: relative;
             height: 100vh;
+            display: table-cell;
+            vertical-align: middle;
             .flex-caption {
                 position: absolute;
-                top: 0;
+                top: 40vh;
+                left: 0;
+                right: 0;
                 padding: 2%;
                 color: #fff;
                 text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
                 font-size: 14px;
                 line-height: 18px;
                 .gray-bck {
-                    background: rgba($green, 0.5);
+                    background: rgba($black, 0.5);
                     @include border-radius(10px);
-                }
-                h2 {
-                    color: $white;
-                    padding: 15px 0;
-                }
-                p {
-                    padding: 15px 15px;
+                    display: inline-block;
+                    padding: 50px 0;
+                    h2 {
+                        color: $white;
+                        padding: 15px 0;
+                        font-size: 60px;
+                        font-weight: 700;
+                    }
+                    p {
+                        padding: 15px 15px;
+                        font-size: 20px;
+                    }
                 }
             }
         }
@@ -215,13 +221,14 @@
                 font-size: 60px;
                 font-weight: 300;
                 text-transform: uppercase;
+                color: $black;
             }
             .stat-title {
                 width: 100%;
                 float: left;
                 text-align: center;
                 font-size: 14px;
-                font-weight: 100;
+                font-weight: 700;
                 text-transform: uppercase;
             }
         }
@@ -315,6 +322,9 @@
         overflow: hidden;
         .levo {
             text-align: left;
+            h5 {
+                margin-bottom: 15px;
+            }
             p {
                 margin-bottom: 15px;
             }
@@ -464,7 +474,16 @@
             font-size: 25px;
             display: block;
             padding: 10px 0;
-            margin: 40px 20px 20px 20px;
+            margin: 20px 20px 10px 20px;
+            text-transform: uppercase;
+            font-weight: normal;
+            color: rgba(255,255,255,0.9);
+        }
+        .da-thumbs li a div p {
+            font-size: 15px;
+            display: block;
+            padding: 10px 0;
+            margin: 20px 20px 10px 20px;
             text-transform: uppercase;
             font-weight: normal;
             color: rgba(255,255,255,0.9);
@@ -476,6 +495,21 @@
 
 
     @include breakpoint(tablet) {
+        .thumbs-wrapper {
+            .da-thumbs li {
+                width: 49%;
+            }
+            .da-thumbs li a div span {
+                font-size: 21px;
+                padding: 5px 0;
+                margin: 10px 20px 20px 20px;
+            }
+            .da-thumbs li a div p {
+                font-size: 12px;
+                padding: 0;
+                margin: 10px 10px 10px 10px;
+            }
+        }
     }
     @include breakpoint(phone) {
         .thumbs-wrapper {
@@ -553,7 +587,7 @@
         background: rgb(255, 255, 255);
         margin-top: -1px;
         overflow: hidden;
-        height: 0px;
+        height: 0;
         position: relative;
         z-index: 10;
         -webkit-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
@@ -566,6 +600,7 @@
         color: $black;
         line-height: 23px;
         padding: 20px;
+        font-size: 16px;
     }
     .ac-container input:checked ~ article {
         -webkit-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
@@ -586,9 +621,28 @@
     }
 
     @include breakpoint(tablet) {
-
+        .ac-container {
+            article {
+                p {
+                    font-size: 13.5px;
+                }
+            }
+        }
     }
     @include breakpoint(phone) {
+        .ac-container {
+            input:checked ~ article.ac-medium {
+                height: 320px;
+            }
+            article {
+                p {
+                    font-size: 12.9px;
+                }
+            }
+            input:checked ~ article.ac-small {
+                height: 228px;
+            }
+        }
     }
 
 }
@@ -690,26 +744,75 @@
 .contact {
     text-align: center;
     background-color: $gray-light;
-    padding-bottom: 40px;
+    #map {
+        margin-top: 40px;
+        height: 300px;
+        width: 100%;
+    }
     .contact-wrapper {
         .contact-form {
             margin: 0 auto;
             text-align: left;
             input,
             textarea {
+                position: relative;
                 background-color: $gray-light;
                 border: 0;
                 display: block;
                 border-bottom: 2px solid $gray;
                 padding: 10px 0;
-                margin-bottom: 5px;
+                margin-bottom: 16px;
                 width: 100%;
+                font-size: 15px;
+                &:focus {
+                    border-bottom: 2px solid $black;
+                }
             }
             textarea {
                 margin-bottom: 30px;
             }
-            .active {
-                border-bottom: 2px solid $black;
+            #submit {
+                width: 144px;
+                font-size: 13px;
+                font-weight: 700;
+                line-height: 40px;
+                padding: 2px 0;
+                border-bottom: 4px solid $red;
+                color: $white;
+                text-transform: uppercase;
+                white-space: nowrap;
+                font-family: inherit;
+                background: $black;
+                cursor: pointer;
+                letter-spacing: 1px;
+                outline: none;
+                position: relative;
+                @include transition(all .3s ease-out);
+
+                &:hover {
+                    background-color: $gray;
+                    //        border-bottom: 4px solid $black;
+                }
+            }
+            #name-error {
+                position: absolute;
+                top: 41px;
+                left: 0;
+            }
+            #email-error {
+                position: absolute;
+                top: 95px;
+                left: 0;
+            }
+            #message-error {
+                position: absolute;
+                top: 299px;
+                left: 0;
+            }
+            #success, 
+            #error {
+                text-align: center;
+                display: none;
             }
         }
         .contact-info-up,
@@ -717,7 +820,7 @@
             text-align: left;
             padding-bottom: 20px;
             p {
-                font-size: 20px;
+                font-size: 15px;
             }
         }
     }
@@ -732,7 +835,7 @@
                     font-size: 20px;
                 }
                 p {
-                    font-size: 17px;
+                    font-size: 13.5px;
                 }
             }
         }
@@ -747,4 +850,4 @@
             width: 100%;
         }
     }
-}
+} 

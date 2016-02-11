@@ -43,7 +43,8 @@ $(window).load(function () {
     ------------------------------------------------------------------------------*/
     $(".flexslider").flexslider({
         animation: "slide",
-        slideshow: false
+        slideshow: false,
+        slideshowSpeed: 7000
     });
 
 });
@@ -57,43 +58,134 @@ $(window).resize(function () {
 });
 
 $("document").ready(function ($) {
-
-    /*----------  stats numbers
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*----------  Back to top
     ------------------------------------------------------------------------------*/
-    var fx = function fx() {
-        $(".stat-number").each(function (i, el) {
-            var data = parseInt(this.dataset.n, 10);
-            var props = {
-                "from": { 
-                    "count": 0
-                },
-                "to": {
-                    "count": data
-                }
-            };
-            $(props.from).animate(props.to, {
-                duration: 3000 * 2,
-                step: function (now, fx) {
-                    $(el).text(Math.ceil(now));
-                },
-                complete: function () {
-                    if (el.dataset.sym !== undefined) {
-                        el.textContent = el.textContent.concat(el.dataset.sym)
-                    }
-                }
-            });
-        });
-    };
+    // browser window scroll (in pixels) after which the "back to top" link is shown
+    var offset = 300,
+        //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
+        offset_opacity = 1200,
+        //duration of the top scrolling animation (in ms)
+        scroll_top_duration = 700,
+        //grab the "back to top" link
+        $back_to_top = $('.tp-show');
 
-    var reset = function reset() {
-        console.log($(this).scrollTop())
-        if ($(this).scrollTop() > 1600) {
-            $(this).off("scroll");
-            fx()
+    $(window).scroll(function (event) {
+        var scroll = $(window).scrollTop();
+        if (scroll > 500) {
+            $(".tp-container").addClass("tp-show");
+        } else {
+            $(".tp-container").removeClass("tp-show");
         }
-    };
+    });
 
-    $(window).on("scroll", reset);
+    //smooth scroll to top
+    $back_to_top.on('click', function(event){
+        event.preventDefault();
+        $('body,html').animate({
+            scrollTop: 0 ,
+        }, scroll_top_duration
+                              );
+    });
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    $('#contact').validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                message: {
+                    required: true
+                }
+            },
+            messages: {
+                name: {
+                    required: "come on, you have a name don't you?",
+                    minlength: "your name must consist of at least 2 characters"
+                },
+                email: {
+                    required: "no email, no message",
+                    email: "Your email address must be in the format of name@domain.com"
+                },
+                message: {
+                    required: "um...yea, you have to write something to send this form.",
+                    minlength: "thats all? really?"
+                }
+            },
+            submitHandler: function(form) {
+                $(form).ajaxSubmit({
+                    type:"POST",
+                    data: $(form).serialize(),
+                    url:"process.php",
+                    success: function() {
+                        $('#contact :input').attr('disabled', 'disabled');
+                        $('#contact').fadeTo( "slow", 0.15, function() {
+                            $(this).find(':input').attr('disabled', 'disabled');
+                            $(this).find('label').css('cursor','default');
+                            $('#success').fadeIn();
+                        });
+                    },
+                    error: function() {
+                        $('#contact').fadeTo( "slow", 0.15, function() {
+                            $('#error').fadeIn();
+                        });
+                    }
+                });
+            }
+        });
+    
+    
+    /*----------  animate content in viewport
+    ------------------------------------------------------------------------------*/
+    var $animation_elements = $('.animation-element');
+    var $window = $(window);
+
+    function check_if_in_view() {
+      var window_height = $window.height();
+      var window_top_position = $window.scrollTop();
+      var window_bottom_position = (window_top_position + window_height);
+
+      $.each($animation_elements, function() {
+        var $element = $(this);
+        var element_height = $element.outerHeight();
+        var element_top_position = $element.offset().top;
+        var element_bottom_position = (element_top_position + element_height);
+
+        //check to see if this current container is within viewport
+        if ((element_bottom_position >= window_top_position) &&
+            (element_top_position <= window_bottom_position)) {
+          $element.addClass('in-view');
+        } else {
+          $element.removeClass('in-view');
+        }
+      });
+    }
+
+    $window.on('scroll resize', check_if_in_view);
+    $window.trigger('scroll');
 
     /*----------  load font awesome
     ------------------------------------------------------------------------------*/
@@ -120,6 +212,20 @@ $("document").ready(function ($) {
         animation: {
             duration: 1000
         }
+    });
+    
+    /*----------  stats numbers
+    ------------------------------------------------------------------------------*/
+    $('.count').each(function () {
+        $(this).prop('Counter',0).animate({
+            Counter: $(this).text()
+        }, {
+            duration: 4000,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(Math.ceil(now));
+            }
+        });
     });
 
     /*----------  Loading
@@ -170,23 +276,13 @@ $("document").ready(function ($) {
         }
     });
     
-    /*----------  filter selection active class
+    /*----------  filter selection add border and font color
     ------------------------------------------------------------------------------*/
     $("li.filter > a").click(function () {
         if ($("li.filter > a").hasClass("active")) {
             $("li.filter > a").addClass("active");
         } else {
             $("li.filter > a").removeClass("active");
-        }
-    });
-    
-    /*----------  contact form active class
-    ------------------------------------------------------------------------------*/
-    $("input, textarea").click(function () {
-        if ($("input, textarea").hasClass("active")) {
-            $("input, textarea").addClass("active");
-        } else {
-            $("input, textarea").removeClass("active");
         }
     });
 
@@ -209,6 +305,8 @@ function onScroll(event){
     });
 }
 
+/*----------  scroll to position
+------------------------------------------------------------------------------*/
 $('ul.nav-script>li>a').on('click', function() {
 
     var scrollAnchor = $(this).attr('data-scroll'),
@@ -225,41 +323,60 @@ $('#reload').click(function() {
     location.reload();
 });
 
+/*----------  add google maps to page
+------------------------------------------------------------------------------*/
+// When the window has finished loading create our google map below
+google.maps.event.addDomListener(window, 'load', init);
 
+function init() {
+    // Basic options for a simple Google Map
+    // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+    var novi_sad = {
+        lat: 45.259006,
+        lng: 19.814523
+    };
+    var mapOptions = {
+        // How zoomed in you want the map to start at (always required)
+        zoom: 8,
+        scrollwheel: false,
 
-//// This example displays a marker at the center of Australia.
-//// When the user clicks the marker, an info window opens.
-//function initMap() {
-//    var novi_sad = {
-//        lat: 45.27143,
-//        lng: 19.7794013
-//    };
-//    var map = new google.maps.Map(document.getElementById('map'), {
-//        zoom: 6,
-//        scrollwheel: false,
-//        center: novi_sad
-//    });
-//    var contentString = '<div id="content">' +
-//        '<div id="siteNotice">' +
-//        '</div>' +
-//        '<h1 id="firstHeading" class="firstHeading">Novi Sad</h1>' +
-//        '<div id="bodyContent">' +
-//        '<p>Dr Svetislava Kasapinovica 21 ' +
-//        '</p>'
-//
-//    '</div>' +
-//        '</div>';
-//    var infowindow = new google.maps.InfoWindow({
-//        content: contentString
-//    });
-//    var marker = new google.maps.Marker({
-//        position: novi_sad,
-//        map: map,
-//        title: 'Novi Sad'
-//    });
-//    marker.addListener('click', function () {
-//        infowindow.open(map, marker);
-//        map.setZoom(14);
-//        map.setCenter(marker.getPosition());
-//    });
-//}
+        // The latitude and longitude to center the map (always required)
+        center: novi_sad, // Novi Sad
+
+        // How you would like to style the map. 
+        // This is where you would paste any style found on Snazzy Maps.
+        styles: [{"elementType":"geometry","stylers":[{"hue":"#ff4400"},{"saturation":-68},{"lightness":-4},{"gamma":0.72}]},{"featureType":"road","elementType":"labels.icon"},{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"hue":"#0077ff"},{"gamma":3.1}]},{"featureType":"water","stylers":[{"hue":"#00ccff"},{"gamma":0.44},{"saturation":-33}]},{"featureType":"poi.park","stylers":[{"hue":"#44ff00"},{"saturation":-23}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"hue":"#007fff"},{"gamma":0.77},{"saturation":65},{"lightness":99}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"gamma":0.11},{"weight":5.6},{"saturation":99},{"hue":"#0091ff"},{"lightness":-86}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"lightness":-48},{"hue":"#ff5e00"},{"gamma":1.2},{"saturation":-23}]},{"featureType":"transit","elementType":"labels.text.stroke","stylers":[{"saturation":-64},{"hue":"#ff9100"},{"lightness":16},{"gamma":0.47},{"weight":2.7}]}]
+    };
+
+    // Get the HTML DOM element that will contain your map 
+    // We are using a div with id="map" seen below in the <body>
+    var mapElement = document.getElementById('map');
+
+    // Create the Google Map using our element and options defined above
+    var map = new google.maps.Map(mapElement, mapOptions);
+
+    // Let's also add a marker while we're at it
+    var marker = new google.maps.Marker({
+        position: novi_sad,
+        map: map,
+        title: 'Novi Sad'
+    });
+    var contentString = '<div id="content">' +
+        '<div id="siteNotice">' +
+        '</div>' +
+        '<h3 id="firstHeading" class="firstHeading">Novi Sad</h3>' +
+        '<div id="bodyContent">' +
+        '<p>Dr Svetislava Kasapinovica 21 ' +
+        '</p>'
+
+    '</div>' +
+        '</div>';
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+    marker.addListener('click', function () {
+        infowindow.open(map, marker);
+        map.setZoom(13);
+        map.setCenter(marker.getPosition());
+    });
+}

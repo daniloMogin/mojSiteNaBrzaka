@@ -247,6 +247,14 @@ body {
   font-size: 14px;
   color: #000;
   background-color: #fff; }
+  body .tp-container {
+    opacity: 0;
+    position: fixed;
+    right: 17px;
+    bottom: 85px;
+    z-index: 9999; }
+  body .tp-show {
+    opacity: 1; }
 
 h1 {
   font-weight: 900;
@@ -306,6 +314,66 @@ html #border-box {
 
 *, *:before, *:after {
   box-sizing: inherit; }
+
+.animation-element {
+  opacity: 0;
+  position: relative; }
+
+.slide-up {
+  opacity: 0;
+  -moz-transition: all 500ms linear;
+  -webkit-transition: all 500ms linear;
+  -o-transition: all 500ms linear;
+  transition: all 500ms linear;
+  -moz-transform: translate3d(0, -100px, 0);
+  -webkit-transform: translate3d(0, -100px, 0);
+  -o-transform: translate(0, -100px);
+  -ms-transform: translate(0, -100px);
+  transform: translate3d(0, -100px, 0); }
+
+.slide-down {
+  opacity: 0;
+  -moz-transition: all 500ms linear;
+  -webkit-transition: all 500ms linear;
+  -o-transition: all 500ms linear;
+  transition: all 500ms linear;
+  -moz-transform: translate3d(0, 100px, 0);
+  -webkit-transform: translate3d(0, 100px, 0);
+  -o-transform: translate(0, 100px);
+  -ms-transform: translate(0, 100px);
+  transform: translate3d(0, 100px, 0); }
+
+.slide-left {
+  opacity: 0;
+  -moz-transition: all 500ms linear;
+  -webkit-transition: all 500ms linear;
+  -o-transition: all 500ms linear;
+  transition: all 500ms linear;
+  -moz-transform: translate3d(-100px, 0px, 0px);
+  -webkit-transform: translate3d(-100px, 0px, 0px);
+  -o-transform: translate(-100px, 0px);
+  -ms-transform: translate(-100px, 0px);
+  transform: translate3d(-100px, 0px, 0px); }
+
+.slide-right {
+  opacity: 0;
+  -moz-transition: all 500ms linear;
+  -webkit-transition: all 500ms linear;
+  -o-transition: all 500ms linear;
+  transition: all 500ms linear;
+  -moz-transform: translate3d(100px, 0px, 0px);
+  -webkit-transform: translate3d(100px, 0px, 0px);
+  -o-transform: translate(100px, 0px);
+  -ms-transform: translate(100px, 0px);
+  transform: translate3d(100px, 0px, 0px); }
+
+.in-view {
+  opacity: 1;
+  -moz-transform: translate3d(0px, 0px, 0px);
+  -webkit-transform: translate3d(0px, 0px, 0px);
+  -o-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  transform: translate3d(0px, 0px, 0px); }
 
 .main-grid {
   max-width: 1200px;
@@ -367,7 +435,6 @@ i {
   font-size: 13px;
   font-weight: 700;
   line-height: 40px;
-  letter-spacing: .5px;
   padding: 13px 20px;
   border-bottom: 4px solid #FF5252;
   color: #fff;
@@ -384,9 +451,7 @@ i {
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out; }
   .btn:hover {
-    color: #000;
-    background-color: #fff;
-    border-bottom: 4px solid #000; }
+    background-color: #9d9fa2; }
 
 /*----------  libs
 ------------------------------------------------------------------------------*/
@@ -686,29 +751,32 @@ html[xmlns] .flexslider .slides {
 .tooltip-content {
   position: absolute;
   z-index: 15;
-  width: 215px;
-  left: 70%;
+  width: 170px;
+  left: 91%;
   margin-left: -180px;
   bottom: -5px;
   text-align: left;
   background: #fff;
   opacity: 0;
-  font-size: 0.75em;
-  line-height: 1.5;
-  padding: 1.5em;
-  color: #fff;
-  border-bottom: 65px solid #2a3035;
+  padding: 17.5px;
+  color: #9d9fa2;
+  border-bottom: 43px solid #323232;
   cursor: default;
   pointer-events: none;
   border-radius: 5px;
-  font-family: 'Indie Flower', cursive;
   -webkit-transform: translate3d(0, -0.5em, 0);
   transform: translate3d(0, -0.5em, 0);
   -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
   transition: opacity 0.3s, transform 0.3s; }
+  .tooltip-content a {
+    font-size: 18px; }
+    .tooltip-content a i {
+      width: 25px;
+      padding-right: 15px; }
+    .tooltip-content a:hover {
+      color: #9d9fa2; }
 
 .tooltip-content a {
-  color: #32434f;
   display: block; }
 
 .tooltip-text {
@@ -887,34 +955,6 @@ html[xmlns] .flexslider .slides {
         .footer .footer-top .social-icons li span {
           min-width: 50px;
           padding: 0 10px; }
-  .footer .footer-mid {
-    padding: 40px 0;
-    margin: 0 auto;
-    background-color: #323232; }
-    .footer .footer-mid li {
-      display: inline-block;
-      text-align: left;
-      float: left;
-      width: 46.9%;
-      border-right: 1px dashed #A6D8DE;
-      padding-right: 3%; }
-      .footer .footer-mid li #map {
-        width: 243px;
-        height: 300px; }
-        .footer .footer-mid li #map .firstHeading {
-          font-size: 15px; }
-        .footer .footer-mid li #map #bodyContent p {
-          font-size: 10px; }
-      .footer .footer-mid li:nth-of-type(2) {
-        padding-left: 3%; }
-      .footer .footer-mid li:last-of-type {
-        padding: 0 0 0 3%;
-        border: 0; }
-      .footer .footer-mid li p {
-        font-size: 20px; }
-        .footer .footer-mid li p .phone {
-          font-size: 20px;
-          color: #F9F1B5; }
   .footer .footer-bottom {
     padding: 25px 0;
     border-top: 1px solid #DDDAD6;
@@ -937,23 +977,45 @@ html[xmlns] .flexslider .slides {
         .footer .footer-bottom ul li:last-of-type {
           border: 0; }
         .footer .footer-bottom ul li > a {
-          -moz-transition: all 0.25s ease-out;
-          -o-transition: all 0.25s ease-out;
-          -webkit-transition: all 0.25s ease-out;
-          transition: all 0.25s ease-out;
-          color: #DDDAD6;
+          -moz-transition: all 0.3s ease-out;
+          -o-transition: all 0.3s ease-out;
+          -webkit-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
+          color: #fff;
           font-weight: 300; }
           .footer .footer-bottom ul li > a:hover {
-            color: #9d9fa2; }
+            color: #DDDAD6;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #FF5252; }
   @media only screen and (min-width: 631px) and (max-width: 896px) {
-    .footer .footer-mid li h4 {
-      font-size: 18px; }
-    .footer .footer-mid li p {
-      font-size: 14.5px; } }
+    .footer .footer-bottom .left p {
+      font-size: 11.4px; }
+    .footer .footer-bottom .right li {
+      padding: 0 3.92187px; }
+      .footer .footer-bottom .right li:first-of-type {
+        padding-left: 0; }
+      .footer .footer-bottom .right li a {
+        font-size: 9.9px; }
+    .footer .footer-bottom ul {
+      -moz-transform: translateY(4px);
+      -ms-transform: translateY(4px);
+      -webkit-transform: translateY(4px);
+      transform: translateY(4px); } }
   @media only screen and (min-width: 50px) and (max-width: 630px) {
-    .footer .footer-mid li {
-      max-width: 100%;
-      width: 100%; } }
+    .footer .footer-top .social-icons li {
+      margin: 0 2px; }
+    .footer .footer-bottom .left {
+      overflow: hidden; }
+      .footer .footer-bottom .left p {
+        font-size: 11.4px; }
+    .footer .footer-bottom .right li {
+      padding: 0 3.92187px; }
+      .footer .footer-bottom .right li:first-of-type {
+        padding-left: 0; }
+      .footer .footer-bottom .right li a {
+        font-size: 8.5px; }
+    .footer .footer-bottom ul {
+      float: none; } }
 
 /*----------  slider
 ------------------------------------------------------------------------------*/
@@ -974,8 +1036,6 @@ html[xmlns] .flexslider .slides {
     border: 0; }
   .slider .flex-direction-nav {
     display: none !important; }
-  .slider .flex-caption {
-    left: 0 !important; }
   .slider .flex-control-nav {
     bottom: 50px; }
   .slider .flex-control-paging li a {
@@ -994,25 +1054,34 @@ html[xmlns] .flexslider .slides {
     background-repeat: repeat; }
   .slider .slides li {
     position: relative;
-    height: 100vh; }
+    height: 100vh;
+    display: table-cell;
+    vertical-align: middle; }
     .slider .slides li .flex-caption {
       position: absolute;
-      top: 0;
+      top: 40vh;
+      left: 0;
+      right: 0;
       padding: 2%;
       color: #fff;
       text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
       font-size: 14px;
       line-height: 18px; }
       .slider .slides li .flex-caption .gray-bck {
-        background: rgba(0, 168, 161, 0.5);
+        background: rgba(0, 0, 0, 0.5);
         -moz-border-radius: 10px;
         -webkit-border-radius: 10px;
-        border-radius: 10px; }
-      .slider .slides li .flex-caption h2 {
-        color: #fff;
-        padding: 15px 0; }
-      .slider .slides li .flex-caption p {
-        padding: 15px 15px; }
+        border-radius: 10px;
+        display: inline-block;
+        padding: 50px 0; }
+        .slider .slides li .flex-caption .gray-bck h2 {
+          color: #fff;
+          padding: 15px 0;
+          font-size: 60px;
+          font-weight: 700; }
+        .slider .slides li .flex-caption .gray-bck p {
+          padding: 15px 15px;
+          font-size: 20px; }
   @media only screen and (min-width: 631px) and (max-width: 896px) {
     .slider .slides li {
       height: 100vh; }
@@ -1102,13 +1171,14 @@ html[xmlns] .flexslider .slides {
         text-align: center;
         font-size: 60px;
         font-weight: 300;
-        text-transform: uppercase; }
+        text-transform: uppercase;
+        color: #000; }
       .stats .statsbar .stat .stat-title {
         width: 100%;
         float: left;
         text-align: center;
         font-size: 14px;
-        font-weight: 100;
+        font-weight: 700;
         text-transform: uppercase; }
   @media only screen and (min-width: 631px) and (max-width: 896px) {
     .stats .statsbar .stat .stat-sign {
@@ -1176,6 +1246,8 @@ html[xmlns] .flexslider .slides {
     overflow: hidden; }
     .about-us .about-warapper .levo {
       text-align: left; }
+      .about-us .about-warapper .levo h5 {
+        margin-bottom: 15px; }
       .about-us .about-warapper .levo p {
         margin-bottom: 15px; }
     .about-us .about-warapper .loading-bar-wrapper .bar-main-container {
@@ -1292,13 +1364,32 @@ html[xmlns] .flexslider .slides {
       font-size: 25px;
       display: block;
       padding: 10px 0;
-      margin: 40px 20px 20px 20px;
+      margin: 20px 20px 10px 20px;
+      text-transform: uppercase;
+      font-weight: normal;
+      color: rgba(255, 255, 255, 0.9); }
+    .what-we-do .thumbs-wrapper .da-thumbs li a div p {
+      font-size: 15px;
+      display: block;
+      padding: 10px 0;
+      margin: 20px 20px 10px 20px;
       text-transform: uppercase;
       font-weight: normal;
       color: rgba(255, 255, 255, 0.9);
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
       border-bottom: 1px solid rgba(255, 255, 255, 0.5);
       box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), 0 -10px 0 rgba(255, 255, 255, 0.3); }
+  @media only screen and (min-width: 631px) and (max-width: 896px) {
+    .what-we-do .thumbs-wrapper .da-thumbs li {
+      width: 49%; }
+    .what-we-do .thumbs-wrapper .da-thumbs li a div span {
+      font-size: 21px;
+      padding: 5px 0;
+      margin: 10px 20px 20px 20px; }
+    .what-we-do .thumbs-wrapper .da-thumbs li a div p {
+      font-size: 12px;
+      padding: 0;
+      margin: 10px 10px 10px 10px; } }
   @media only screen and (min-width: 50px) and (max-width: 630px) {
     .what-we-do .thumbs-wrapper .da-thumbs li {
       width: 80%; }
@@ -1361,7 +1452,7 @@ html[xmlns] .flexslider .slides {
     background: white;
     margin-top: -1px;
     overflow: hidden;
-    height: 0px;
+    height: 0;
     position: relative;
     z-index: 10;
     -webkit-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
@@ -1372,7 +1463,8 @@ html[xmlns] .flexslider .slides {
   .why-choose-us .ac-container article p {
     color: #000;
     line-height: 23px;
-    padding: 20px; }
+    padding: 20px;
+    font-size: 16px; }
   .why-choose-us .ac-container input:checked ~ article {
     -webkit-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
     -moz-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
@@ -1386,6 +1478,16 @@ html[xmlns] .flexslider .slides {
     height: 180px; }
   .why-choose-us .ac-container input:checked ~ article.ac-large {
     height: 230px; }
+  @media only screen and (min-width: 631px) and (max-width: 896px) {
+    .why-choose-us .ac-container article p {
+      font-size: 13.5px; } }
+  @media only screen and (min-width: 50px) and (max-width: 630px) {
+    .why-choose-us .ac-container input:checked ~ article.ac-medium {
+      height: 320px; }
+    .why-choose-us .ac-container article p {
+      font-size: 12.9px; }
+    .why-choose-us .ac-container input:checked ~ article.ac-small {
+      height: 228px; } }
 
 /*----------  our work
 ------------------------------------------------------------------------------*/
@@ -1463,31 +1565,75 @@ html[xmlns] .flexslider .slides {
 ------------------------------------------------------------------------------*/
 .contact {
   text-align: center;
-  background-color: #DDDAD6;
-  padding-bottom: 40px; }
+  background-color: #DDDAD6; }
+  .contact #map {
+    margin-top: 40px;
+    height: 300px;
+    width: 100%; }
   .contact .contact-wrapper .contact-form {
     margin: 0 auto;
     text-align: left; }
     .contact .contact-wrapper .contact-form input,
     .contact .contact-wrapper .contact-form textarea {
+      position: relative;
       background-color: #DDDAD6;
       border: 0;
       display: block;
       border-bottom: 2px solid #9d9fa2;
       padding: 10px 0;
-      margin-bottom: 5px;
-      width: 100%; }
+      margin-bottom: 16px;
+      width: 100%;
+      font-size: 15px; }
+      .contact .contact-wrapper .contact-form input:focus,
+      .contact .contact-wrapper .contact-form textarea:focus {
+        border-bottom: 2px solid #000; }
     .contact .contact-wrapper .contact-form textarea {
       margin-bottom: 30px; }
-    .contact .contact-wrapper .contact-form .active {
-      border-bottom: 2px solid #000; }
+    .contact .contact-wrapper .contact-form #submit {
+      width: 144px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 40px;
+      padding: 2px 0;
+      border-bottom: 4px solid #FF5252;
+      color: #fff;
+      text-transform: uppercase;
+      white-space: nowrap;
+      font-family: inherit;
+      background: #000;
+      cursor: pointer;
+      letter-spacing: 1px;
+      outline: none;
+      position: relative;
+      -moz-transition: all 0.3s ease-out;
+      -o-transition: all 0.3s ease-out;
+      -webkit-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out; }
+      .contact .contact-wrapper .contact-form #submit:hover {
+        background-color: #9d9fa2; }
+    .contact .contact-wrapper .contact-form #name-error {
+      position: absolute;
+      top: 41px;
+      left: 0; }
+    .contact .contact-wrapper .contact-form #email-error {
+      position: absolute;
+      top: 95px;
+      left: 0; }
+    .contact .contact-wrapper .contact-form #message-error {
+      position: absolute;
+      top: 299px;
+      left: 0; }
+    .contact .contact-wrapper .contact-form #success,
+    .contact .contact-wrapper .contact-form #error {
+      text-align: center;
+      display: none; }
   .contact .contact-wrapper .contact-info-up,
   .contact .contact-wrapper .contact-info-down {
     text-align: left;
     padding-bottom: 20px; }
     .contact .contact-wrapper .contact-info-up p,
     .contact .contact-wrapper .contact-info-down p {
-      font-size: 20px; }
+      font-size: 15px; }
   @media only screen and (min-width: 631px) and (max-width: 896px) {
     .contact .contact-wrapper .contact-info-up,
     .contact .contact-wrapper .contact-info-down {
@@ -1498,7 +1644,7 @@ html[xmlns] .flexslider .slides {
         font-size: 20px; }
       .contact .contact-wrapper .contact-info-up p,
       .contact .contact-wrapper .contact-info-down p {
-        font-size: 17px; } }
+        font-size: 13.5px; } }
   @media only screen and (min-width: 50px) and (max-width: 630px) {
     .contact .contact-wrapper .contact-form {
       padding-bottom: 20px; }
