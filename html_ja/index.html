@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js">
+<html class="no-js js">
     <!--<![endif]-->
 
 <head>
@@ -38,9 +38,11 @@
 </head>
 
 <body>
+<div id="preloader"></div>
 <div class="tp-container">
-    <a href="#0" class="tp-show"><i class="fa fa-angle-double-up fa-4x"></i></a>
+    <a href="#0"><i class="fa fa-angle-double-up fa-4x"></i></a>
 </div>
+
 <header class="header">
     <nav class="main-nav">
         <div class="main-grid">
@@ -129,10 +131,38 @@
     </div>
 </section>
 
+<section class="stats">
+    <div class="main-grid">
+        <div class="statsbar">
+            <div class="stat animation-element slide-up">
+                <!--                        <i class="fa fa fa-shopping-basket fa-4x"></i>-->
+                <div class="stat-number count">95</div>
+                <div class="stat-title">Total sales</div>
+            </div>
+            <div class="stat animation-element slide-up">
+                <!--                        <i class="fa fa-users fa-4x"></i>-->
+                <div class="stat-number count">152</div>
+                <div class="stat-title">Happy customers</div>
+            </div>
+            <div class="stat animation-element slide-up">
+                <!--                        <i class="fa fa-globe fa-4x"></i>-->
+                <div class="stat-number count">202</div>
+                <div class="stat-title">Projects completed</div>
+            </div>
+            <div class="stat animation-element slide-up">
+                <!--                        <i class="fa fa-thumbs-up fa-4x"></i>-->
+                <div class="stat-number count">1610</div><!--<span class="stat-sign">%</span>-->
+                <div class="stat-title">facebook likes</div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="destination1" data-anchor="about-us" class="about-us">
     <div class="main-grid">
         <div class="about-warapper">
             <h2 class="animation-element slide-left">About <b>Us</b></h2>
+            <h6 class="animation-element slide-up">Go farther than you thought you could. With us you can go farther then ever before.</h6>
             <div class="col-two levo">
                 <h5 class="animation-element slide-up"><b>We believe</b> that a well-designed website or interface is a thing of beauty — but unlike some agencies we’re equally focused on the aesthetic and technical aspects.</h5>
                 <p class="animation-element slide-left">For us it’s all about clear, usable design and using the most up-to-date web technologies to create great user experiences.</p>
@@ -212,6 +242,7 @@
 <section id="destination2" data-anchor="what-we-do" class="what-we-do">
     <div class="main-grid">
         <h2 class="animation-element slide-left">What We <b>Do</b></h2>
+        <h6 class="animation-element slide-up">Our work represents culmination of creative visions, brilliant ideas and full commitment.</h6>
         <section class="thumbs-wrapper">
             <ul id="da-thumbs" class="da-thumbs">
                 <li class="animation-element slide-left">
@@ -255,33 +286,6 @@
     </div>
 </section>
 
-<section class="stats">
-    <div class="main-grid">
-        <div class="statsbar">
-            <div class="stat animation-element slide-up">
-                <!--                        <i class="fa fa fa-shopping-basket fa-4x"></i>-->
-                <div class="stat-number count">95</div>
-                <div class="stat-title">Total sales</div>
-            </div>
-            <div class="stat animation-element slide-up">
-                <!--                        <i class="fa fa-users fa-4x"></i>-->
-                <div class="stat-number count">152</div>
-                <div class="stat-title">Happy customers</div>
-            </div>
-            <div class="stat animation-element slide-up">
-                <!--                        <i class="fa fa-globe fa-4x"></i>-->
-                <div class="stat-number count">202</div>
-                <div class="stat-title">Projects completed</div>
-            </div>
-            <div class="stat animation-element slide-up">
-                <!--                        <i class="fa fa-thumbs-up fa-4x"></i>-->
-                <div class="stat-number count">1610</div><!--<span class="stat-sign">%</span>-->
-                <div class="stat-title">facebook likes</div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section id="destination3" data-anchor="why-choose-us" class="why-choose-us">
     <div class="main-grid">
         <h2 class="animation-element slide-left">Why Choose <b>Us</b></h2>
@@ -290,14 +294,14 @@
                 <input id="ac-1" name="accordion-1" type="radio" checked />
                 <label for="ac-1">Unique Design</label>
                 <article class="ac-small">
-                    <p>We create beautiful web sites, specially designed for mobile usage, so you are avaible for all of your clients, wherever they are. Mobile versions of our sites looks perfect on any device, browser or Operating System.</p>
+                    <p>Every project is unique, but they all start with one thing in common: we want to know everything. Where you started. Where you want to go next. What you value. Who your customers are and why they care about you. The only way to solve a problem is to understand it from every angle. Luckily, we’ve got a proven process to quench our insatiable curiosity.</p>
                 </article>
             </div>
             <div class="animation-element slide-left">
                 <input id="ac-2" name="accordion-1" type="radio" />
                 <label for="ac-2">Experience Team</label>
                 <article class="ac-small">
-                    <p>Meet talented team of creative people who like their job and like what they create. We build relations and work with smart people who think advanced from organizations across the world.</p>
+                    <p>We've carefully assembled our current team, and have honed our process together as a unit, working in an agile way that never stops evolving. We love the challenge of exceeding our clients’ expectations while finding the best solutions for every project, and firmly believe in having fun while we're at it.</p>
                 </article>
             </div>
             <div class="animation-element slide-up">
@@ -319,7 +323,8 @@
 <section id="destination4" data-anchor="our-work" class="our-work">
     <div class="main-grid">
         <h2 class="animation-element slide-left">Our <b>Work</b></h2>
-
+        <h6 class="animation-element slide-up">We Design Custom Websites and Branding Systems for Businesses of All Sizes.</h6>
+       
         <section id="gallery">
             <div id="filter" class="animation-element slide-left">
                 <ul class="filter-list">
@@ -374,6 +379,7 @@
 <section id="destination5" data-anchor="contact" class="contact">
     <div class="main-grid">
         <h2 class="animation-element slide-left">Contact <b>Us</b></h2>
+        <h6 class="animation-element slide-up">Do you have a project that you think we will love, or maybe you just want to say hello to us?</h6>
         <div class="contact-wrapper">
             <div class="col-two">
                 <div class="contact-form">
@@ -418,7 +424,7 @@
                 </div>
                 <div class="contact-info-down animation-element slide-left">
                     <h4>Working hours</h4>
-                    <p>Monday - Friday: 09 - 17h</p>
+                    <p>Monday - Friday: 09:00h - 17:00h</p>
                 </div>
             </div>
         </div>
@@ -461,6 +467,7 @@
 <script src="assets/scripts/jquery.flexslider-min.js"></script>
 <script src="assets/scripts/jquery.hoverdir.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/2.1.11/jquery.mixitup.min.js"></script>
+<script src="assets/scripts/jquery.waypoints.min.js"></script>
 <script src="assets/scripts/script.js"></script>
 
 </body>

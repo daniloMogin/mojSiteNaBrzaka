@@ -2,7 +2,6 @@
 ------------------------------------------------------------------------------*/
 /*----------  reset
 ------------------------------------------------------------------------------*/
-@import url(http://fonts.googleapis.com/css?family=Indie+Flower);
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
   margin: 0;
   padding: 0; }
@@ -242,20 +241,6 @@ td {
 
 /*---------- variables
 -----------------------------------------------------------*/
-body {
-  font-family: "Open Sans", sans-serif;
-  font-size: 14px;
-  color: #000;
-  background-color: #fff; }
-  body .tp-container {
-    opacity: 0;
-    position: fixed;
-    right: 17px;
-    bottom: 85px;
-    z-index: 9999; }
-  body .tp-show {
-    opacity: 1; }
-
 h1 {
   font-weight: 900;
   font-size: 60px;
@@ -265,7 +250,7 @@ h2 {
   font-weight: 300;
   font-size: 40px;
   line-height: 35px;
-  padding: 40px 0;
+  padding: 40px;
   text-transform: uppercase; }
 
 h3 {
@@ -284,6 +269,14 @@ h5 {
   font-weight: 700;
   font-size: 16px;
   line-height: 30px; }
+
+h6 {
+  font-size: 20px;
+  line-height: 30px;
+  padding: 20px;
+  max-width: 466px;
+  margin: 0 auto 40px auto;
+  border-left: 4px solid #FF5252; }
 
 p {
   font-weight: 300;
@@ -314,6 +307,41 @@ html #border-box {
 
 *, *:before, *:after {
   box-sizing: inherit; }
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  color: #000;
+  background-color: #fff; }
+  body .tp-container {
+    opacity: 0;
+    position: fixed;
+    right: 17px;
+    bottom: 88px;
+    z-index: 999;
+    width: 50px;
+    height: 50px; }
+  body .tp-show {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.7);
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    overflow: hidden; }
+    body .tp-show i {
+      position: absolute;
+      top: -2px;
+      left: 7px; }
+
+.js div#preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  background: #fff url(../../assets/img/Preloader_3.gif) no-repeat center center; }
 
 .animation-element {
   opacity: 0;
@@ -853,7 +881,7 @@ html[xmlns] .flexslider .slides {
       .header ul.menubar > span > a {
         margin-right: 13px; }
   .header .fix-nav {
-    z-index: 9999;
+    z-index: 999;
     position: fixed;
     left: 0;
     top: 0;
@@ -1078,7 +1106,8 @@ html[xmlns] .flexslider .slides {
           color: #fff;
           padding: 15px 0;
           font-size: 60px;
-          font-weight: 700; }
+          font-weight: 700;
+          line-height: 50px; }
         .slider .slides li .flex-caption .gray-bck p {
           padding: 15px 15px;
           font-size: 20px; }
@@ -1203,6 +1232,8 @@ html[xmlns] .flexslider .slides {
   text-align: center;
   clear: both;
   background-color: #DDDAD6; }
+  .about-us h2 {
+    padding: 40px 0 20px 0; }
   .about-us .about-icons-wrapper {
     width: 100%;
     overflow: hidden;
@@ -1334,6 +1365,8 @@ html[xmlns] .flexslider .slides {
 .what-we-do {
   text-align: center;
   clear: both; }
+  .what-we-do h2 {
+    padding: 40px 0 20px 0; }
   .what-we-do .thumbs-wrapper {
     margin-bottom: 40px; }
     .what-we-do .thumbs-wrapper .da-thumbs {
@@ -1392,11 +1425,20 @@ html[xmlns] .flexslider .slides {
       margin: 10px 10px 10px 10px; } }
   @media only screen and (min-width: 50px) and (max-width: 630px) {
     .what-we-do .thumbs-wrapper .da-thumbs li {
-      width: 80%; }
+      width: 100%; }
     .what-we-do .thumbs-wrapper img {
       width: 100%; }
     .what-we-do .thumbs-wrapper h2 {
-      font-size: 35px; } }
+      font-size: 35px; }
+    .what-we-do .thumbs-wrapper .da-thumbs li a div span {
+      font-size: 22px;
+      padding: 5px 0;
+      margin: 10px 20px 10px 20px; }
+    .what-we-do .thumbs-wrapper .da-thumbs li a div p {
+      font-size: 14px;
+      padding: 0;
+      margin: 10px 10px 10px 10px;
+      line-height: 27px; } }
 
 /*----------  why choose us
 ------------------------------------------------------------------------------*/
@@ -1464,7 +1506,8 @@ html[xmlns] .flexslider .slides {
     color: #000;
     line-height: 23px;
     padding: 20px;
-    font-size: 16px; }
+    font-size: 16px;
+    font-weight: 500; }
   .why-choose-us .ac-container input:checked ~ article {
     -webkit-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
     -moz-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
@@ -1487,13 +1530,15 @@ html[xmlns] .flexslider .slides {
     .why-choose-us .ac-container article p {
       font-size: 12.9px; }
     .why-choose-us .ac-container input:checked ~ article.ac-small {
-      height: 228px; } }
+      height: 250px; } }
 
 /*----------  our work
 ------------------------------------------------------------------------------*/
 .our-work {
   text-align: center;
   background-color: #fff; }
+  .our-work h2 {
+    padding: 40px 0 20px 0; }
   .our-work #filter {
     overflow: hidden;
     margin: auto auto 40px auto;
@@ -1565,7 +1610,11 @@ html[xmlns] .flexslider .slides {
 ------------------------------------------------------------------------------*/
 .contact {
   text-align: center;
-  background-color: #DDDAD6; }
+  background-color: #DDDAD6;
+  margin: 0 auto;
+  position: relative; }
+  .contact h2 {
+    padding: 40px 0 20px 0; }
   .contact #map {
     margin-top: 40px;
     height: 300px;

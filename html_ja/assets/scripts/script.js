@@ -59,31 +59,85 @@ $(window).resize(function () {
 
 $("document").ready(function ($) {
     
+    /*----------  website preloader
+    ------------------------------------------------------------------------------*/
+    $(window).load(function(){
+        
+        
+        setTimeout(function(){
+            $('#preloader').fadeOut("slow",function(){$(this).remove();});
+        }, 1500);
+        
+        
+        
+    });
     
+    /*----------  Loading bars
+    ------------------------------------------------------------------------------*/
+    $(window).scroll(function(e) {
+        var y = $(document).scrollTop();
+        var h = $(window).height();
+        var t = $('.bar-percentage[data-percentage]');
+
+        if(y + h < t.position().top) {
+            console.log(t.position().top);
+        } else if(y + h < t.position().top + t.outerHeight()) {
+            console.log(t.position().top);
+        } else if(y > t.position().top + t.outerHeight()) {
+            console.log(t.position().top);
+        } else if(y > t.position().top) {
+            console.log(t.position().top);
+        } else {
+            $(".bar-percentage[data-percentage]").each(function () {
+                var progress = $(this);
+                var percentage = Math.ceil($(this).attr("data-percentage"));
+                $({countNum: 0}).animate({countNum: percentage}, {
+                    duration: 4500,
+                    easing:"linear",
+                    step: function() {
+                        // What todo on every count
+                        var pct = '';
+                        if(percentage == 0){
+                            pct = Math.floor(this.countNum) + "%";
+                        }else{
+                            pct = Math.floor(this.countNum+1) + "%";
+                        }
+                        progress.text(pct) && progress.siblings().children().css("width",pct);
+                    }
+                }); 
+            });            
+        }
+    });
     
-    
-    
-    
-    
-    
+    /*----------  stats numbers
+    ------------------------------------------------------------------------------*/
+    $('.count').each(function () {
+        $(this).prop('Counter',0).animate({
+            Counter: $(this).text()
+        }, {
+            duration: 17000,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(Math.ceil(now));
+            }
+        });
+    });
     
     /*----------  Back to top
     ------------------------------------------------------------------------------*/
     // browser window scroll (in pixels) after which the "back to top" link is shown
-    var offset = 300,
-        //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
-        offset_opacity = 1200,
+    var offset = 500,
         //duration of the top scrolling animation (in ms)
         scroll_top_duration = 700,
-        //grab the "back to top" link
-        $back_to_top = $('.tp-show');
+		//grab the "back to top" link
+		$back_to_top = $('.tp-container');
 
     $(window).scroll(function (event) {
         var scroll = $(window).scrollTop();
-        if (scroll > 500) {
-            $(".tp-container").addClass("tp-show");
+        if (scroll > offset) {
+            $back_to_top.addClass("tp-show");
         } else {
-            $(".tp-container").removeClass("tp-show");
+            $back_to_top.removeClass("tp-show");
         }
     });
 
@@ -91,22 +145,13 @@ $("document").ready(function ($) {
     $back_to_top.on('click', function(event){
         event.preventDefault();
         $('body,html').animate({
-            scrollTop: 0 ,
-        }, scroll_top_duration
-                              );
+            scrollTop: 0,
+            }, scroll_top_duration
+        );
     });
 
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    /*----------  contact form validation
+    ------------------------------------------------------------------------------*/
     $('#contact').validate({
             rules: {
                 name: {
@@ -212,41 +257,6 @@ $("document").ready(function ($) {
         animation: {
             duration: 1000
         }
-    });
-    
-    /*----------  stats numbers
-    ------------------------------------------------------------------------------*/
-    $('.count').each(function () {
-        $(this).prop('Counter',0).animate({
-            Counter: $(this).text()
-        }, {
-            duration: 4000,
-            easing: 'swing',
-            step: function (now) {
-                $(this).text(Math.ceil(now));
-            }
-        });
-    });
-
-    /*----------  Loading
-    ------------------------------------------------------------------------------*/
-    $(".bar-percentage[data-percentage]").each(function () {
-        var progress = $(this);
-        var percentage = Math.ceil($(this).attr("data-percentage"));
-        $({countNum: 0}).animate({countNum: percentage}, {
-            duration: 2000,
-            easing:"linear",
-            step: function() {
-                // What todo on every count
-                var pct = '';
-                if(percentage == 0){
-                    pct = Math.floor(this.countNum) + "%";
-                }else{
-                    pct = Math.floor(this.countNum+1) + "%";
-                }
-                progress.text(pct) && progress.siblings().children().css("width",pct);
-            }
-        }); 
     });
 
     /*----------  Scroll to location
