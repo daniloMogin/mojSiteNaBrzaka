@@ -20,11 +20,6 @@ body {
     
 //    background-image: url(../../assets/img/content/napustena-zgrada.jpg);
     
-    //    background: -moz-linear-gradient(left,rgba(128,128,128,0),rgba(128,128,128,1)), url('../../assets/img/content/pola_glave.png') no-repeat left fixed;
-    //    background: -webkit-linear-gradient(left,rgba(128,128,128,0),rgba(128,128,128,1)), url('../../assets/img/content/pola_glave.png') no-repeat left fixed;
-    //    background: -o-linear-gradient(left,rgba(128,128,128,0),rgba(128,128,128,1)), url('../../assets/img/content/pola_glave.png') no-repeat left fixed;
-    //    background: -ms-linear-gradient(left,rgba(128,128,128,0),rgba(128,128,128,1)), url('../../assets/img/content/pola_glave.png') no-repeat left fixed;
-    //    background: linear-gradient(left,rgba(128,128,128,0),rgba(128,128,128,1)), url('../../assets/img/content/pola_glave.png') no-repeat left fixed;
     .tp-container {
         opacity: 0;
         position: fixed;
@@ -39,16 +34,24 @@ body {
         opacity: 1;
         background-color: rgba($white, .7);
         @include border-radius(4px);
+        @include transition-duration(.3s);
         overflow: hidden;
         i {
             position: absolute;
             top: -2px;
             left: 7px;
+            color: $black;
+        }
+        &:hover {
+            background-color: rgba($black, .7);
+            i {
+                color: $white;
+            }
         }
     }
 }
 
-.js div#preloader { 
+#preloader { 
     position: fixed; 
     left: 0; 
     top: 0; 

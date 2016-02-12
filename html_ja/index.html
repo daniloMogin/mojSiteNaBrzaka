@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js js">
+<html class="no-js">
     <!--<![endif]-->
 
 <head>
@@ -16,13 +16,13 @@
     <meta name="keywords" content="" />
     <meta name="author" content="Danilo Mogin" />
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
-    <script src="assets/scripts/jquery.tooltipster.min.js"></script>
-    <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">-->
+    
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    
     <script src="assets/scripts/modernizr.mini.js"></script>
 
     <!-- for FF, Chrome, Opera -->
@@ -34,7 +34,6 @@
     <link rel="shortcut icon" type="image/x-icon" href="../html_ja/assets/img/icons/ico16.ico" />
 
     <script src="https://maps.googleapis.com/maps/api/js"></script>
-
 </head>
 
 <body>
@@ -133,25 +132,25 @@
 
 <section class="stats">
     <div class="main-grid">
-        <div class="statsbar">
+        <div id="waypoint-counter" class="statsbar">           
             <div class="stat animation-element slide-up">
                 <!--                        <i class="fa fa fa-shopping-basket fa-4x"></i>-->
-                <div class="stat-number count">95</div>
+                <div class="stat-number timer" data-from="0" data-to="95"></div>
                 <div class="stat-title">Total sales</div>
             </div>
             <div class="stat animation-element slide-up">
                 <!--                        <i class="fa fa-users fa-4x"></i>-->
-                <div class="stat-number count">152</div>
+                <div class="stat-number timer" data-from="0" data-to="152"></div>
                 <div class="stat-title">Happy customers</div>
             </div>
             <div class="stat animation-element slide-up">
                 <!--                        <i class="fa fa-globe fa-4x"></i>-->
-                <div class="stat-number count">202</div>
+                <div class="stat-number timer" data-from="0" data-to="202"></div>
                 <div class="stat-title">Projects completed</div>
             </div>
             <div class="stat animation-element slide-up">
                 <!--                        <i class="fa fa-thumbs-up fa-4x"></i>-->
-                <div class="stat-number count">1610</div><!--<span class="stat-sign">%</span>-->
+                <div class="stat-number timer" data-from="0" data-to="1610"></div><!--<span class="stat-sign">%</span>-->
                 <div class="stat-title">facebook likes</div>
             </div>
         </div>
@@ -170,7 +169,7 @@
                 <a href="#destination5" data-anchor="contact" class="btn animation-element slide-left">Get in touch</a>
             </div>
             <div class="col-two">
-                <div class="loading-bar-wrapper">
+                <div id="waypoint-loader" class="loading-bar-wrapper">
                     <div class="bar-main-container animation-element slide-left">
                         <div class="wrap">
                             <p>HTML5</p>
@@ -379,7 +378,7 @@
 <section id="destination5" data-anchor="contact" class="contact">
     <div class="main-grid">
         <h2 class="animation-element slide-left">Contact <b>Us</b></h2>
-        <h6 class="animation-element slide-up">Do you have a project that you think we will love, or maybe you just want to say hello to us?</h6>
+        <h6 class="animation-element slide-down">Do you have a project that you think we will love, or maybe you just want to say hello to us?</h6>
         <div class="contact-wrapper">
             <div class="col-two">
                 <div class="contact-form">
@@ -429,7 +428,7 @@
             </div>
         </div>
     </div>
-    <div id="map"></div>
+    <div id="map" class="animation-element slide-down"></div>
 </section>
 
 <footer class="footer">
@@ -451,7 +450,7 @@
     <section class="footer-bottom">
         <div class="main-grid">
             <div class="left">
-                <p>&copy; Copyright 2015 - <script>document.write(new Date().getFullYear())</script>, Jimmy. All rights reserved.</p>
+                <p>&copy; Copyright 2016 - <script>document.write(new Date().getFullYear())</script>, Jimmy. All rights reserved.</p>
             </div>
             <ul class="right">
                 <li><a href="#destination1" data-scroll="about-us">About Us</a></li>
@@ -467,8 +466,10 @@
 <script src="assets/scripts/jquery.flexslider-min.js"></script>
 <script src="assets/scripts/jquery.hoverdir.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/2.1.11/jquery.mixitup.min.js"></script>
+<script src="assets/scripts/jquery.countTo.js"></script>
 <script src="assets/scripts/jquery.waypoints.min.js"></script>
-<script src="assets/scripts/script.js"></script>
+<script src="assets/scripts/jquery.tooltipster.min.js"></script>
+<script src="assets/scripts/script.min.js"></script>
 
 </body>
 

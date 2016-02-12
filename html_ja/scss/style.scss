@@ -189,6 +189,8 @@
 .stats {
     width: 100%;
     background-color: $gray;
+    min-height: 123px;
+    
     .statsbar {
         width: 100%;
         color: $black;
@@ -671,7 +673,6 @@
 ------------------------------------------------------------------------------*/
 .our-work {
     text-align: center;
-    background-color: $white;
     
     h2 {
         padding: 40px 0 20px 0;

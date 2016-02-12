@@ -7,7 +7,7 @@ javascripts_dir = "assets/scripts"
 fonts_dir = "assets/fonts"
 
 # Options
-output_style = :nested
+output_style = :expanded         # compressed
 relative_assets = true
 line_comments = false
 

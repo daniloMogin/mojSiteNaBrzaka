@@ -44,7 +44,7 @@
 	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
 	transition: opacity 0.3s, transform 0.3s;
     a {
-        font-size: 18px;
+        font-size: 16px;
         i {
             width: 25px;
             padding-right: 15px;
@@ -75,3 +75,13 @@
 	transform: translate3d(0,0,0);
 }
 
+@include breakpoint(tablet) {
+    .tooltip-content {
+        margin-left: -174px;
+        a {
+            font-size: 14px;
+        }
+    }
+}
+@include breakpoint(phone) {
+}

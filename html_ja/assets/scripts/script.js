@@ -61,34 +61,39 @@ $("document").ready(function ($) {
     
     /*----------  website preloader
     ------------------------------------------------------------------------------*/
-    $(window).load(function(){
-        
-        
-        setTimeout(function(){
+    $(window).load(function() {
+        setTimeout(function() {
             $('#preloader').fadeOut("slow",function(){$(this).remove();});
         }, 1500);
-        
-        
-        
     });
     
-    /*----------  Loading bars
+    /*----------  stats counter waypoint
     ------------------------------------------------------------------------------*/
-    $(window).scroll(function(e) {
-        var y = $(document).scrollTop();
-        var h = $(window).height();
-        var t = $('.bar-percentage[data-percentage]');
-
-        if(y + h < t.position().top) {
-            console.log(t.position().top);
-        } else if(y + h < t.position().top + t.outerHeight()) {
-            console.log(t.position().top);
-        } else if(y > t.position().top + t.outerHeight()) {
-            console.log(t.position().top);
-        } else if(y > t.position().top) {
-            console.log(t.position().top);
-        } else {
-            $(".bar-percentage[data-percentage]").each(function () {
+    var waypoint = new Waypoint({
+      element: document.getElementById('waypoint-counter'),
+      handler: function() {
+        $('.timer').countTo({
+            speed: 4000
+        });
+      },
+      offset: "-5%"
+    })
+    var waypoint = new Waypoint({
+      element: document.getElementById('waypoint-counter'),
+      handler: function() {
+        $('.timer').countTo({
+            speed: 4000
+        });
+      },
+      offset: "97%"
+    })
+    
+    /*----------  loader waypoint
+    ------------------------------------------------------------------------------*/
+    var waypoint = new Waypoint({
+      element: document.getElementById('waypoint-loader'),
+      handler: function() {
+        $(".bar-percentage[data-percentage]").each(function () {
                 var progress = $(this);
                 var percentage = Math.ceil($(this).attr("data-percentage"));
                 $({countNum: 0}).animate({countNum: percentage}, {
@@ -105,30 +110,41 @@ $("document").ready(function ($) {
                         progress.text(pct) && progress.siblings().children().css("width",pct);
                     }
                 }); 
-            });            
-        }
-    });
-    
-    /*----------  stats numbers
-    ------------------------------------------------------------------------------*/
-    $('.count').each(function () {
-        $(this).prop('Counter',0).animate({
-            Counter: $(this).text()
-        }, {
-            duration: 17000,
-            easing: 'swing',
-            step: function (now) {
-                $(this).text(Math.ceil(now));
-            }
-        });
-    });
-    
+            });
+      },
+      offset: "-20%"
+    })
+    var waypoint = new Waypoint({
+      element: document.getElementById('waypoint-loader'),
+      handler: function() {
+        $(".bar-percentage[data-percentage]").each(function () {
+                var progress = $(this);
+                var percentage = Math.ceil($(this).attr("data-percentage"));
+                $({countNum: 0}).animate({countNum: percentage}, {
+                    duration: 4500,
+                    easing:"linear",
+                    step: function() {
+                        // What todo on every count
+                        var pct = '';
+                        if(percentage == 0){
+                            pct = Math.floor(this.countNum) + "%";
+                        }else{
+                            pct = Math.floor(this.countNum+1) + "%";
+                        }
+                        progress.text(pct) && progress.siblings().children().css("width",pct);
+                    }
+                }); 
+            });
+      },
+      offset: "96%"
+    })
+
     /*----------  Back to top
     ------------------------------------------------------------------------------*/
     // browser window scroll (in pixels) after which the "back to top" link is shown
     var offset = 500,
         //duration of the top scrolling animation (in ms)
-        scroll_top_duration = 700,
+        scroll_top_duration = 1500,
 		//grab the "back to top" link
 		$back_to_top = $('.tp-container');
 
@@ -153,59 +169,58 @@ $("document").ready(function ($) {
     /*----------  contact form validation
     ------------------------------------------------------------------------------*/
     $('#contact').validate({
-            rules: {
-                name: {
-                    required: true,
-                    minlength: 2
-                },
-                email: {
-                    required: true,
-                    email: true
-                },
-                message: {
-                    required: true
-                }
+        rules: {
+            name: {
+                required: true,
+                minlength: 2
             },
-            messages: {
-                name: {
-                    required: "come on, you have a name don't you?",
-                    minlength: "your name must consist of at least 2 characters"
-                },
-                email: {
-                    required: "no email, no message",
-                    email: "Your email address must be in the format of name@domain.com"
-                },
-                message: {
-                    required: "um...yea, you have to write something to send this form.",
-                    minlength: "thats all? really?"
-                }
+            email: {
+                required: true,
+                email: true
             },
-            submitHandler: function(form) {
-                $(form).ajaxSubmit({
-                    type:"POST",
-                    data: $(form).serialize(),
-                    url:"process.php",
-                    success: function() {
-                        $('#contact :input').attr('disabled', 'disabled');
-                        $('#contact').fadeTo( "slow", 0.15, function() {
-                            $(this).find(':input').attr('disabled', 'disabled');
-                            $(this).find('label').css('cursor','default');
-                            $('#success').fadeIn();
-                        });
-                    },
-                    error: function() {
-                        $('#contact').fadeTo( "slow", 0.15, function() {
-                            $('#error').fadeIn();
-                        });
-                    }
-                });
+            message: {
+                required: true
             }
-        });
-    
+        },
+        messages: {
+            name: {
+                required: "come on, you have a name don't you?",
+                minlength: "your name must consist of at least 2 characters"
+            },
+            email: {
+                required: "no email, no message",
+                email: "Your email address must be in the format of name@domain.com"
+            },
+            message: {
+                required: "um...yea, you have to write something to send this form.",
+                minlength: "thats all? really?"
+            }
+        },
+        submitHandler: function(form) {
+            $(form).ajaxSubmit({
+                type:"POST",
+                data: $(form).serialize(),
+                url:"process.php",
+                success: function() {
+                    $('#contact :input').attr('disabled', 'disabled');
+                    $('#contact').fadeTo( "slow", 0.15, function() {
+                        $(this).find(':input').attr('disabled', 'disabled');
+                        $(this).find('label').css('cursor','default');
+                        $('#success').fadeIn();
+                    });
+                },
+                error: function() {
+                    $('#contact').fadeTo( "slow", 0.15, function() {
+                        $('#error').fadeIn();
+                    });
+                }
+            });
+        }
+    });
     
     /*----------  animate content in viewport
     ------------------------------------------------------------------------------*/
-    var $animation_elements = $('.animation-element');
+    var $animation_elements = $('.animation-element, .timer');
     var $window = $(window);
 
     function check_if_in_view() {
@@ -231,15 +246,6 @@ $("document").ready(function ($) {
 
     $window.on('scroll resize', check_if_in_view);
     $window.trigger('scroll');
-
-    /*----------  load font awesome
-    ------------------------------------------------------------------------------*/
-    var css = document.createElement('link');
-    css.href = 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css';
-    css.rel = 'stylesheet';
-    css.type = 'text/css';
-    document.getElementsByTagName('head')[0].appendChild(css);
-
 
     /*----------  moving hover
     ------------------------------------------------------------------------------*/
@@ -324,7 +330,7 @@ $('ul.nav-script>li>a').on('click', function() {
 
     $('body,html').animate({
         scrollTop: scrollPoint
-    }, 500);
+    }, 1500);
 
     return false;
 })
