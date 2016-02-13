@@ -1,0 +1,226 @@
+.anim-slide{opacity: 0;}
+.anim-slide-this{opacity: 1;}
+
+li.anim-slide:nth-of-type(1){background:#fff url("../../assets/img/slider/slider-banner.jpg") 100%/cover;}
+li.anim-slide:nth-of-type(2){background:#fff url("../../assets/img/slider/slider-banner3.jpg") 100%/cover;}
+li.anim-slide:nth-of-type(3){background:#fff url("../../assets/img/slider/slider-banner2.jpg") 100%/cover;}
+
+.anim-slide h1 {
+    color: $gold;
+    font-size: 130px;
+    font-weight: 700;
+}
+
+.anim-slide h2 {
+    color: $white;
+    font-size: 35px;
+    letter-spacing: 13.5px;
+}
+
+.anim-slide h3 {
+    color: $white;
+    font-size: 30px;
+}
+
+.anim-slide h4 {
+    color: $white;
+    font-size: 25px;
+}
+
+
+
+
+
+
+.anim-slide h1#slider,
+.anim-slide h1#bounceInDown,
+.anim-slide h1#bounceDown {
+    font-size: 61px;
+    letter-spacing: 6px;
+    width: 100%
+}
+
+.anim-slide h2#bounce,
+.anim-slide h2#bounceUp,
+.anim-slide h2#slideInLeft{
+    font-size: 61px;
+    letter-spacing: 6px;
+    width: 100%
+}
+
+.anim-slide h1#slider {
+    top: 30vh;
+}
+
+.anim-slide h1#bounceInDown {
+    top: 59vh;
+}
+
+.anim-slide h1#bounceDown {
+    top: 79vh;
+}
+
+.anim-slide h2#slideInLeft {
+    top: 66vh;
+}
+
+.anim-slide h2#bounce {
+    top: 37vh;
+}
+
+.anim-slide h2#bounceUp {
+    top: 47vh;
+}
+
+
+
+
+
+
+
+//  .anim-slide h3#license{width:100%;top: 37%;}
+//  .anim-slide h4#version{width: 100%;top: 50%;}
+.anim-slide h4#bounceUp,
+.anim-slide h4#rotateRight,
+.anim-slide h4#rotateLeft {
+    color: $gold;
+    font-size: 61px;
+    letter-spacing: 6px;
+    width: 100%
+}
+
+.anim-slide h3#todo {
+    color: $black;
+    font-size: 35px;
+    letter-spacing: 13.5px;
+    top: 30vh;
+//    left: 27vh;
+    width: 100%;
+}
+
+.anim-slide h3#bounce {
+    color: $black;
+    font-size: 35px;
+    letter-spacing: 13.5px;
+    top: 37vh;
+//    left: 56.3vh;
+    width: 100%;
+}
+
+.anim-slide h4#bounceUp {
+    top: 46vh;
+//    left: 70vh;
+}
+
+.anim-slide h4#rotateRight {
+    top: 56vh;
+//    left: 40vh;
+}
+
+.anim-slide h4#rotateLeft {
+    top: 66vh;
+//    left: 40vh;
+}
+
+.anim-slide img#ipad {
+    left: 24%;
+    top: 20%;
+}
+
+.anim-slide img#iphone {
+    left: 41%;
+    top: 36.3%;
+}
+
+.anim-slide img#mac {
+    top: 18%;
+    left: 36%;
+}
+
+.anim-slide img#modernizr {
+    width: 260px;
+    top: 75%;
+    left: 20%;
+}
+
+.anim-slide h2#animatecss {
+    top: 69%;
+    left: 60%;
+    color: #f35626;
+}
+
+div#demo {
+    text-align: center;
+}
+
+div#demo>a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+div#demo>a>h4 {
+    padding: 5px 8px;
+    margin: 20px;
+//    background-image: url(../../assets/img/content/napustena-zgrada.jpg);
+    ;
+    color: #fff;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+}
+
+p#credits {
+    z-index: -1;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+}
+
+p#credits>a {
+    font-weight: bold;
+    color: #999;
+    text-decoration: none;
+}
+
+img#github-logo {
+    z-index: -1;
+    position: fixed;
+    bottom: -20px;
+    right: 2%;
+    opacity: 0.4;
+ }
+
+@include breakpoint(tablet) {
+    .anim-slide h1 {
+        font-size: 76px;
+    }
+
+    .anim-slide h2 {
+        font-size: 21px;
+    }
+    .anim-slide h4#bounceUp,
+    .anim-slide h4#rotateRight,
+    .anim-slide h4#rotateLeft {
+        font-size: 45px;
+        letter-spacing: 2.5px;
+    }
+}
+@include breakpoint(phone) {
+    .anim-slide h1 {
+        font-size: 100px;
+    }
+
+    .anim-slide h2 {
+        font-size: 28px;
+    }
+    .anim-slide h4#bounceUp,
+    .anim-slide h4#rotateRight,
+    .anim-slide h4#rotateLeft {
+        font-size: 45px;
+        letter-spacing: 2.5px;
+    }
+}
+
+
+
+

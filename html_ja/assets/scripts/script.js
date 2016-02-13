@@ -39,14 +39,6 @@ $(window).load(function () {
 
     //equalheight('.col-three > h3');
 
-    /*----------  flex slider call
-    ------------------------------------------------------------------------------*/
-    $(".flexslider").flexslider({
-        animation: "slide",
-        slideshow: false,
-        slideshowSpeed: 7000
-    });
-
 });
 
 $(window).resize(function () {
@@ -58,7 +50,134 @@ $(window).resize(function () {
 });
 
 $("document").ready(function ($) {
-    
+
+    /*----------  slider animations
+    ------------------------------------------------------------------------------*/
+    $(".anim-slider").animateSlider( {
+        autoplay	:false,
+        interval	:5000,
+        animations 	: 
+        {
+            0	: 	//Slide No1
+            {
+                "#slider": 
+                {
+                    show   	    : "bounceIn",
+                    hide 	    : "flipOutX",
+                    delayShow   : "delay1s"
+                },
+                "#bounce" 	    :
+                {
+                    show 	 	: "bounceIn",
+                    hide 	 	: "bounceOut",
+                    delayShow 	: "delay1-5s"
+                },
+                "#bounceUp"     :
+                {
+                    show 	 	: "bounceInDown",
+                    hide 	 	: "bounceOutLeft",
+                    delayShow 	: "delay2s"
+                },
+                "#bounceInDown" :
+                {
+                   show         :   "bounceInDown",
+	               hide         :   "bounceOutUp",
+	               delayShow    :   "delay3s"
+                },
+                "#slideInLeft"  :
+                {
+	               show         :   "slideInLeft",
+	               hide         :   "slideOutRight",
+	               delayShow    :   "delay3-5s"
+	            },
+                "#bounceDown"     :
+                {
+	               show         :   "bounceInRight",
+	               hide         :   "bounceInUp",
+	               delayShow    :   "delay5-5s"
+	            },
+                li	: 
+                {
+                    show   	    : "fadeIn",
+                    hide 	    : "fadeOutLeftBig",
+                    delayShow   : "delay0.5s"
+                }	
+            },
+            1	: //Slide No2
+            {	
+                "#todo":
+                {
+                    show 		: "fadeIn",
+                    hide 		: "fadeOut",
+                    delayShow   : "delay0-5s"
+                },
+                "#bounce" 	:
+                {
+                    show 	 	: "bounceIn",
+                    hide 	 	: "bounceOut",
+                    delayShow 	: "delay2s"
+                },
+                "#bounceUp":
+                {
+                    show 	 	: "bounceInDown",
+                    hide 	 	: "bounceOutLeft",
+                    delayShow 	: "delay2-5s"
+                },
+                "#rotateRight" :
+                {
+                    show 	 	: "rotateInUpRight",
+                    hide 	 	: "rotateOutDownRight",
+                    delayShow 	: "delay4s"
+                },
+                "#rotateLeft" :
+                {
+                    show 	 	: "rotateInUpLeft",
+                    hide 	 	: "rotateOutDownLeft",
+                    delayShow 	: "delay5s"
+                },
+                li	: 
+                {
+                    show   	  : "fadeInLeft",
+                    hide 	  : "fadeOutLeftBig",
+                    delayShow : "delay0.5s"
+                }
+            },
+            2	: //Slide No3
+            {
+                "img#iphone"	:
+                {
+                    show 	  : "flipInY",
+                    hide 	  : "flipOutY",
+                    delayShow : "delay0-5s"
+                },
+                "img#ipad"	:
+                {
+                    show 	  : "flipInY",
+                    hide 	  : "flipOutY",
+                    delayShow : "delay0-5s"
+                },
+                "img#mac"  :
+                {
+                    show 	  : "bounceIn",
+                    hide 	  : "flipOutY",
+                    delayShow : "delay1-5s"
+                },
+                "#animatecss"	: 
+                {
+                    show 	  : "lightSpeedIn",
+                    hide 	  : "flipOutY",
+                    delayShow : "delay2-5s"
+                },
+                li	: 
+                {
+                    show   	  : "fadeInUp",
+                    hide 	  : "fadeOutLeftBig",
+                    delayShow : "delay0.5s"
+                }
+            }
+        }
+    });
+
     /*----------  website preloader
     ------------------------------------------------------------------------------*/
     $(window).load(function() {
@@ -66,34 +185,34 @@ $("document").ready(function ($) {
             $('#preloader').fadeOut("slow",function(){$(this).remove();});
         }, 1500);
     });
-    
+
     /*----------  stats counter waypoint
     ------------------------------------------------------------------------------*/
     var waypoint = new Waypoint({
-      element: document.getElementById('waypoint-counter'),
-      handler: function() {
-        $('.timer').countTo({
-            speed: 4000
-        });
-      },
-      offset: "-5%"
+        element: document.getElementById('waypoint-counter'),
+        handler: function() {
+            $('.timer').countTo({
+                speed: 4000
+            });
+        },
+        offset: "-5%"
     })
     var waypoint = new Waypoint({
-      element: document.getElementById('waypoint-counter'),
-      handler: function() {
-        $('.timer').countTo({
-            speed: 4000
-        });
-      },
-      offset: "97%"
+        element: document.getElementById('waypoint-counter'),
+        handler: function() {
+            $('.timer').countTo({
+                speed: 4000
+            });
+        },
+        offset: "97%"
     })
-    
+
     /*----------  loader waypoint
     ------------------------------------------------------------------------------*/
     var waypoint = new Waypoint({
-      element: document.getElementById('waypoint-loader'),
-      handler: function() {
-        $(".bar-percentage[data-percentage]").each(function () {
+        element: document.getElementById('waypoint-loader'),
+        handler: function() {
+            $(".bar-percentage[data-percentage]").each(function () {
                 var progress = $(this);
                 var percentage = Math.ceil($(this).attr("data-percentage"));
                 $({countNum: 0}).animate({countNum: percentage}, {
@@ -111,13 +230,13 @@ $("document").ready(function ($) {
                     }
                 }); 
             });
-      },
-      offset: "-20%"
+        },
+        offset: "-20%"
     })
     var waypoint = new Waypoint({
-      element: document.getElementById('waypoint-loader'),
-      handler: function() {
-        $(".bar-percentage[data-percentage]").each(function () {
+        element: document.getElementById('waypoint-loader'),
+        handler: function() {
+            $(".bar-percentage[data-percentage]").each(function () {
                 var progress = $(this);
                 var percentage = Math.ceil($(this).attr("data-percentage"));
                 $({countNum: 0}).animate({countNum: percentage}, {
@@ -135,8 +254,8 @@ $("document").ready(function ($) {
                     }
                 }); 
             });
-      },
-      offset: "96%"
+        },
+        offset: "96%"
     })
 
     /*----------  Back to top
@@ -145,8 +264,8 @@ $("document").ready(function ($) {
     var offset = 500,
         //duration of the top scrolling animation (in ms)
         scroll_top_duration = 1500,
-		//grab the "back to top" link
-		$back_to_top = $('.tp-container');
+        //grab the "back to top" link
+        $back_to_top = $('.tp-container');
 
     $(window).scroll(function (event) {
         var scroll = $(window).scrollTop();
@@ -162,8 +281,8 @@ $("document").ready(function ($) {
         event.preventDefault();
         $('body,html').animate({
             scrollTop: 0,
-            }, scroll_top_duration
-        );
+        }, scroll_top_duration
+                              );
     });
 
     /*----------  contact form validation
@@ -217,31 +336,31 @@ $("document").ready(function ($) {
             });
         }
     });
-    
+
     /*----------  animate content in viewport
     ------------------------------------------------------------------------------*/
     var $animation_elements = $('.animation-element, .timer');
     var $window = $(window);
 
     function check_if_in_view() {
-      var window_height = $window.height();
-      var window_top_position = $window.scrollTop();
-      var window_bottom_position = (window_top_position + window_height);
+        var window_height = $window.height();
+        var window_top_position = $window.scrollTop();
+        var window_bottom_position = (window_top_position + window_height);
 
-      $.each($animation_elements, function() {
-        var $element = $(this);
-        var element_height = $element.outerHeight();
-        var element_top_position = $element.offset().top;
-        var element_bottom_position = (element_top_position + element_height);
+        $.each($animation_elements, function() {
+            var $element = $(this);
+            var element_height = $element.outerHeight();
+            var element_top_position = $element.offset().top;
+            var element_bottom_position = (element_top_position + element_height);
 
-        //check to see if this current container is within viewport
-        if ((element_bottom_position >= window_top_position) &&
-            (element_top_position <= window_bottom_position)) {
-          $element.addClass('in-view');
-        } else {
-          $element.removeClass('in-view');
-        }
-      });
+            //check to see if this current container is within viewport
+            if ((element_bottom_position >= window_top_position) &&
+                (element_top_position <= window_bottom_position)) {
+                $element.addClass('in-view');
+            } else {
+                $element.removeClass('in-view');
+            }
+        });
     }
 
     $window.on('scroll resize', check_if_in_view);
@@ -291,7 +410,7 @@ $("document").ready(function ($) {
             $(".mobile-nav").addClass("none");
         }
     });
-    
+
     /*----------  filter selection add border and font color
     ------------------------------------------------------------------------------*/
     $("li.filter > a").click(function () {

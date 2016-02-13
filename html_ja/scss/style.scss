@@ -17,9 +17,9 @@
 
 /*----------  libs
 ------------------------------------------------------------------------------*/
-@import "libs/flexslider";
 @import "libs/tooltip-box";
-//@import "libs/our-work";
+@import "libs/jquery.animateSlider"; 
+@import "libs/slider";
 
 /*----------  partials
 ------------------------------------------------------------------------------*/
@@ -29,159 +29,178 @@
 /*----------  slider
 ------------------------------------------------------------------------------*/
 .slider {
-    clear: both;
-    text-align: center;
-    height: 100vh;
-    .overlay {
-        max-width: 980px;
-        position: absolute;
-        left: 0;
-        right: 0;
-        padding: 15px 0;
-        z-index: 999;
-        margin: 0 auto;
-    }
-    .flexslider {
-        margin: 0;
-        border: 0;
-    }
-    .flex-direction-nav {
-        display: none !important;
-    }
-    .flex-control-nav {
-        bottom: 50px;
-    }
-    .flex-control-paging li a {
-        background: #fff;
-        background: rgba(255, 255, 255, 0.5);
-    }
-    .flex-control-paging li a:hover {
-        background: #fff;
-        background: rgba(255, 255, 255, 0.7);
-    }
-    .flex-control-paging li a.flex-active {
-        background: #fff;
-        background: rgba(255, 255, 255, 0.9);
-    }
-    .slides {
-        img {
-            height: 100vh;
-            background-position: center;
-            background-size: 100%;
-            background-repeat: repeat;
-        }
-        li {
-            position: relative;
-            height: 100vh;
-            display: table-cell;
-            vertical-align: middle;
-            .flex-caption {
-                position: absolute;
-                top: 40vh;
-                left: 0;
-                right: 0;
-                padding: 2%;
-                color: #fff;
-                text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
-                font-size: 14px;
-                line-height: 18px;
-                .gray-bck {
-                    background: rgba($black, 0.5);
-                    @include border-radius(10px);
-                    display: inline-block;
-                    padding: 50px 0;
-                    h2 {
-                        color: $white;
-                        padding: 15px 0;
-                        font-size: 60px;
-                        font-weight: 700;
-                        line-height: 50px;
-                    }
-                    p {
-                        padding: 15px 15px;
-                        font-size: 20px;
-                    }
-                }
-            }
-        }
-    }
-    @include breakpoint(tablet) {
-        .slides li {
-            height: 100vh;
-        }
-        .flex-control-nav {
-            bottom: 40px;
-        }
-        .flex-caption {
-            h2 {
-                font-size: 30px;
-                line-height: 40px;
-                margin: 48px 0 3px 0;
-            }
-            .slider-caption-wrap {
-                padding-top: 18px;
-                i {
-                    margin: 10px 34px 0 35px;
-                }
-                p {
-                    font-size: 15px;
-                    line-height: 22px;
-                    padding-top: 3px;
-                }
-                .cite {
-                    font-size: 15px;
-                    line-height: 22px;
-                }
-                .right {
-                    margin: 10px 17px 0 30px;
-                }
-            }
-        }
-    }
-    @include breakpoint(phone) {
-        .overlay {
-            padding: 1px 0 0 21px;
-        }
-        .show {
-            display: none;
-        }
-        .hide {
-            display: block;
-            float: left;
-            padding-left: 5px;
-        }
-        .slides li {
-            height: 100vh;
-        }
-        .flex-control-nav {
-            bottom: 30px;
-            left: 15px;
-            text-align: left;
-            width: 50%;
-        }
-        .flex-caption {
-            h2 {
-                font-size: 20px;
-                text-align: left;
-                border: 0;
-                margin: 0;
-            }
-            .slider-caption-wrap {
-                padding: 0;
-                p {
-                    font-size: 15px;
-                    line-height: 22px;
-                    text-align: left;
-                    clear: both;
-                    padding-top: 7px;
-                }
-                .cite {
-                    font-size: 15px;
-                    text-align: left;
-                }
-            }
-        }
-    }
+//    clear: both;
+//    text-align: center;
+//    height: 100vh;
+//    .overlay {
+//        max-width: 980px;
+//        position: absolute;
+//        left: 0;
+//        right: 0;
+//        padding: 15px 0;
+//        z-index: 999;
+//        margin: 0 auto;
+//    }
+//    .flexslider {
+//        margin: 0;
+//        border: 0;
+//    }
+//    .flex-direction-nav {
+//        display: none !important;
+//    }
+//    .flex-control-nav {
+//        bottom: 50px;
+//    }
+//    .flex-control-paging li a {
+//        background: #fff;
+//        background: rgba(255, 255, 255, 0.5);
+//    }
+//    .flex-control-paging li a:hover {
+//        background: #fff;
+//        background: rgba(255, 255, 255, 0.7);
+//    }
+//    .flex-control-paging li a.flex-active {
+//        background: #fff;
+//        background: rgba(255, 255, 255, 0.9);
+//    }
+//    .slides {
+//        img {
+//            height: 100vh;
+//            background-position: center;
+//            background-size: 100%;
+//            background-repeat: repeat;
+//        }
+//        li {
+//            position: relative;
+//            height: 100vh;
+//            display: table-cell;
+//            vertical-align: middle;
+//            .flex-caption {
+//                position: absolute;
+//                top: 40vh;
+//                left: 0;
+//                right: 0;
+//                padding: 2%;
+//                color: #fff;
+//                text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
+//                font-size: 14px;
+//                line-height: 18px;
+//                .gray-bck {
+////                    background: rgba($black, 0.5);
+//                    @include border-radius(10px);
+//                    display: inline-block;
+//                    padding: 50px 0;
+//                    h2 {
+//                        color: $white;
+//                        padding: 15px 0;
+//                        font-size: 60px;
+//                        font-weight: 700;
+//                        line-height: 50px;
+////                        -webkit-animation-name: example; /* Chrome, Safari, Opera */
+////                        -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
+////                        animation-name: example;
+////                        animation-duration: 4s;
+//                    }
+//                    p {
+//                        padding: 15px 15px;
+//                        font-size: 20px;
+//                    }
+//                }
+//            }
+//        }
+//    }
+//    
+//    
+////    /* Chrome, Safari, Opera */
+////    @-webkit-keyframes example {
+////        from {color: $black;}
+////        to {color: $white;}
+////    }
+////
+////    /* Standard syntax */
+////    @keyframes example {
+////        from {color: $black;}
+////        to {color: $white;}
+////    }
+//    
+//    
+//    @include breakpoint(tablet) {
+//        .slides li {
+//            height: 100vh;
+//        }
+//        .flex-control-nav {
+//            bottom: 40px;
+//        }
+//        .flex-caption {
+//            h2 {
+//                font-size: 30px;
+//                line-height: 40px;
+//                margin: 48px 0 3px 0;
+//            }
+//            .slider-caption-wrap {
+//                padding-top: 18px;
+//                i {
+//                    margin: 10px 34px 0 35px;
+//                }
+//                p {
+//                    font-size: 15px;
+//                    line-height: 22px;
+//                    padding-top: 3px;
+//                }
+//                .cite {
+//                    font-size: 15px;
+//                    line-height: 22px;
+//                }
+//                .right {
+//                    margin: 10px 17px 0 30px;
+//                }
+//            }
+//        }
+//    }
+//    @include breakpoint(phone) {
+//        .overlay {
+//            padding: 1px 0 0 21px;
+//        }
+//        .show {
+//            display: none;
+//        }
+//        .hide {
+//            display: block;
+//            float: left;
+//            padding-left: 5px;
+//        }
+//        .slides li {
+//            height: 100vh;
+//        }
+//        .flex-control-nav {
+//            bottom: 30px;
+//            left: 15px;
+//            text-align: left;
+//            width: 50%;
+//        }
+//        .flex-caption {
+//            h2 {
+//                font-size: 20px;
+//                text-align: left;
+//                border: 0;
+//                margin: 0;
+//            }
+//            .slider-caption-wrap {
+//                padding: 0;
+//                p {
+//                    font-size: 15px;
+//                    line-height: 22px;
+//                    text-align: left;
+//                    clear: both;
+//                    padding-top: 7px;
+//                }
+//                .cite {
+//                    font-size: 15px;
+//                    text-align: left;
+//                }
+//            }
+//        }
+//    }
 }
 
 /*----------  stats
@@ -190,7 +209,7 @@
     width: 100%;
     background-color: $gray;
     min-height: 123px;
-    
+       
     .statsbar {
         width: 100%;
         color: $black;
@@ -237,6 +256,7 @@
         }
     }
     @include breakpoint(tablet) {
+        min-height: 105px;
         .statsbar {
             .stat {
                 .stat-sign {
@@ -253,6 +273,7 @@
         }
     }
     @include breakpoint(phone) {
+        min-height: 73px;
         .statsbar {
             .stat {
                 .stat-sign {
@@ -662,7 +683,7 @@
                 }
             }
             input:checked ~ article.ac-small {
-                height: 250px;
+                height: 273px;
             }
         }
     }
