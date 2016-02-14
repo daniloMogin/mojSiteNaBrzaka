@@ -339,8 +339,8 @@ h2 {
   font-weight: 300;
   font-size: 40px;
   line-height: 35px;
-  padding: 40px;
   text-transform: uppercase;
+  padding: 40px 0 20px 0;
 }
 
 h3 {
@@ -445,6 +445,12 @@ body .tp-show:hover {
 }
 body .tp-show:hover i {
   color: #fff;
+}
+@media only screen and (min-width: 50px) and (max-width: 630px) {
+  body .tp-container {
+    right: 17px;
+    bottom: 107px;
+  }
 }
 
 #preloader {
@@ -580,6 +586,10 @@ body .tp-show:hover i {
 @media only screen and (min-width: 50px) and (max-width: 630px) {
   .main-grid {
     padding: 0 20px;
+  }
+  .main-grid body .tp-container {
+    right: 17px;
+    bottom: 88px;
   }
 }
 
@@ -717,7 +727,6 @@ i:hover {
   left: 0;
   width: 100%;
   height: 100vh;
-  max-height: 900px;
   padding: 0;
   margin: 0;
 }
@@ -799,7 +808,7 @@ nav.anim-arrows > span.anim-arrows-next {
   height: 14px;
   margin: 3px;
   cursor: pointer;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset, 1px 1px 1px rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .anim-dots span.anim-dots-this:after {
@@ -3440,9 +3449,16 @@ li.anim-slide:nth-of-type(3) {
   letter-spacing: 13.5px;
 }
 
+.anim-slide h5 {
+  color: #b89840;
+  font-size: 130px;
+  font-weight: 700;
+}
+
 .anim-slide h3 {
   color: #fff;
   font-size: 30px;
+  font-weight: 400;
 }
 
 .anim-slide h4 {
@@ -3450,8 +3466,9 @@ li.anim-slide:nth-of-type(3) {
   font-size: 25px;
 }
 
+/*----------  SLIDE 1
+------------------------------------------------------------------------------*/
 .anim-slide h1#slider,
-.anim-slide h1#bounceInDown,
 .anim-slide h1#bounceDown {
   font-size: 61px;
   letter-spacing: 6px;
@@ -3459,37 +3476,37 @@ li.anim-slide:nth-of-type(3) {
 }
 
 .anim-slide h2#bounce,
-.anim-slide h2#bounceUp,
-.anim-slide h2#slideInLeft {
+.anim-slide h2#bounceInDown,
+.anim-slide h2#bounceUp {
   font-size: 61px;
   letter-spacing: 6px;
   width: 100%;
 }
 
 .anim-slide h1#slider {
-  top: 30vh;
-}
-
-.anim-slide h1#bounceInDown {
-  top: 59vh;
+  top: 29.7vh;
 }
 
 .anim-slide h1#bounceDown {
-  top: 79vh;
+  top: 71vh;
+  font-size: 80px;
+  text-transform: uppercase;
 }
 
-.anim-slide h2#slideInLeft {
-  top: 66vh;
+.anim-slide h2#bounceInDown {
+  top: 56.5vh;
 }
 
 .anim-slide h2#bounce {
-  top: 37vh;
+  top: 36vh;
 }
 
 .anim-slide h2#bounceUp {
-  top: 47vh;
+  top: 46.4vh;
 }
 
+/*----------  SLIDE 2
+------------------------------------------------------------------------------*/
 .anim-slide h4#bounceUp,
 .anim-slide h4#rotateRight,
 .anim-slide h4#rotateLeft {
@@ -3499,7 +3516,8 @@ li.anim-slide:nth-of-type(3) {
   width: 100%;
 }
 
-.anim-slide h3#todo {
+.anim-slide h3#todo,
+.anim-slide h3#bounce {
   color: #000;
   font-size: 35px;
   letter-spacing: 13.5px;
@@ -3507,12 +3525,12 @@ li.anim-slide:nth-of-type(3) {
   width: 100%;
 }
 
+.anim-slide h3#todo {
+  top: 30vh;
+}
+
 .anim-slide h3#bounce {
-  color: #000;
-  font-size: 35px;
-  letter-spacing: 13.5px;
   top: 37vh;
-  width: 100%;
 }
 
 .anim-slide h4#bounceUp {
@@ -3527,31 +3545,51 @@ li.anim-slide:nth-of-type(3) {
   top: 66vh;
 }
 
-.anim-slide img#ipad {
-  left: 24%;
-  top: 20%;
+/*----------  SLIDE 3
+------------------------------------------------------------------------------*/
+.anim-slide h5#slider,
+.anim-slide h5#bounceDown {
+  font-size: 61px;
+  letter-spacing: 6px;
+  width: 100%;
 }
 
-.anim-slide img#iphone {
-  left: 41%;
-  top: 36.3%;
+.anim-slide h2#bounce1,
+.anim-slide h2#bounceInDown1,
+.anim-slide h2#bounceUp1 {
+  font-size: 61px;
+  letter-spacing: 6px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
 
-.anim-slide img#mac {
-  top: 18%;
-  left: 36%;
+.anim-slide h5#slider {
+  top: 29.7vh;
+  left: -9px;
 }
 
-.anim-slide img#modernizr {
-  width: 260px;
-  top: 75%;
-  left: 20%;
+.anim-slide h5#bounceDown {
+  top: 50.9vh;
+  left: 0;
+  font-size: 80px;
+  text-transform: uppercase;
 }
 
-.anim-slide h2#animatecss {
-  top: 69%;
-  left: 60%;
-  color: #f35626;
+.anim-slide h2#bounceInDown1 {
+  top: 73.5vh;
+  left: 8px;
+}
+
+.anim-slide h2#bounce1 {
+  top: 40vh;
+  left: -4px;
+}
+
+.anim-slide h2#bounceUp1 {
+  top: 61.4vh;
+  left: -1px;
 }
 
 div#demo {
@@ -3594,12 +3632,46 @@ img#github-logo {
 }
 
 @media only screen and (min-width: 631px) and (max-width: 896px) {
-  .anim-slide h1 {
-    font-size: 76px;
+  .anim-slide h1#slider,
+  .anim-slide h1#bounceDown {
+    font-size: 45px;
+    letter-spacing: 2.5px;
   }
 
-  .anim-slide h2 {
-    font-size: 21px;
+  .anim-slide h2#bounce,
+  .anim-slide h2#bounceInDown,
+  .anim-slide h2#bounceUp {
+    font-size: 25px;
+    letter-spacing: 6px;
+  }
+
+  .anim-slide h1#slider {
+    top: 29.7vh;
+  }
+
+  .anim-slide h1#bounceDown {
+    top: 70vh;
+  }
+
+  .anim-slide h2#bounceInDown {
+    top: 55vh;
+    left: 0;
+  }
+
+  .anim-slide h2#bounce {
+    top: 36vh;
+  }
+
+  .anim-slide h2#bounceUp {
+    top: 45.8vh;
+  }
+
+  .anim-slide h3#todo {
+    top: 30vh;
+  }
+
+  .anim-slide h3#bounce {
+    top: 41vh;
   }
 
   .anim-slide h4#bounceUp,
@@ -3607,22 +3679,132 @@ img#github-logo {
   .anim-slide h4#rotateLeft {
     font-size: 45px;
     letter-spacing: 2.5px;
+  }
+
+  .anim-slide h4#bounceUp {
+    top: 53vh;
+  }
+
+  .anim-slide h4#rotateRight {
+    top: 64vh;
+  }
+
+  .anim-slide h4#rotateLeft {
+    top: 75vh;
+  }
+
+  .anim-slide h5#slider,
+  .anim-slide h5#bounceDown {
+    font-size: 45px;
+    letter-spacing: 2.5px;
+  }
+
+  .anim-slide h2#bounce1,
+  .anim-slide h2#bounceInDown1,
+  .anim-slide h2#bounceUp1 {
+    font-size: 25px;
+    letter-spacing: 2.5px;
+  }
+
+  .anim-slide h5#slider {
+    top: 29.7vh;
+    left: -6px;
+  }
+
+  .anim-slide h2#bounceInDown1 {
+    top: 73.5vh;
+    left: 2px;
   }
 }
 @media only screen and (min-width: 50px) and (max-width: 630px) {
-  .anim-slide h1 {
-    font-size: 100px;
+  .anim-slide h1#slider,
+  .anim-slide h1#bounceDown {
+    font-size: 45px;
+    letter-spacing: 2.5px;
   }
 
-  .anim-slide h2 {
-    font-size: 28px;
+  .anim-slide h2#bounce,
+  .anim-slide h2#bounceInDown,
+  .anim-slide h2#bounceUp {
+    font-size: 25px;
+    letter-spacing: 2.5px;
+  }
+
+  .anim-slide h3#todo,
+  .anim-slide h3#bounce {
+    font-size: 33px;
+    letter-spacing: 3.5px;
+  }
+
+  .anim-slide h1#slider {
+    top: 26.7vh;
+  }
+
+  .anim-slide h1#bounceDown {
+    top: 70vh;
+  }
+
+  .anim-slide h2#bounceInDown {
+    top: 51vh;
+    left: 0;
+  }
+
+  .anim-slide h2#bounce {
+    top: 30vh;
+  }
+
+  .anim-slide h2#bounceUp {
+    top: 39.8vh;
+  }
+
+  .anim-slide h3#todo {
+    top: 30vh;
+  }
+
+  .anim-slide h3#bounce {
+    top: 41vh;
   }
 
   .anim-slide h4#bounceUp,
   .anim-slide h4#rotateRight,
   .anim-slide h4#rotateLeft {
+    font-size: 29px;
+    letter-spacing: 0;
+  }
+
+  .anim-slide h4#bounceUp {
+    top: 53vh;
+  }
+
+  .anim-slide h4#rotateRight {
+    top: 64vh;
+  }
+
+  .anim-slide h4#rotateLeft {
+    top: 75vh;
+  }
+
+  .anim-slide h5#slider,
+  .anim-slide h5#bounceDown {
     font-size: 45px;
     letter-spacing: 2.5px;
+  }
+
+  .anim-slide h2#bounce1,
+  .anim-slide h2#bounceInDown1,
+  .anim-slide h2#bounceUp1 {
+    font-size: 25px;
+    letter-spacing: 2.5px;
+  }
+
+  .anim-slide h5#slider {
+    top: 29.7vh;
+    left: -6px;
+  }
+
+  .anim-slide h2#bounceInDown1 {
+    top: 73.5vh;
+    left: 2px;
   }
 }
 /*----------  partials
@@ -3631,7 +3813,7 @@ img#github-logo {
   background-color: #323232;
   text-align: center;
   position: absolute;
-  z-index: 9999;
+  z-index: 999;
   width: 100%;
 }
 .header .logo {
@@ -3700,7 +3882,7 @@ img#github-logo {
   margin-right: 13px;
 }
 .header .fix-nav {
-  z-index: 9999;
+  z-index: 999;
   position: fixed;
   left: 0;
   top: 0;
@@ -4007,9 +4189,6 @@ img#github-logo {
   clear: both;
   background-color: #DDDAD6;
 }
-.about-us h2 {
-  padding: 40px 0 20px 0;
-}
 .about-us .about-icons-wrapper {
   width: 100%;
   overflow: hidden;
@@ -4170,9 +4349,6 @@ img#github-logo {
   text-align: center;
   clear: both;
 }
-.what-we-do h2 {
-  padding: 40px 0 20px 0;
-}
 .what-we-do .thumbs-wrapper {
   margin-bottom: 40px;
 }
@@ -4271,7 +4447,8 @@ img#github-logo {
   clear: both;
   background-image: url(../../assets/img/content/napustena-zgrada.jpg);
 }
-.why-choose-us h2 {
+.why-choose-us h2,
+.why-choose-us h6 {
   color: #fff;
 }
 .why-choose-us .ac-container {
@@ -4382,9 +4559,6 @@ img#github-logo {
 .our-work {
   text-align: center;
 }
-.our-work h2 {
-  padding: 40px 0 20px 0;
-}
 .our-work #filter {
   overflow: hidden;
   margin: auto auto 40px auto;
@@ -4474,13 +4648,12 @@ img#github-logo {
   margin: 0 auto;
   position: relative;
 }
-.contact h2 {
-  padding: 40px 0 20px 0;
-}
 .contact #map {
-  margin-top: 40px;
-  height: 300px;
   width: 100%;
+  height: 400px;
+}
+.contact .main-grid {
+  padding-bottom: 40px;
 }
 .contact .contact-wrapper .contact-form {
   margin: 0 auto;
@@ -4574,6 +4747,10 @@ img#github-logo {
   }
 }
 @media only screen and (min-width: 50px) and (max-width: 630px) {
+  .contact .contact-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+  }
   .contact .contact-wrapper .contact-form {
     padding-bottom: 20px;
   }

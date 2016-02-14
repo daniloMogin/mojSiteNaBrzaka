@@ -51,14 +51,14 @@ $(window).resize(function () {
 
 $("document").ready(function ($) {
 
-    /*----------  slider animations
+    /*----------  slider text animations
     ------------------------------------------------------------------------------*/
     $(".anim-slider").animateSlider( {
-        autoplay	:false,
-        interval	:5000,
-        animations 	: 
+        autoplay	            : false,
+        interval	            : 8000,
+        animations 	            : 
         {
-            0	: 	//Slide No1
+            0	                : 	//Slide No1
             {
                 "#slider": 
                 {
@@ -84,19 +84,13 @@ $("document").ready(function ($) {
 	               hide         :   "bounceOutUp",
 	               delayShow    :   "delay3s"
                 },
-                "#slideInLeft"  :
-                {
-	               show         :   "slideInLeft",
-	               hide         :   "slideOutRight",
-	               delayShow    :   "delay3-5s"
-	            },
-                "#bounceDown"     :
+                "#bounceDown"   :
                 {
 	               show         :   "bounceInRight",
 	               hide         :   "bounceInUp",
-	               delayShow    :   "delay5-5s"
+	               delayShow    :   "delay5s"
 	            },
-                li	: 
+                li	            : 
                 {
                     show   	    : "fadeIn",
                     hide 	    : "fadeOutLeftBig",
@@ -105,13 +99,13 @@ $("document").ready(function ($) {
             },
             1	: //Slide No2
             {	
-                "#todo":
+                "#todo"         :
                 {
                     show 		: "fadeIn",
                     hide 		: "fadeOut",
                     delayShow   : "delay0-5s"
                 },
-                "#bounce" 	:
+                "#bounce" 	    :
                 {
                     show 	 	: "bounceIn",
                     hide 	 	: "bounceOut",
@@ -123,56 +117,62 @@ $("document").ready(function ($) {
                     hide 	 	: "bounceOutLeft",
                     delayShow 	: "delay2-5s"
                 },
-                "#rotateRight" :
+                "#rotateRight"  :
                 {
                     show 	 	: "rotateInUpRight",
                     hide 	 	: "rotateOutDownRight",
                     delayShow 	: "delay4s"
                 },
-                "#rotateLeft" :
+                "#rotateLeft"   :
                 {
                     show 	 	: "rotateInUpLeft",
                     hide 	 	: "rotateOutDownLeft",
                     delayShow 	: "delay5s"
                 },
-                li	: 
+                li	            : 
                 {
-                    show   	  : "fadeInLeft",
-                    hide 	  : "fadeOutLeftBig",
-                    delayShow : "delay0.5s"
+                    show   	    : "fadeInLeft",
+                    hide 	    : "fadeOutLeftBig",
+                    delayShow   : "delay0.5s"
                 }
             },
-            2	: //Slide No3
+            2	                : //Slide No3
             {
-                "img#iphone"	:
+                "#slider": 
                 {
-                    show 	  : "flipInY",
-                    hide 	  : "flipOutY",
-                    delayShow : "delay0-5s"
+                    show   	    : "bounceIn",
+                    hide 	    : "flipOutX",
+                    delayShow   : "delay1s"
                 },
-                "img#ipad"	:
+                "#bounce1" 	    :
                 {
-                    show 	  : "flipInY",
-                    hide 	  : "flipOutY",
-                    delayShow : "delay0-5s"
+                    show 	 	: "bounceIn",
+                    hide 	 	: "bounceOut",
+                    delayShow 	: "delay1-5s"
                 },
-                "img#mac"  :
+                "#bounceUp1"    :
                 {
-                    show 	  : "bounceIn",
-                    hide 	  : "flipOutY",
-                    delayShow : "delay1-5s"
+                    show 	 	: "bounceInDown",
+                    hide 	 	: "bounceOutLeft",
+                    delayShow 	: "delay3s"
                 },
-                "#animatecss"	: 
+                "#bounceInDown1":
                 {
-                    show 	  : "lightSpeedIn",
-                    hide 	  : "flipOutY",
-                    delayShow : "delay2-5s"
+                   show         :   "bounceInDown",
+	               hide         :   "bounceOutUp",
+	               delayShow    :   "delay3-5s"
                 },
-                li	: 
+                "#bounceDown"   :
                 {
-                    show   	  : "fadeInUp",
-                    hide 	  : "fadeOutLeftBig",
-                    delayShow : "delay0.5s"
+	               show         :   "bounceInRight",
+	               hide         :   "bounceInUp",
+	               delayShow    :   "delay2-5s"
+	            },
+                li	            : 
+                {
+                    show   	    : "fadeInUp",
+                    hide 	    : "fadeOutLeftBig",
+                    delayShow   : "delay0.5s"
                 }
             }
         }
@@ -216,7 +216,7 @@ $("document").ready(function ($) {
                 var progress = $(this);
                 var percentage = Math.ceil($(this).attr("data-percentage"));
                 $({countNum: 0}).animate({countNum: percentage}, {
-                    duration: 4500,
+                    duration: 3500,
                     easing:"linear",
                     step: function() {
                         // What todo on every count
@@ -240,7 +240,7 @@ $("document").ready(function ($) {
                 var progress = $(this);
                 var percentage = Math.ceil($(this).attr("data-percentage"));
                 $({countNum: 0}).animate({countNum: percentage}, {
-                    duration: 4500,
+                    duration: 3500,
                     easing:"linear",
                     step: function() {
                         // What todo on every count
@@ -263,7 +263,7 @@ $("document").ready(function ($) {
     // browser window scroll (in pixels) after which the "back to top" link is shown
     var offset = 500,
         //duration of the top scrolling animation (in ms)
-        scroll_top_duration = 1500,
+        scroll_top_duration = 1000,
         //grab the "back to top" link
         $back_to_top = $('.tp-container');
 
@@ -449,7 +449,7 @@ $('ul.nav-script>li>a').on('click', function() {
 
     $('body,html').animate({
         scrollTop: scrollPoint
-    }, 1500);
+    }, 1000);
 
     return false;
 })

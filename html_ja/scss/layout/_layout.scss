@@ -49,6 +49,14 @@ body {
             }
         }
     }
+    @include breakpoint(tablet) {
+    }
+    @include breakpoint(phone) {
+        .tp-container {
+            right: 17px;
+            bottom: 107px;
+        }
+    }
 }
 
 #preloader { 
@@ -183,6 +191,12 @@ body {
     }
     @include breakpoint(phone) {
         padding: 0 20px;
+        body {
+        .tp-container {
+            right: 17px;
+            bottom: 88px;
+        }
+        }
     }
 }
 
