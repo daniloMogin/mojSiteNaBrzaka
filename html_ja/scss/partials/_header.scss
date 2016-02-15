@@ -1,9 +1,10 @@
 .header {
-    background-color: $gray-dark;
+//    background-color: $gray-dark; 
     text-align: center;
     position: absolute;
     z-index: 999;
     width: 100%;
+    
     .logo {
         height: 70px;
         width: 70px;
@@ -70,6 +71,8 @@
         top: 0;
         width: 100%;
         background-color: $gray-dark;
+        @include transition-duration(.9s);
+        @include transition-timing-function(ease-out);
     }
 
     @include breakpoint(tablet) {

@@ -37,8 +37,6 @@ $(window).load(function () {
     ------------------------------------------------------------------------------*/
     equalheight(".footer-mid li");
 
-    //equalheight('.col-three > h3');
-
 });
 
 $(window).resize(function () {
@@ -189,18 +187,18 @@ $("document").ready(function ($) {
     /*----------  stats counter waypoint
     ------------------------------------------------------------------------------*/
     var waypoint = new Waypoint({
-        element: document.getElementById('waypoint-counter'),
+        element: document.getElementById("waypoint-counter"),
         handler: function() {
-            $('.timer').countTo({
+            $(".timer").countTo({
                 speed: 4000
             });
         },
         offset: "-5%"
     })
     var waypoint = new Waypoint({
-        element: document.getElementById('waypoint-counter'),
+        element: document.getElementById("waypoint-counter"),
         handler: function() {
-            $('.timer').countTo({
+            $(".timer").countTo({
                 speed: 4000
             });
         },
@@ -210,7 +208,7 @@ $("document").ready(function ($) {
     /*----------  loader waypoint
     ------------------------------------------------------------------------------*/
     var waypoint = new Waypoint({
-        element: document.getElementById('waypoint-loader'),
+        element: document.getElementById("waypoint-loader"),
         handler: function() {
             $(".bar-percentage[data-percentage]").each(function () {
                 var progress = $(this);
@@ -234,7 +232,7 @@ $("document").ready(function ($) {
         offset: "-20%"
     })
     var waypoint = new Waypoint({
-        element: document.getElementById('waypoint-loader'),
+        element: document.getElementById("waypoint-loader"),
         handler: function() {
             $(".bar-percentage[data-percentage]").each(function () {
                 var progress = $(this);
@@ -265,7 +263,7 @@ $("document").ready(function ($) {
         //duration of the top scrolling animation (in ms)
         scroll_top_duration = 1000,
         //grab the "back to top" link
-        $back_to_top = $('.tp-container');
+        $back_to_top = $(".tp-container");
 
     $(window).scroll(function (event) {
         var scroll = $(window).scrollTop();
@@ -277,9 +275,9 @@ $("document").ready(function ($) {
     });
 
     //smooth scroll to top
-    $back_to_top.on('click', function(event){
+    $back_to_top.on("click", function(event){
         event.preventDefault();
-        $('body,html').animate({
+        $("body,html").animate({
             scrollTop: 0,
         }, scroll_top_duration
                               );
@@ -287,7 +285,7 @@ $("document").ready(function ($) {
 
     /*----------  animate content in viewport
     ------------------------------------------------------------------------------*/
-    var $animation_elements = $('.animation-element, .timer');
+    var $animation_elements = $(".animation-element, .timer");
     var $window = $(window);
 
     function check_if_in_view() {
@@ -304,15 +302,15 @@ $("document").ready(function ($) {
             //check to see if this current container is within viewport
             if ((element_bottom_position >= window_top_position) &&
                 (element_top_position <= window_bottom_position)) {
-                $element.addClass('in-view');
+                $element.addClass("in-view");
             } else {
-                $element.removeClass('in-view');
+                $element.removeClass("in-view");
             }
         });
     }
 
-    $window.on('scroll resize', check_if_in_view);
-    $window.trigger('scroll');
+    $window.on("scroll resize", check_if_in_view);
+    $window.trigger("scroll");
 
     /*----------  moving hover
     ------------------------------------------------------------------------------*/
@@ -390,26 +388,26 @@ function onScroll(event){
 
 /*----------  scroll to position
 ------------------------------------------------------------------------------*/
-$('ul.nav-script>li>a').on('click', function() {
+$("ul.nav-script>li>a").on("click", function() {
 
-    var scrollAnchor = $(this).attr('data-scroll'),
+    var scrollAnchor = $(this).attr("data-scroll"),
         scrollPoint = $('section[data-anchor="' + scrollAnchor + '"]').offset().top - 88;
 
-    $('body,html').animate({
+    $("body,html").animate({
         scrollTop: scrollPoint
     }, 1000);
 
     return false;
 })
 
-$('#reload').click(function() {
+$("#reload").click(function() {
     location.reload();
 });
 
 /*----------  add google maps to page
 ------------------------------------------------------------------------------*/
 // When the window has finished loading create our google map below
-google.maps.event.addDomListener(window, 'load', init);
+google.maps.event.addDomListener(window, "load", init);
 
 function init() {
     // Basic options for a simple Google Map
@@ -433,7 +431,7 @@ function init() {
 
     // Get the HTML DOM element that will contain your map 
     // We are using a div with id="map" seen below in the <body>
-    var mapElement = document.getElementById('map');
+    var mapElement = document.getElementById("map");
 
     // Create the Google Map using our element and options defined above
     var map = new google.maps.Map(mapElement, mapOptions);
@@ -442,7 +440,7 @@ function init() {
     var marker = new google.maps.Marker({
         position: novi_sad,
         map: map,
-        title: 'Novi Sad'
+        title: "Novi Sad"
     });
     var contentString = '<div id="content">' +
         '<div id="siteNotice">' +
@@ -452,12 +450,12 @@ function init() {
         '<p>Dr Svetislava Kasapinovica 21 ' +
         '</p>'
 
-    '</div>' +
+        '</div>' +
         '</div>';
     var infowindow = new google.maps.InfoWindow({
         content: contentString
     });
-    marker.addListener('click', function () {
+    marker.addListener("click", function () {
         infowindow.open(map, marker);
         map.setZoom(13);
         map.setCenter(marker.getPosition());
