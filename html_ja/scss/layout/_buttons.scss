@@ -7,16 +7,13 @@
     color: $white;
     text-transform: uppercase;
     white-space: nowrap;
-    font-family: inherit;
     background: $black;
     cursor: pointer;
     letter-spacing: 1px;
     outline: none;
-    position: relative;
-    @include transition(all .3s ease-out);
+    @include transition(all $mediumDuration ease-out);
 
     &:hover {
         background-color: $gray;
-//        border-bottom: 4px solid $black;
     }
 }

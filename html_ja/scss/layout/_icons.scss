@@ -1,7 +1,7 @@
 /*----------  icons
 ------------------------------------------------------------------------------*/
 i {
-    @include transition-duration(.3s); 
+    @include transition-duration($mediumDuration); 
     &:hover {
         color: $gray;
     }

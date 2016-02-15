@@ -43,7 +43,7 @@
                     border: 0;
                 }
                 > a {
-                    @include transition(all .3s ease-out);
+                    @include transition(all $mediumDuration ease-out);
                     color: $white;
                     font-weight: 300;
                     &:hover {

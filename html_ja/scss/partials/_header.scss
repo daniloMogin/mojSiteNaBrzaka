@@ -42,7 +42,7 @@
                 text-transform: uppercase;
                 margin: 0 12px;
                 text-decoration: none;
-                @include transition-duration(.3s);
+                @include transition-duration($mediumDuration);
                 @include transition-timing-function(ease-out);
                 &:hover {
                     color: $gray-light;
@@ -71,7 +71,7 @@
         top: 0;
         width: 100%;
         background-color: $gray-dark;
-        @include transition-duration(.9s);
+        @include transition-duration($slowDuration);
         @include transition-timing-function(ease-out);
     }
 
@@ -154,7 +154,7 @@
                         color: $gray;
                         font-weight: 300;
                         text-transform: uppercase;
-                        @include transition-duration(.3s);
+                        @include transition-duration($mediumDuration);
                         &:hover {
                             color: $gray-light;
                         }
