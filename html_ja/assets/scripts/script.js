@@ -334,7 +334,7 @@ function onScroll(event){
 
 /*----------  scroll to position
 ------------------------------------------------------------------------------*/
-$("ul.nav-script>li>a").on("click", function() {
+$("ul.nav-script>li>a, div.button-wrapper>a").on("click", function() {
 
     var scrollAnchor = $(this).attr("data-scroll"),
         scrollPoint = $('section[data-anchor="' + scrollAnchor + '"]').offset().top - 88;
@@ -349,6 +349,7 @@ $("ul.nav-script>li>a").on("click", function() {
 $("#reload").click(function() {
     location.reload();
 });
+
 
 /*----------  add google maps to page
 ------------------------------------------------------------------------------*/
