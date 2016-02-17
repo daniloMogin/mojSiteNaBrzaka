@@ -52,42 +52,24 @@ $("document").ready(function ($) {
     /*----------  slider text animations
     ------------------------------------------------------------------------------*/
     $(".anim-slider").animateSlider( {
-        autoplay	            : true,
+        autoplay	            : false,
         interval	            : 8000,
         animations 	            : 
         {
             0	                : 	//Slide No1
             {
-                "#slider": 
+                "#fadeIn": 
                 {
-                    show   	    : "bounceIn",
+                    show   	    : "flipInX",
                     hide 	    : "flipOutX",
                     delayShow   : "delay1s"
                 },
-                "#bounce" 	    :
+                "#fadeIn2" 	    :
                 {
-                    show 	 	: "bounceIn",
-                    hide 	 	: "bounceOut",
+                    show   	    : "flipInX",
+                    hide 	    : "flipOutX",
                     delayShow 	: "delay1-5s"
                 },
-                "#bounceUp"     :
-                {
-                    show 	 	: "bounceInDown",
-                    hide 	 	: "bounceOutLeft",
-                    delayShow 	: "delay2s"
-                },
-                "#bounceInDown" :
-                {
-                   show         :   "bounceInDown",
-	               hide         :   "bounceOutUp",
-	               delayShow    :   "delay3s"
-                },
-                "#bounceDown"   :
-                {
-	               show         :   "bounceInRight",
-	               hide         :   "bounceInUp",
-	               delayShow    :   "delay5s"
-	            },
                 li	            : 
                 {
                     show   	    : "fadeIn",
@@ -97,35 +79,17 @@ $("document").ready(function ($) {
             },
             1	: //Slide No2
             {	
-                "#todo"         :
+                "#fadeIn"         :
                 {
-                    show 		: "fadeIn",
-                    hide 		: "fadeOut",
-                    delayShow   : "delay0-5s"
+                    show   	    : "fadeInRight",
+                    hide 	    : "fadeInLeft",
+                    delayShow   : "delay1s"
                 },
-                "#bounce" 	    :
+                "#fadeIn2" 	    :
                 {
-                    show 	 	: "bounceIn",
-                    hide 	 	: "bounceOut",
-                    delayShow 	: "delay2s"
-                },
-                "#bounceUp":
-                {
-                    show 	 	: "bounceInDown",
-                    hide 	 	: "bounceOutLeft",
-                    delayShow 	: "delay2-5s"
-                },
-                "#rotateRight"  :
-                {
-                    show 	 	: "rotateInUpRight",
-                    hide 	 	: "rotateOutDownRight",
-                    delayShow 	: "delay4s"
-                },
-                "#rotateLeft"   :
-                {
-                    show 	 	: "rotateInUpLeft",
-                    hide 	 	: "rotateOutDownLeft",
-                    delayShow 	: "delay5s"
+                    show 	 	: "fadeInRight",
+                    hide 	 	: "fadeInLeft",
+                    delayShow 	: "delay1-5s"
                 },
                 li	            : 
                 {
@@ -136,36 +100,18 @@ $("document").ready(function ($) {
             },
             2	                : //Slide No3
             {
-                "#slider": 
+                "#fadeIn": 
                 {
-                    show   	    : "bounceIn",
-                    hide 	    : "flipOutX",
+                    show   	    : "fadeInLeft",
+                    hide 	    : "fadeInRight",
                     delayShow   : "delay1s"
                 },
-                "#bounce1" 	    :
+                "#fadeIn2" 	    :
                 {
-                    show 	 	: "bounceIn",
-                    hide 	 	: "bounceOut",
+                    show 	 	: "fadeInLeft",
+                    hide 	 	: "fadeInRight",
                     delayShow 	: "delay1-5s"
                 },
-                "#bounceUp1"    :
-                {
-                    show 	 	: "bounceInDown",
-                    hide 	 	: "bounceOutLeft",
-                    delayShow 	: "delay3s"
-                },
-                "#bounceInDown1":
-                {
-                   show         :   "bounceInDown",
-	               hide         :   "bounceOutUp",
-	               delayShow    :   "delay3-5s"
-                },
-                "#bounceDown"   :
-                {
-	               show         :   "bounceInRight",
-	               hide         :   "bounceInUp",
-	               delayShow    :   "delay2-5s"
-	            },
                 li	            : 
                 {
                     show   	    : "fadeInUp",
