@@ -52,8 +52,8 @@ $("document").ready(function ($) {
     /*----------  slider text animations
     ------------------------------------------------------------------------------*/
     $(".anim-slider").animateSlider( {
-        autoplay	            : false,
-        interval	            : 8000,
+        autoplay	            : true,
+        interval	            : 7000,
         animations 	            : 
         {
             0	                : 	//Slide No1
@@ -72,8 +72,8 @@ $("document").ready(function ($) {
                 },
                 li	            : 
                 {
-                    show   	    : "fadeIn",
-                    hide 	    : "fadeOutLeftBig",
+                    show   	    : "fadeInRight",
+                    hide 	    : "fadeOutDown",
                     delayShow   : "delay0.5s"
                 }	
             },
@@ -93,8 +93,8 @@ $("document").ready(function ($) {
                 },
                 li	            : 
                 {
-                    show   	    : "fadeInLeft",
-                    hide 	    : "fadeOutLeftBig",
+                    show   	    : "fadeInRight",
+                    hide 	    : "fadeOutDown",
                     delayShow   : "delay0.5s"
                 }
             },
@@ -114,8 +114,8 @@ $("document").ready(function ($) {
                 },
                 li	            : 
                 {
-                    show   	    : "fadeInUp",
-                    hide 	    : "fadeOutLeftBig",
+                    show   	    : "fadeInRight",
+                    hide 	    : "fadeOutDown",
                     delayShow   : "delay0.5s"
                 }
             }

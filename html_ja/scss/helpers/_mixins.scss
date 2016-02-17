@@ -31,15 +31,20 @@
             @content;
         }
     }
-
-    @else if $breakpoint == "tablet" {
-        @media only screen and (min-width: 631px) and (max-width: 896px) {
+    @else if $breakpoint == "phonePod" {
+        @media only screen and (min-width: 480px) and (max-width: 568px) {
             @content;
         }
     }
     
     @else if $breakpoint == "ipad" {
         @media only screen and (min-width: 768px) and (max-width: 800px) {
+            @content;
+        }
+    }
+    
+    @else if $breakpoint == "tablet" {
+        @media only screen and (min-width: 631px) and (max-width: 896px) {
             @content;
         }
     }
