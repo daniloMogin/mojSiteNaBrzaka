@@ -52,7 +52,7 @@ $("document").ready(function ($) {
     /*----------  slider text animations
     ------------------------------------------------------------------------------*/
     $(".anim-slider").animateSlider( {
-        autoplay	            : true,
+        autoplay	            : false,
         interval	            : 7000,
         animations 	            : 
         {

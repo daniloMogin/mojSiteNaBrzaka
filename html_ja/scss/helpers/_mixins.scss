@@ -22,12 +22,12 @@
     }
     
     @if $breakpoint == "phoneNexus" {
-        @media only screen and (min-width: 361px) and (max-width: 600px) {
+        @media only screen and (min-width: 361px) and (max-width: 590px) {
             @content;
         }
     }
     @if $breakpoint == "phone600" {
-        @media only screen and (min-width: 384px) and (max-width: 600px) {
+        @media only screen and (min-width: 384px) and (max-width: 590px) {
             @content;
         }
     }
@@ -39,6 +39,12 @@
     
     @else if $breakpoint == "ipad" {
         @media only screen and (min-width: 768px) and (max-width: 800px) {
+            @content;
+        }
+    }
+    
+    @if $breakpoint == "phoneXBig" {
+        @media only screen and (min-width: 600px) and (max-width: 602px) {
             @content;
         }
     }
