@@ -162,14 +162,14 @@
             }
         }
         .loading-bar-wrapper {
-            text-align: left;
+            text-align: left;  
             margin-top: 4px; 
             p {
                 font-family: $font-sec;
                 font-style: italic;
                 font-size: 13px;
                 width: 69%;
-                transform: translateX(71px);
+                transform: translateX(65px);
                 color: $gray-dark;
             }
             i {

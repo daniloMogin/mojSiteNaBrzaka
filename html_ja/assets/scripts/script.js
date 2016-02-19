@@ -89,10 +89,6 @@ $("document").ready(function ($) {
                 },
                 message: {
                     required: true
-                },
-                answer: {
-                    required: true,
-                    answercheck: true
                 }
             },
             messages: {
