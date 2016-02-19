@@ -16,7 +16,9 @@
         <meta name="author" content="Danilo Mogin" />
 
         <script src="assets/scripts/jquery-1.12.0.min.js"></script>
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+
         <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
 
@@ -32,7 +34,7 @@
         <!-- for IE -->
         <link rel="icon" type="image/x-icon" href="../html_ja/assets/img/icons/ico16.ico">
         <link rel="shortcut icon" type="image/x-icon" href="../html_ja/assets/img/icons/ico16.ico" />
-        
+
         <!-- Facebook card Open Graph -->
         <meta property="og:title" content="Web design - Mogin IT Studio | Web design services" />
         <meta property="og:type" content="website" />
@@ -40,7 +42,7 @@
         <meta property="og:image" content="http://graphics8.nytimes.com/images/2012/02/19/us/19whitney-span/19whitney-span-articleLarge.jpg" />
         <meta property="og:site_name" content="Mogin IT Studio" />
         <meta property="og:description" content="Mogin IT Studio - we offer quality, professional web design, graphic design, web development and branding services." />
-        
+
         <!-- Tweeter card -->
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="Web design - Mogin IT Studio | Web design services">
@@ -49,8 +51,6 @@
         <meta name="twitter:title" content="Web design - Mogin IT Studio | Web design services">
         <meta name="twitter:description" content="Mogin IT Studio - we offer quality, professional web design, graphic design, web development and branding services.">
         <meta name="twitter:image" content="http://graphics8.nytimes.com/images/2012/02/19/us/19whitney-span/19whitney-span-articleLarge.jpg">
-
-        <script src="https://maps.googleapis.com/maps/api/js"></script>
 
         <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -180,7 +180,7 @@
                             <i class="fa fa-quote-left fa-5x right"></i>
                         </div> <!-- end of waypoint-loader -->
                     </div> <!-- end of col-two -->
-<!--                    <a href="#destination5" data-anchor="contact" class="btn animation-element slide-left">Get in touch</a>-->
+                    <!--                    <a href="#destination5" data-anchor="contact" class="btn animation-element slide-left">Get in touch</a>-->
                     <div class="button-wrapper">
                         <a href="#destination5" data-scroll="contact" class="button button--wayra button--inverted">Get in Touch</a>
                     </div> <!-- end of button-wrapper -->
@@ -353,7 +353,36 @@
                 <h6>Do you have a project that you think we will love, or maybe you just want to say hello to us?</h6>
                 <div class="contact-wrapper">
                     <div class="col-two">
-                        <div id="map"></div>
+                        <div class="form-wrapper">
+                            <form id="contact" name="contact" method="post">  
+                                <fieldset>
+                                    <input type="text" name="name" id="name" size="30" value="" placeholder="Name" required/>
+                                    <input type="text" name="email" id="email" size="30" value="" placeholder="Email" required/>
+                                    <input type="text" name="subject" id="subject" size="30" value="" placeholder="Subject" />
+                                    <textarea name="message" id="message" rows="6" placeholder="Message" required></textarea>
+
+                                    <input id="submit" type="submit" name="submit" value="Send" class="button button--wayra button--inverted" />
+
+                                    <!--
+<div class="button-wrapper">
+<a id="submit" type="submit" href="javascript:;" class="button button--wayra button--inverted">Send</a>
+</div>  end of button-wrapper 
+-->
+                                </fieldset>  
+                            </form>
+
+                            <div id="success">
+                                <span>
+                                    <p>Your message was sent succssfully! I will be in touch as soon as I can.</p>
+                                </span>
+                            </div>
+
+                            <div id="error">
+                                <span>
+                                    <p>Something went wrong, try refreshing and submitting the form again.</p>
+                                </span>
+                            </div>
+                        </div> <!-- end of form-wrapper -->
                     </div> <!-- end of col-two -->
                     <div class="col-two">
                         <div class="contact-info-up">

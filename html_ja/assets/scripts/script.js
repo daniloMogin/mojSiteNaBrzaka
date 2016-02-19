@@ -49,10 +49,67 @@ $(window).resize(function () {
 
 $("document").ready(function ($) {
 
+    /*----------  contact form validator
+    ------------------------------------------------------------------------------*/
+    $(function() {
+        $('#contact').validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                message: {
+                    required: true
+                },
+                answer: {
+                    required: true,
+                    answercheck: true
+                }
+            },
+            messages: {
+                name: {
+                    required: "come on, you have a name don't you?",
+                    minlength: "your name must consist of at least 2 characters"
+                },
+                email: {
+                    required: "no email, no message"
+                },
+                message: {
+                    required: "um...yea, you have to write something to send this form.",
+                    minlength: "thats all? really?"
+                }
+            },
+            submitHandler: function(form) {
+                $(form).ajaxSubmit({
+                    type:"POST",
+                    data: $(form).serialize(),
+                    url:"process.php",
+                    success: function() {
+                        $('#contact :input').attr('disabled', 'disabled');
+                        $('#contact').fadeTo( "slow", 0.15, function() {
+                            $(this).find(':input').attr('disabled', 'disabled');
+                            $(this).find('label').css('cursor','default');
+                            $('#success').fadeIn();
+                        });
+                    },
+                    error: function() {
+                        $('#contact').fadeTo( "slow", 0.15, function() {
+                            $('#error').fadeIn();
+                        });
+                    }
+                });
+            }
+        });
+    });
+
     /*----------  slider text animations
     ------------------------------------------------------------------------------*/
     $(".anim-slider").animateSlider( {
-        autoplay	            : true,
+        autoplay	            : false,
         interval	            : 7000,
         animations 	            : 
         {
@@ -354,57 +411,57 @@ $("#reload").click(function() {
 /*----------  add google maps to page
 ------------------------------------------------------------------------------*/
 // When the window has finished loading create our google map below
-google.maps.event.addDomListener(window, "load", init);
-
-function init() {
-    // Basic options for a simple Google Map
-    // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-    var novi_sad = {
-        lat: 45.259006,
-        lng: 19.814523
-    };
-    var mapOptions = {
-        // How zoomed in you want the map to start at (always required)
-        zoom: 8,
-        scrollwheel: false,
-
-        // The latitude and longitude to center the map (always required)
-        center: novi_sad, // Novi Sad
-
-        // How you would like to style the map. 
-        // This is where you would paste any style found on Snazzy Maps.
-        styles: [{"elementType":"geometry","stylers":[{"hue":"#ff4400"},{"saturation":-68},{"lightness":-4},{"gamma":0.72}]},{"featureType":"road","elementType":"labels.icon"},{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"hue":"#0077ff"},{"gamma":3.1}]},{"featureType":"water","stylers":[{"hue":"#00ccff"},{"gamma":0.44},{"saturation":-33}]},{"featureType":"poi.park","stylers":[{"hue":"#44ff00"},{"saturation":-23}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"hue":"#007fff"},{"gamma":0.77},{"saturation":65},{"lightness":99}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"gamma":0.11},{"weight":5.6},{"saturation":99},{"hue":"#0091ff"},{"lightness":-86}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"lightness":-48},{"hue":"#ff5e00"},{"gamma":1.2},{"saturation":-23}]},{"featureType":"transit","elementType":"labels.text.stroke","stylers":[{"saturation":-64},{"hue":"#ff9100"},{"lightness":16},{"gamma":0.47},{"weight":2.7}]}]
-    };
-
-    // Get the HTML DOM element that will contain your map 
-    // We are using a div with id="map" seen below in the <body>
-    var mapElement = document.getElementById("map");
-
-    // Create the Google Map using our element and options defined above
-    var map = new google.maps.Map(mapElement, mapOptions);
-
-    // Let's also add a marker while we're at it
-    var marker = new google.maps.Marker({
-        position: novi_sad,
-        map: map,
-        title: "Novi Sad"
-    });
-    var contentString = '<div id="content">' +
-        '<div id="siteNotice">' +
-        '</div>' +
-        '<h3 id="firstHeading" class="firstHeading">Novi Sad</h3>' +
-        '<div id="bodyContent">' +
-        '<p>Dr Svetislava Kasapinovica 21 ' +
-        '</p>'
-
-        '</div>' +
-        '</div>';
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
-    });
-    marker.addListener("click", function () {
-        infowindow.open(map, marker);
-        map.setZoom(13);
-        map.setCenter(marker.getPosition());
-    });
-}
+//google.maps.event.addDomListener(window, "load", init);
+//
+//function init() {
+//    // Basic options for a simple Google Map
+//    // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+//    var novi_sad = {
+//        lat: 45.259006,
+//        lng: 19.814523
+//    };
+//    var mapOptions = {
+//        // How zoomed in you want the map to start at (always required)
+//        zoom: 8,
+//        scrollwheel: false,
+//
+//        // The latitude and longitude to center the map (always required)
+//        center: novi_sad, // Novi Sad
+//
+//        // How you would like to style the map. 
+//        // This is where you would paste any style found on Snazzy Maps.
+//        styles: [{"elementType":"geometry","stylers":[{"hue":"#ff4400"},{"saturation":-68},{"lightness":-4},{"gamma":0.72}]},{"featureType":"road","elementType":"labels.icon"},{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"hue":"#0077ff"},{"gamma":3.1}]},{"featureType":"water","stylers":[{"hue":"#00ccff"},{"gamma":0.44},{"saturation":-33}]},{"featureType":"poi.park","stylers":[{"hue":"#44ff00"},{"saturation":-23}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"hue":"#007fff"},{"gamma":0.77},{"saturation":65},{"lightness":99}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"gamma":0.11},{"weight":5.6},{"saturation":99},{"hue":"#0091ff"},{"lightness":-86}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"lightness":-48},{"hue":"#ff5e00"},{"gamma":1.2},{"saturation":-23}]},{"featureType":"transit","elementType":"labels.text.stroke","stylers":[{"saturation":-64},{"hue":"#ff9100"},{"lightness":16},{"gamma":0.47},{"weight":2.7}]}]
+//    };
+//
+//    // Get the HTML DOM element that will contain your map 
+//    // We are using a div with id="map" seen below in the <body>
+//    var mapElement = document.getElementById("map");
+//
+//    // Create the Google Map using our element and options defined above
+//    var map = new google.maps.Map(mapElement, mapOptions);
+//
+//    // Let's also add a marker while we're at it
+//    var marker = new google.maps.Marker({
+//        position: novi_sad,
+//        map: map,
+//        title: "Novi Sad"
+//    });
+//    var contentString = '<div id="content">' +
+//        '<div id="siteNotice">' +
+//        '</div>' +
+//        '<h3 id="firstHeading" class="firstHeading">Novi Sad</h3>' +
+//        '<div id="bodyContent">' +
+//        '<p>Dr Svetislava Kasapinovica 21 ' +
+//        '</p>'
+//
+//    '</div>' +
+//        '</div>';
+//    var infowindow = new google.maps.InfoWindow({
+//        content: contentString
+//    });
+//    marker.addListener("click", function () {
+//        infowindow.open(map, marker);
+//        map.setZoom(13);
+//        map.setCenter(marker.getPosition());
+//    });
+//}
