@@ -36,7 +36,7 @@
 ------------------------------------------------------------------------------*/    
 .stats {
     width: 100%;
-//    background-image: url(../../assets/img/content/napustena-zgrada-z.jpg);
+    //    background-image: url(../../assets/img/content/napustena-zgrada-z.jpg);
     background-color: $gray;
     //    min-height: 123px;
 
@@ -339,117 +339,48 @@
 .why-choose-us {
     text-align: center;
     background-image: url(../../assets/img/content/napustena-zgrada-z.jpg);
-
-//    h2,
-//    h6 {
-//        color: $white;
-//    }  
     .ac-container {
-        width: 100%;
-        margin: 23px auto 40px auto;
-        text-align: left;
-    }
-    .ac-container label {
-        font-size: 19px;
-        line-height: 33px;
-        text-transform: uppercase;
-        padding: 15px 20px;
-        position: relative;
-        z-index: 20;
-        display: block;
-        cursor: pointer;
-        color: $white;
-        background: $black;
-        border-bottom: 4px solid $red;
-        @include transition-duration($mediumDuration);
-    }
-    .ac-container label:hover {
-        background: $gray-dark;
-        border-bottom: 4px solid $red;
-    }
-    .ac-container input:checked + label,
-    .ac-container input:checked + label:hover {
-        background: $white;
-        color: $black;
-        border-bottom: 4px solid $black;
-    }
-    .ac-container label:hover:after,
-    .ac-container input:checked + label:hover:after {
-        content: '';
-        position: absolute;
-        width: 24px;
-        height: 24px;
-        right: 13px;
-        top: 7px;
-        background: transparent url(../img/accordion/arrow_down.png) no-repeat center center;	
-    }
-    .ac-container input:checked + label:hover:after {
-        background-image: url(../img/accordion/arrow_up.png);
-    }
-    .ac-container input {
-        display: none;
-    }
-    .ac-container article {
-        background: $white;
-        margin-top: -1px;
-        overflow: hidden;
-        height: 0;
-        position: relative;
-        z-index: 10;
-        -webkit-transition: height $mediumDuration ease-in-out, box-shadow $slowDuration linear;
-        -moz-transition: height $mediumDuration ease-in-out, box-shadow $slowDuration linear;
-        -o-transition: height $mediumDuration ease-in-out, box-shadow $slowDuration linear;
-        -ms-transition: height $mediumDuration ease-in-out, box-shadow $slowDuration linear;
-        transition: height $mediumDuration ease-in-out, box-shadow $slowDuration linear;
-    }
-    .ac-container article p {
-        color: $black;
-        line-height: 23px;
-        padding: 20px;
-        font-size: 16px;
-        font-weight: 500;
-    }
-    .ac-container input:checked ~ article {
-        -webkit-transition: height $slowDuration ease-in-out, box-shadow $fastDuration linear;
-        -moz-transition: height $slowDuration ease-in-out, box-shadow $fastDuration linear;
-        -o-transition: height $slowDuration ease-in-out, box-shadow $fastDuration linear;
-        -ms-transition: height $slowDuration ease-in-out, box-shadow $fastDuration linear;
-        transition: height $slowDuration ease-in-out, box-shadow $fastDuration linear;
-        box-shadow: 0px 0px 0px 1px rgba(155,155,155, .3);
-    }
-    .ac-container input:checked ~ article.ac-small {
-        height: 140px;
-    }
-    .ac-container input:checked ~ article.ac-medium {
-        height: 180px;
-    }
-    .ac-container input:checked ~ article.ac-large {
-        height: 230px;
-    }
-
-    @include breakpoint(tablet) {
-        .ac-container {
-            article {
-                p {
-                    font-size: 13.5px;
-                }
-            }
+        margin-bottom: 40px;
+        /*----- Accordion -----*/
+        .accordion {
+            overflow: hidden;
+            box-shadow: 0px 1px 3px rgba(0,0,0,0.25);
+            border-radius: 3px;
+            background: $gray-light;
         }
+        /*----- Section Titles -----*/
+        .accordion-section-title {
+            width: 100%;
+            padding: 15px;
+            display: inline-block;
+            border-bottom: 1px solid $black;
+            background: $gray-dark;
+            @include transition(all .15s ease-out);
+            /* Type */
+            font-size: 1.200em;
+            text-shadow: 0px 1px 0px $gray-dark;
+            color: $white;
+        }
+
+        .accordion-section-title.active, .accordion-section-title:hover {
+            background: darken( $gray-dark, 5% );
+            /* Type */
+            text-decoration: none;
+        }
+
+        .accordion-section:last-child .accordion-section-title {
+            border-bottom: none;
+        }
+
+        /*----- Section Content -----*/
+        .accordion-section-content {
+            padding: 15px;
+            display: none;
+        }
+    }
+    @include breakpoint(tablet) {
     }
     @include breakpoint(phone) {
-        .ac-container {
-            input:checked ~ article.ac-medium {
-                height: 320px;
-            }
-            article {
-                p {
-                    font-size: 12.9px;
-                }
-            }
-            input:checked ~ article.ac-small {
-                height: 273px;
-            }
-        }
     }
 
 }
@@ -568,7 +499,7 @@
                         border-bottom: 1px solid $black;
                     }
                 }
-                
+
                 #submit {
                     left: 0;
                 }
