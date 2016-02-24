@@ -1,79 +1,48 @@
-/*----------  equal col
-------------------------------------------------------------------------------*/
-equalheight = function (container) {
-
-    var currentTallest = 0,
-        currentRowStart = 0,
-        rowDivs = new Array(),
-        $el,
-        topPosition = 0;
-    $(container).each(function () {
-
-        $el = $(this);
-        $($el).height("auto")
-        topPostion = $el.position().top;
-
-        if (currentRowStart != topPostion) {
-            for (currentDiv = 0; currentDiv < rowDivs.length; currentDiv++) {
-                rowDivs[currentDiv].height(currentTallest);
-            }
-            rowDivs.length = 0; // empty the array
-            currentRowStart = topPostion;
-            currentTallest = $el.height();
-            rowDivs.push($el);
-        } else {
-            rowDivs.push($el);
-            currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
-        }
-        for (currentDiv = 0; currentDiv < rowDivs.length; currentDiv++) {
-            rowDivs[currentDiv].height(currentTallest);
-        }
-    });
-}
-
-$(window).load(function () {
-
-    /*----------  equal height call
-    ------------------------------------------------------------------------------*/
-    equalheight(".footer-mid li");
-
-});
-
-$(window).resize(function () {
-
-    /*----------  equal height call
-    ------------------------------------------------------------------------------*/
-    equalheight(".footer-mid li");
-
-});
-
 $("document").ready(function ($) {
+
+    /*----------  scroll to position
+    ------------------------------------------------------------------------------*/
+    $(document).on("scroll", onScroll);
     
+    $("ul.nav-script>li>a, div.button-wrapper>a").on("click", function() {
+
+        var scrollAnchor = $(this).attr("data-scroll"),
+            scrollPoint = $('section[data-anchor="' + scrollAnchor + '"]').offset().top - 88;
+
+        $("body,html").animate({
+            scrollTop: scrollPoint
+        }, 1000);
+
+        return false;
+    })
+    /*----------  end of scrol to position  ----------*/
+
     /*----------  accordion
     ------------------------------------------------------------------------------*/
     function close_accordion_section() {
         $('.accordion .accordion-section-title').removeClass('active');
         $('.accordion .accordion-section-content').slideUp(300).removeClass('open');
     }
- 
+
     $('.accordion-section-title').click(function(e) {
         // Grab current anchor value
         var currentAttrValue = $(this).attr('href');
- 
+
         if($(e.target).is('.active')) {
             close_accordion_section();
         }else {
             close_accordion_section();
- 
+
             // Add active class to section title
             $(this).addClass('active');
             // Open up the hidden content panel
             $('.accordion ' + currentAttrValue).slideDown(300).addClass('open'); 
         }
- 
+
         e.preventDefault();
     });
-    
+    /*----------  end of accordion  ----------*/
+
     /*----------  contact form validator
     ------------------------------------------------------------------------------*/
     $(function() {
@@ -126,11 +95,12 @@ $("document").ready(function ($) {
             }
         });
     });
+    /*----------  end of contact form validator  ----------*/
 
     /*----------  slider text animations
     ------------------------------------------------------------------------------*/
     $(".anim-slider").animateSlider( {
-        autoplay	            : false,
+        autoplay	            : true,
         interval	            : 7000,
         animations 	            : 
         {
@@ -142,7 +112,7 @@ $("document").ready(function ($) {
                     hide 	    : "flipOutX",
                     delayShow   : "delay1s"
                 },
-                "#fadeIn2" 	    :
+                "#fadeIn1" 	    :
                 {
                     show   	    : "flipInX",
                     hide 	    : "flipOutX",
@@ -157,13 +127,13 @@ $("document").ready(function ($) {
             },
             1	: //Slide No2
             {	
-                "#fadeIn"         :
+                "#fadeIn2"         :
                 {
                     show   	    : "fadeInRight",
                     hide 	    : "fadeInLeft",
                     delayShow   : "delay1s"
                 },
-                "#fadeIn2" 	    :
+                "#fadeIn3" 	    :
                 {
                     show 	 	: "fadeInRight",
                     hide 	 	: "fadeInLeft",
@@ -178,13 +148,13 @@ $("document").ready(function ($) {
             },
             2	                : //Slide No3
             {
-                "#fadeIn": 
+                "#fadeIn4": 
                 {
                     show   	    : "fadeInLeft",
                     hide 	    : "fadeInRight",
                     delayShow   : "delay1s"
                 },
-                "#fadeIn2" 	    :
+                "#fadeIn5" 	    :
                 {
                     show 	 	: "fadeInLeft",
                     hide 	 	: "fadeInRight",
@@ -199,14 +169,7 @@ $("document").ready(function ($) {
             }
         }
     });
-
-    /*----------  website preloader
-    ------------------------------------------------------------------------------*/
-    $(window).load(function() {
-        setTimeout(function() {
-            $('#preloader').fadeOut("slow",function(){$(this).remove();});
-        }, 1500);
-    });
+    /*----------  end of slider animation  ----------*/
 
     /*----------  stats counter waypoint
     ------------------------------------------------------------------------------*/
@@ -228,57 +191,7 @@ $("document").ready(function ($) {
         },
         offset: "97%"
     })
-
-    /*----------  loader waypoint
-    ------------------------------------------------------------------------------*/
-    var waypoint = new Waypoint({
-        element: document.getElementById("waypoint-loader"),
-        handler: function() {
-            $(".bar-percentage[data-percentage]").each(function () {
-                var progress = $(this);
-                var percentage = Math.ceil($(this).attr("data-percentage"));
-                $({countNum: 0}).animate({countNum: percentage}, {
-                    duration: 3500,
-                    easing:"linear",
-                    step: function() {
-                        // What todo on every count
-                        var pct = '';
-                        if(percentage == 0){
-                            pct = Math.floor(this.countNum) + "%";
-                        }else{
-                            pct = Math.floor(this.countNum+1) + "%";
-                        }
-                        progress.text(pct) && progress.siblings().children().css("width",pct);
-                    }
-                }); 
-            });
-        },
-        offset: "-20%"
-    })
-    var waypoint = new Waypoint({
-        element: document.getElementById("waypoint-loader"),
-        handler: function() {
-            $(".bar-percentage[data-percentage]").each(function () {
-                var progress = $(this);
-                var percentage = Math.ceil($(this).attr("data-percentage"));
-                $({countNum: 0}).animate({countNum: percentage}, {
-                    duration: 3500,
-                    easing:"linear",
-                    step: function() {
-                        // What todo on every count
-                        var pct = '';
-                        if(percentage == 0){
-                            pct = Math.floor(this.countNum) + "%";
-                        }else{
-                            pct = Math.floor(this.countNum+1) + "%";
-                        }
-                        progress.text(pct) && progress.siblings().children().css("width",pct);
-                    }
-                }); 
-            });
-        },
-        offset: "96%"
-    })
+    /*----------  end of stat counter waypoint  ----------*/
 
     /*----------  Back to top
     ------------------------------------------------------------------------------*/
@@ -306,6 +219,7 @@ $("document").ready(function ($) {
         }, scroll_top_duration
                               );
     });
+    /*----------  end of back to top  ----------*/
 
     /*----------  animate content in viewport
     ------------------------------------------------------------------------------*/
@@ -335,6 +249,7 @@ $("document").ready(function ($) {
 
     $window.on("scroll resize", check_if_in_view);
     $window.trigger("scroll");
+    /*----------  end of animate content in viewport  ----------*/
 
     /*----------  moving hover
     ------------------------------------------------------------------------------*/
@@ -345,6 +260,7 @@ $("document").ready(function ($) {
     $(" #grid > li ").each( function() { $(this).hoverdir({
         hoverDelay : 75
     }); } );
+    /*----------  end of call to hoverdir  ----------*/
 
     /*----------  Mix it up
     ------------------------------------------------------------------------------*/
@@ -353,10 +269,7 @@ $("document").ready(function ($) {
             duration: 1000
         }
     });
-
-    /*----------  Scroll to location
-    ------------------------------------------------------------------------------*/
-    $(document).on("scroll", onScroll);
+    /*----------  end of mix it up  ----------*/
 
     /*----------  fixed nav
     ------------------------------------------------------------------------------*/
@@ -368,6 +281,7 @@ $("document").ready(function ($) {
         nav.toggleClass("fix-nav", fix);
         navM.toggleClass("fix-nav", fix);
     });
+    /*----------  end of fixed nav  ----------*/
 
     /*----------  mobile nav
     ------------------------------------------------------------------------------*/
@@ -380,6 +294,7 @@ $("document").ready(function ($) {
             $(".mobile-nav").addClass("none");
         }
     });
+    /*----------  end of mobile nav  ----------*/
 
     /*----------  filter selection add border and font color
     ------------------------------------------------------------------------------*/
@@ -390,10 +305,31 @@ $("document").ready(function ($) {
             $("li.filter > a").removeClass("active");
         }
     });
+    /*----------  end of filter  ----------*/
 
-});
+    /*----------  reload page
+    ------------------------------------------------------------------------------*/
+    $("#reload").click(function() {
+        location.reload();
+    });
 
-/*----------  add class to menu bar links
+}); /************* end of ready *************/
+
+$(window).load(function () {
+    /*----------  website preloader
+    ------------------------------------------------------------------------------*/
+    setTimeout(function() {
+        $('#preloader').fadeOut("slow",function(){$(this).remove();});
+    }, 1500);
+}); /************* end of load *************/
+
+$(window).resize(function () {
+
+
+
+}); /************* end of resize *************/
+
+/*----------  add class to menu bar links on scroll
 ------------------------------------------------------------------------------*/
 function onScroll(event){
     var scrollPos = $(document).scrollTop() + 90;
@@ -409,80 +345,3 @@ function onScroll(event){
         }
     });
 }
-
-/*----------  scroll to position
-------------------------------------------------------------------------------*/
-$("ul.nav-script>li>a, div.button-wrapper>a").on("click", function() {
-
-    var scrollAnchor = $(this).attr("data-scroll"),
-        scrollPoint = $('section[data-anchor="' + scrollAnchor + '"]').offset().top - 88;
-
-    $("body,html").animate({
-        scrollTop: scrollPoint
-    }, 1000);
-
-    return false;
-})
-
-$("#reload").click(function() {
-    location.reload();
-});
-
-
-/*----------  add google maps to page
-------------------------------------------------------------------------------*/
-// When the window has finished loading create our google map below
-//google.maps.event.addDomListener(window, "load", init);
-//
-//function init() {
-//    // Basic options for a simple Google Map
-//    // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-//    var novi_sad = {
-//        lat: 45.259006,
-//        lng: 19.814523
-//    };
-//    var mapOptions = {
-//        // How zoomed in you want the map to start at (always required)
-//        zoom: 8,
-//        scrollwheel: false,
-//
-//        // The latitude and longitude to center the map (always required)
-//        center: novi_sad, // Novi Sad
-//
-//        // How you would like to style the map. 
-//        // This is where you would paste any style found on Snazzy Maps.
-//        styles: [{"elementType":"geometry","stylers":[{"hue":"#ff4400"},{"saturation":-68},{"lightness":-4},{"gamma":0.72}]},{"featureType":"road","elementType":"labels.icon"},{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"hue":"#0077ff"},{"gamma":3.1}]},{"featureType":"water","stylers":[{"hue":"#00ccff"},{"gamma":0.44},{"saturation":-33}]},{"featureType":"poi.park","stylers":[{"hue":"#44ff00"},{"saturation":-23}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"hue":"#007fff"},{"gamma":0.77},{"saturation":65},{"lightness":99}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"gamma":0.11},{"weight":5.6},{"saturation":99},{"hue":"#0091ff"},{"lightness":-86}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"lightness":-48},{"hue":"#ff5e00"},{"gamma":1.2},{"saturation":-23}]},{"featureType":"transit","elementType":"labels.text.stroke","stylers":[{"saturation":-64},{"hue":"#ff9100"},{"lightness":16},{"gamma":0.47},{"weight":2.7}]}]
-//    };
-//
-//    // Get the HTML DOM element that will contain your map 
-//    // We are using a div with id="map" seen below in the <body>
-//    var mapElement = document.getElementById("map");
-//
-//    // Create the Google Map using our element and options defined above
-//    var map = new google.maps.Map(mapElement, mapOptions);
-//
-//    // Let's also add a marker while we're at it
-//    var marker = new google.maps.Marker({
-//        position: novi_sad,
-//        map: map,
-//        title: "Novi Sad"
-//    });
-//    var contentString = '<div id="content">' +
-//        '<div id="siteNotice">' +
-//        '</div>' +
-//        '<h3 id="firstHeading" class="firstHeading">Novi Sad</h3>' +
-//        '<div id="bodyContent">' +
-//        '<p>Dr Svetislava Kasapinovica 21 ' +
-//        '</p>'
-//
-//    '</div>' +
-//        '</div>';
-//    var infowindow = new google.maps.InfoWindow({
-//        content: contentString
-//    });
-//    marker.addListener("click", function () {
-//        infowindow.open(map, marker);
-//        map.setZoom(13);
-//        map.setCenter(marker.getPosition());
-//    });
-//}

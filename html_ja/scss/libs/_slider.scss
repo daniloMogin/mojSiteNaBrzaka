@@ -47,332 +47,163 @@ li.anim-slide:nth-of-type(3){background:#fff url("../../assets/img/slider/slider
 
 /*----------  SLIDE 1
 ------------------------------------------------------------------------------*/
-.anim-slide h1#fadeIn2 {
+.anim-slide h1#fadeIn1,
+.anim-slide h1#fadeIn3,
+.anim-slide h1#fadeIn5 {
     top: 60vh;
 }
 
-.anim-slide h2#fadeIn {
+.anim-slide h2#fadeIn,
+.anim-slide h2#fadeIn2,
+.anim-slide h2#fadeIn4 {
     top: 40vh; 
 }
 
-/*----------  SLIDE 2
-------------------------------------------------------------------------------*/
-.anim-slide h3#fadeIn2 {
-    top: 62vh;
-}
-
-.anim-slide h4#fadeIn {
-    top: 47vh;
-}
-
-/*----------  SLIDE 3
-------------------------------------------------------------------------------*/
-.anim-slide h5#fadeIn {
-    top: 61.5vh;
-}
-
-.anim-slide h2#fadeIn2 {
-    top: 40vh;
-}
+///*----------  SLIDE 2
+//------------------------------------------------------------------------------*/
+//.anim-slide h1#fadeIn2 {
+//    top: 62vh;
+//}
+//
+//.anim-slide h4#fadeIn {
+//    top: 47vh;
+//}
+//
+///*----------  SLIDE 3
+//------------------------------------------------------------------------------*/
+//.anim-slide h5#fadeIn {
+//    top: 61.5vh;
+//}
+//
+//.anim-slide h2#fadeIn2 {
+//    top: 40vh;
+//}
 
 @include breakpoint(tablet) {
-    .anim-slide h1,
-    .anim-slide h3,
-    .anim-slide h5 {
+    .anim-slide h1#fadeIn1,
+    .anim-slide h1#fadeIn3,
+    .anim-slide h1#fadeIn5 {
         font-size: 108px;
+        top: 62vh;
     }
 
-    .anim-slide h2,
-    .anim-slide h4 {
-        font-size: 26px;
-        letter-spacing: 13.5px;
-    }
-    
-    .anim-slide h2#fadeIn {
-        top: 31vh; 
-    }
-    
-    .anim-slide h3#fadeIn2 {
-        top: 64.5vh; 
-    }
-    
-    .anim-slide h4#fadeIn {
-        top: 45vh; 
-    }
-    
-    .anim-slide h5#fadeIn {
-        top: 63vh; 
-    }
-    
-    .anim-slide h2#fadeIn2 {
-        top: 31vh; 
-    }
-
-}
-@include breakpoint(ipad) {
-    .anim-slide h1,
-    .anim-slide h3,
-    .anim-slide h5 {
-        font-size: 108px;
-    }
-
-    .anim-slide h2,
-    .anim-slide h4 {
-        font-size: 26px;
-        letter-spacing: 13.5px;
-    }
-    
-    .anim-slide h1#fadeIn2 {
-        top: 55vh;
-    }
-    
-    .anim-slide h2#fadeIn {
-        top: 45vh; 
-    }
-    
-    .anim-slide h2#fadeIn2 {
-        top: 45.1vh; 
-    }
-    
-    .anim-slide h3#fadeIn2 {
-        top: 56.5vh; 
-    }
-    
-    .anim-slide h4#fadeIn {
-        top: 50.4vh; 
-    }
-    
-    .anim-slide h5#fadeIn {
-        top: 56vh; 
-    }
-
-}
-@include breakpoint(phone) {
-    .anim-slide h1,
-    .anim-slide h3,
-    .anim-slide h5 {
-        font-size: 62px;
-    }
-
-    .anim-slide h2,
-    .anim-slide h4 {
-        font-size: 21px;
-        letter-spacing: 3.5px;
-    }
-    
-    .anim-slide h1#fadeIn2 {
-        top: 57vh;
-    }
-    
-    .anim-slide h2#fadeIn {
+    .anim-slide h2#fadeIn,
+    .anim-slide h2#fadeIn2,
+    .anim-slide h2#fadeIn4 {
+        font-size: 25px;
         top: 35vh; 
     }
-    
-    .anim-slide h3#fadeIn2 {
-        top: 62vh; 
+}
+@include breakpoint(ipad) {
+    .anim-slide h1#fadeIn1,
+    .anim-slide h1#fadeIn3,
+    .anim-slide h1#fadeIn5 {
+        font-size: 108px;
+        top: 54vh;
     }
-    
-    .anim-slide h4#fadeIn {
-        top: 50vh; 
+
+    .anim-slide h2#fadeIn,
+    .anim-slide h2#fadeIn2,
+    .anim-slide h2#fadeIn4 {
+        font-size: 25px;
+        top: 44vh; 
     }
-    
-    .anim-slide h5#fadeIn {
-        top: 61vh; 
+}
+@include breakpoint(phone) {
+    .anim-slide h1#fadeIn1,
+    .anim-slide h1#fadeIn3,
+    .anim-slide h1#fadeIn5 {
+        font-size: 108px;
+        top: 63vh;
     }
-    
-    .anim-slide h2#fadeIn2 {
-        top: 34.85vh; 
-    }
-    
+
+    .anim-slide h2#fadeIn,
+    .anim-slide h2#fadeIn2,
+    .anim-slide h2#fadeIn4 {
+        font-size: 25px;
+        top: 34vh; 
+    }    
 }
 
 @include breakpoint(phoneBig) {
-    .anim-slide h1,
-    .anim-slide h3,
-    .anim-slide h5 {
-        font-size: 62px;
+    .anim-slide h1#fadeIn1,
+    .anim-slide h1#fadeIn3,
+    .anim-slide h1#fadeIn5 {
+        font-size: 58px;
+        top: 55vh;
     }
 
-    .anim-slide h2,
-    .anim-slide h4 {
-        font-size: 21px;
-        letter-spacing: 3.5px;
-    }
-    
-    .anim-slide h1#fadeIn2 {
-        top: 54vh;
-    }
-    
-    .anim-slide h2#fadeIn {
-        top: 38.5vh; 
-    }
-    
-    .anim-slide h3#fadeIn2 {
-        top: 57.5vh; 
-    }
-    
-    .anim-slide h4#fadeIn {
-        top: 47.9vh; 
-    }
-    
-    .anim-slide h5#fadeIn {
-        top: 56.5vh; 
-    }
-    
-    .anim-slide h2#fadeIn2 {
-        top: 38.5vh; 
+    .anim-slide h2#fadeIn,
+    .anim-slide h2#fadeIn2,
+    .anim-slide h2#fadeIn4 {
+        font-size: 19px;
+        letter-spacing: 4px;
+        top: 40vh; 
     }
 }
 @include breakpoint(phoneNexus) {
-    .anim-slide h1,
-    .anim-slide h3,
-    .anim-slide h5 {
+    .anim-slide h1#fadeIn1,
+    .anim-slide h1#fadeIn3,
+    .anim-slide h1#fadeIn5 {
         font-size: 72px;
+        top: 56vh;
     }
 
-    .anim-slide h2,
-    .anim-slide h4 {
-        font-size: 23px;
-        letter-spacing: 4.5px;
-    }
-    
-    .anim-slide h1#fadeIn2 {
-        top: 55vh;
-    }
-    
-    .anim-slide h2#fadeIn {
-        top: 42vh; 
-    }
-    
-    .anim-slide h3#fadeIn2 {
-        top: 58vh; 
-    }
-    
-    .anim-slide h4#fadeIn {
-        top: 50.5vh; 
-    }
-    
-    .anim-slide h5#fadeIn {
-        top: 57vh; 
-    }
-    
-    .anim-slide h2#fadeIn2 {
-        top: 41.9vh; 
+    .anim-slide h2#fadeIn,
+    .anim-slide h2#fadeIn2,
+    .anim-slide h2#fadeIn4 {
+        font-size: 19px;
+        letter-spacing: 5px;
+        top: 41vh; 
     }
 }
 
 @include breakpoint(phone600) {
-    .anim-slide h1,
-    .anim-slide h3,
-    .anim-slide h5 {
-        font-size: 74px;
+    .anim-slide h1#fadeIn1,
+    .anim-slide h1#fadeIn3,
+    .anim-slide h1#fadeIn5 {
+        font-size: 73px;
+        top: 55vh;
     }
 
-    .anim-slide h2,
-    .anim-slide h4 {
-        font-size: 29px;
-        letter-spacing: 1.5px;
-    }
-    
-    .anim-slide h1#fadeIn2 {
-        top: 54vh;
-    }
-    
-    .anim-slide h2#fadeIn {
-        top: 39.5vh; 
-    }
-    
-    .anim-slide h3#fadeIn2 {
-        top: 57.4vh; 
-    }
-    
-    .anim-slide h4#fadeIn {
-        top: 48.7vh; 
-    }
-    
-    .anim-slide h5#fadeIn {
-        top: 56.7vh; 
-    }
-    
-    .anim-slide h2#fadeIn2 {
-        top: 39.5vh; 
-    }
-    
+    .anim-slide h2#fadeIn,
+    .anim-slide h2#fadeIn2,
+    .anim-slide h2#fadeIn4 {
+        font-size: 19px;
+        letter-spacing: 5px;
+        top: 41vh; 
+    }    
 }
 @include breakpoint(phonePod) {
-    .anim-slide h1,
-    .anim-slide h3,
-    .anim-slide h5 {
-        font-size: 74px;
+    .anim-slide h1#fadeIn1,
+    .anim-slide h1#fadeIn3,
+    .anim-slide h1#fadeIn5 {
+        font-size: 87px;
+        top: 60vh;
     }
 
-    .anim-slide h2,
-    .anim-slide h4 {
-        font-size: 29px;
-        letter-spacing: 1.5px;
-    }
-    
-    .anim-slide h1#fadeIn2 {
-        top: 59vh;
-    }
-    
-    .anim-slide h2#fadeIn {
-        top: 33.5vh; 
-    }
-    
-    .anim-slide h3#fadeIn2 {
-        top: 65vh; 
-    }
-    
-    .anim-slide h4#fadeIn {
-        top: 50vh; 
-    }
-    
-    .anim-slide h5#fadeIn {
-        top: 63.5vh; 
-    }
-    
-    .anim-slide h2#fadeIn2 {
-        top: 33.5vh; 
+    .anim-slide h2#fadeIn,
+    .anim-slide h2#fadeIn2,
+    .anim-slide h2#fadeIn4 {
+        font-size: 22px;
+        letter-spacing: 6px;
+        top: 33vh; 
     }
 }
 
 @include breakpoint(phoneXBig) {
-    .anim-slide h1,
-    .anim-slide h3,
-    .anim-slide h5 {
-        font-size: 100px;
+    .anim-slide h1#fadeIn1,
+    .anim-slide h1#fadeIn3,
+    .anim-slide h1#fadeIn5 {
+        font-size: 108px;
+        top: 55vh;
     }
 
-    .anim-slide h2,
-    .anim-slide h4 {
-        font-size: 37px;
-        letter-spacing: 1.5px;
+    .anim-slide h2#fadeIn,
+    .anim-slide h2#fadeIn2,
+    .anim-slide h2#fadeIn4 {
+        font-size: 25px;
+        top: 44.5vh; 
     }
-    
-    .anim-slide h1#fadeIn2 {
-        top: 54vh;
-    }
-    
-    .anim-slide h2#fadeIn {
-        top: 44vh; 
-    }
-    
-    .anim-slide h3#fadeIn2 {
-        top: 55.8vh; 
-    }
-    
-    .anim-slide h4#fadeIn {
-        top: 49.2vh; 
-    }
-    
-    .anim-slide h5#fadeIn {
-        top: 55.4vh; 
-    }
-    
-    .anim-slide h2#fadeIn2 {
-        top: 44vh; 
-    }
-    
 }
 

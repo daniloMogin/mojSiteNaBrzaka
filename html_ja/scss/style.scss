@@ -7,7 +7,7 @@
 
 /*----------  helpers
 ------------------------------------------------------------------------------*/
-@import "helpers/mixins";
+@import "helpers/mixins";         
 
 /*----------  layout
 ------------------------------------------------------------------------------*/
@@ -18,7 +18,7 @@
 /*----------  libs
 ------------------------------------------------------------------------------*/
 @import "libs/tooltip-box";
-@import "libs/jquery.animateSlider"; 
+@import "libs/jquery.animateSlider";         
 @import "libs/slider";
 
 /*----------  partials
@@ -289,8 +289,7 @@
             box-shadow: 0 1px 0 rgba($black, .1), 0 -10px 0 rgba($white, .3);
         }
     }
-
-
+    
     @include breakpoint(tablet) {
         .thumbs-wrapper {
             .da-thumbs li {
@@ -338,17 +337,20 @@
 ------------------------------------------------------------------------------*/
 .why-choose-us {
     text-align: center;
-    background-image: url(../../assets/img/content/napustena-zgrada-z.jpg);
+//    background-image: url(../../assets/img/content/napustena-zgrada-z.jpg);
+    background-color: $gray-light;
     .ac-container {
         margin-bottom: 40px;
-        /*----- Accordion -----*/
+        
         .accordion {
             overflow: hidden;
             box-shadow: 0px 1px 3px rgba(0,0,0,0.25);
             border-radius: 3px;
-            background: $gray-light;
+            background: $white;
+            p {
+                font-weight: 500;
+            }
         }
-        /*----- Section Titles -----*/
         .accordion-section-title {
             width: 100%;
             padding: 15px;
@@ -356,15 +358,13 @@
             border-bottom: 1px solid $black;
             background: $gray-dark;
             @include transition(all .15s ease-out);
-            /* Type */
-            font-size: 1.200em;
+            font-size: 20px;
             text-shadow: 0px 1px 0px $gray-dark;
             color: $white;
         }
 
         .accordion-section-title.active, .accordion-section-title:hover {
-            background: darken( $gray-dark, 5% );
-            /* Type */
+            background: darken($gray-dark, 5%);
             text-decoration: none;
         }
 
@@ -372,7 +372,6 @@
             border-bottom: none;
         }
 
-        /*----- Section Content -----*/
         .accordion-section-content {
             padding: 15px;
             display: none;
@@ -501,7 +500,8 @@
                 }
 
                 #submit {
-                    left: 0;
+                    max-width: 150px;
+                    margin-top: 15px;
                 }
 
                 #success, #error {
@@ -528,6 +528,7 @@
                     position: absolute;
                     top: 0;
                     left: 0;
+                    color: $red;
                 }
                 #name-error {
                     top: 40px;

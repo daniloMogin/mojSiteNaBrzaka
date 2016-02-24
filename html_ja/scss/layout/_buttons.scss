@@ -22,7 +22,7 @@
 .button-wrapper {
     max-width: 210px;
     margin: 0 auto;
-
+    clear: both;
 
     .button {
         font-size: 14px;
@@ -71,7 +71,6 @@
     }
     .button--wayra:hover {
         color: $black;
-//        border-color: $gray;
     }
     .button--wayra.button--inverted:hover {
         color: $black;
