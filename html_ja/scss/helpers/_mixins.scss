@@ -38,13 +38,13 @@
     }
     
     @else if $breakpoint == "ipad" {
-        @media only screen and (min-width: 768px) and (max-width: 800px) {
+        @media only screen and (min-width: 768px) and (max-width: 800px) and (min-height: 1024px) {
             @content;
         }
     }
     
     @if $breakpoint == "phoneXBig" {
-        @media only screen and (min-width: 600px) and (max-width: 602px) {
+        @media only screen and (min-width: 600px) and (max-width: 602px) and (min-height: 1280px) {
             @content;
         }
     }

@@ -3,11 +3,12 @@ $("document").ready(function ($) {
     /*----------  scroll to position
     ------------------------------------------------------------------------------*/
     $(document).on("scroll", onScroll);
-    
+
     $("ul.nav-script>li>a, div.button-wrapper>a").on("click", function() {
 
         var scrollAnchor = $(this).attr("data-scroll"),
             scrollPoint = $('section[data-anchor="' + scrollAnchor + '"]').offset().top - 88;
+        console.log(scrollPoint);
 
         $("body,html").animate({
             scrollTop: scrollPoint
@@ -16,32 +17,6 @@ $("document").ready(function ($) {
         return false;
     })
     /*----------  end of scrol to position  ----------*/
-
-    /*----------  accordion
-    ------------------------------------------------------------------------------*/
-    function close_accordion_section() {
-        $('.accordion .accordion-section-title').removeClass('active');
-        $('.accordion .accordion-section-content').slideUp(300).removeClass('open');
-    }
-
-    $('.accordion-section-title').click(function(e) {
-        // Grab current anchor value
-        var currentAttrValue = $(this).attr('href');
-
-        if($(e.target).is('.active')) {
-            close_accordion_section();
-        }else {
-            close_accordion_section();
-
-            // Add active class to section title
-            $(this).addClass('active');
-            // Open up the hidden content panel
-            $('.accordion ' + currentAttrValue).slideDown(300).addClass('open'); 
-        }
-
-        e.preventDefault();
-    });
-    /*----------  end of accordion  ----------*/
 
     /*----------  contact form validator
     ------------------------------------------------------------------------------*/
@@ -100,7 +75,7 @@ $("document").ready(function ($) {
     /*----------  slider text animations
     ------------------------------------------------------------------------------*/
     $(".anim-slider").animateSlider( {
-        autoplay	            : true,
+        autoplay	            : false,
         interval	            : 7000,
         animations 	            : 
         {
