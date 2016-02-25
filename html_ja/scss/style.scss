@@ -384,23 +384,6 @@
                     }
                 }
             }
-            .border-bot {
-                margin: 18px auto 24px auto;
-                width: 63px;
-                height: 1px;
-                background-color: $black;
-                position: relative;
-                &:after {
-                    content: '';
-                    width: 9px;
-                    height: 9px;
-                    background-color: $black;
-                    position: absolute;
-                    top: -4px;
-                    left: 26px;
-                    @include border-radius(50%);
-                }
-            }
         }
     }
     @include breakpoint(tablet) {
