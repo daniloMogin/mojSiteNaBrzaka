@@ -1,76 +1,49 @@
-$("document").ready(function ($) {
+equalheight = function (container) {
 
-    /*----------  scroll to position
-    ------------------------------------------------------------------------------*/
-    $(document).on("scroll", onScroll);
+    var currentTallest = 0,
+        currentRowStart = 0,
+        rowDivs = new Array(),
+        $el,
+        topPosition = 0;
+    $(container).each(function () {
 
-    $("ul.nav-script>li>a, div.button-wrapper>a").on("click", function() {
+        $el = $(this);
+        $($el).height("auto")
+        topPostion = $el.position().top;
 
-        var scrollAnchor = $(this).attr("data-scroll"),
-            scrollPoint = $('section[data-anchor="' + scrollAnchor + '"]').offset().top - 88;
-        console.log(scrollPoint);
-
-        $("body,html").animate({
-            scrollTop: scrollPoint
-        }, 1000);
-
-        return false;
-    })
-    /*----------  end of scrol to position  ----------*/
-
-    /*----------  contact form validator
-    ------------------------------------------------------------------------------*/
-    $(function() {
-        $('#contact').validate({
-            rules: {
-                name: {
-                    required: true,
-                    minlength: 2
-                },
-                email: {
-                    required: true,
-                    email: true
-                },
-                message: {
-                    required: true
-                }
-            },
-            messages: {
-                name: {
-                    required: "come on, you have a name don't you?",
-                    minlength: "your name must consist of at least 2 characters"
-                },
-                email: {
-                    required: "no email, no message"
-                },
-                message: {
-                    required: "um...yea, you have to write something to send this form.",
-                    minlength: "thats all? really?"
-                }
-            },
-            submitHandler: function(form) {
-                $(form).ajaxSubmit({
-                    type:"POST",
-                    data: $(form).serialize(),
-                    url:"process.php",
-                    success: function() {
-                        $('#contact :input').attr('disabled', 'disabled');
-                        $('#contact').fadeTo( "slow", 0.15, function() {
-                            $(this).find(':input').attr('disabled', 'disabled');
-                            $(this).find('label').css('cursor','default');
-                            $('#success').fadeIn();
-                        });
-                    },
-                    error: function() {
-                        $('#contact').fadeTo( "slow", 0.15, function() {
-                            $('#error').fadeIn();
-                        });
-                    }
-                });
+        if (currentRowStart != topPostion) {
+            for (currentDiv = 0; currentDiv < rowDivs.length; currentDiv++) {
+                rowDivs[currentDiv].height(currentTallest);
             }
-        });
+            rowDivs.length = 0; // empty the array
+            currentRowStart = topPostion;
+            currentTallest = $el.height();
+            rowDivs.push($el);
+        } else {
+            rowDivs.push($el);
+            currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
+        }
+        for (currentDiv = 0; currentDiv < rowDivs.length; currentDiv++) {
+            rowDivs[currentDiv].height(currentTallest);
+        }
     });
-    /*----------  end of contact form validator  ----------*/
+}
+
+$(window).load(function () {
+    /*----------  website preloader
+    ------------------------------------------------------------------------------*/
+    setTimeout(function() {
+        $('#preloader').fadeOut("slow",function(){$(this).remove();});
+    }, 1500);
+}); /************* end of load *************/
+
+$(window).resize(function () {
+
+
+
+}); /************* end of resize *************/
+
+$("document").ready(function ($) {
 
     /*----------  slider text animations
     ------------------------------------------------------------------------------*/
@@ -196,6 +169,60 @@ $("document").ready(function ($) {
     });
     /*----------  end of back to top  ----------*/
 
+    /*----------  contact form validator
+    ------------------------------------------------------------------------------*/
+    $(function() {
+        $('#contact').validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                message: {
+                    required: true
+                }
+            },
+            messages: {
+                name: {
+                    required: "come on, you have a name don't you?",
+                    minlength: "your name must consist of at least 2 characters"
+                },
+                email: {
+                    required: "no email, no message"
+                },
+                message: {
+                    required: "um...yea, you have to write something to send this form.",
+                    minlength: "thats all? really?"
+                }
+            },
+            submitHandler: function(form) {
+                $(form).ajaxSubmit({
+                    type:"POST",
+                    data: $(form).serialize(),
+                    url:"process.php",
+                    success: function() {
+                        $('#contact :input').attr('disabled', 'disabled');
+                        $('#contact').fadeTo( "slow", 0.15, function() {
+                            $(this).find(':input').attr('disabled', 'disabled');
+                            $(this).find('label').css('cursor','default');
+                            $('#success').fadeIn();
+                        });
+                    },
+                    error: function() {
+                        $('#contact').fadeTo( "slow", 0.15, function() {
+                            $('#error').fadeIn();
+                        });
+                    }
+                });
+            }
+        });
+    });
+    /*----------  end of contact form validator  ----------*/
+
     /*----------  animate content in viewport
     ------------------------------------------------------------------------------*/
     var $animation_elements = $(".animation-element, .timer");
@@ -246,6 +273,8 @@ $("document").ready(function ($) {
     });
     /*----------  end of mix it up  ----------*/
 
+    $(document).on("scroll", onScroll);
+
     /*----------  fixed nav
     ------------------------------------------------------------------------------*/
     var nav = $(".main-nav");
@@ -282,27 +311,7 @@ $("document").ready(function ($) {
     });
     /*----------  end of filter  ----------*/
 
-    /*----------  reload page
-    ------------------------------------------------------------------------------*/
-    $("#reload").click(function() {
-        location.reload();
-    });
-
 }); /************* end of ready *************/
-
-$(window).load(function () {
-    /*----------  website preloader
-    ------------------------------------------------------------------------------*/
-    setTimeout(function() {
-        $('#preloader').fadeOut("slow",function(){$(this).remove();});
-    }, 1500);
-}); /************* end of load *************/
-
-$(window).resize(function () {
-
-
-
-}); /************* end of resize *************/
 
 /*----------  add class to menu bar links on scroll
 ------------------------------------------------------------------------------*/
@@ -320,3 +329,25 @@ function onScroll(event){
         }
     });
 }
+
+/*----------  scroll to position
+------------------------------------------------------------------------------*/
+$("ul.nav-script>li>a, div.button-wrapper>a").on("click", function() {
+
+    var scrollAnchor = $(this).attr("data-scroll"),
+        scrollPoint = $('section[data-anchor="' + scrollAnchor + '"]').offset().top - 88;
+    console.log(scrollPoint);
+
+    $("body,html").animate({
+        scrollTop: scrollPoint
+    }, 1000);
+
+    return false;
+})
+/*----------  end of scrol to position  ----------*/
+
+/*----------  reload page
+    ------------------------------------------------------------------------------*/
+$("#reload").click(function() {
+    location.reload();
+});

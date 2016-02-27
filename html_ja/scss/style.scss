@@ -38,7 +38,7 @@
     width: 100%;
     //    background-image: url(../../assets/img/content/napustena-zgrada-z.jpg);
     background-color: $gray;
-    //    min-height: 123px;
+    min-height: 123px;
 
     .statsbar {
         .stat {
@@ -66,7 +66,7 @@
         }
     }
     @include breakpoint(tablet) {
-        //        min-height: 105px;
+        min-height: 105px;
         .statsbar {
             .stat {
                 .stat-sign {
@@ -83,7 +83,7 @@
         }
     }
     @include breakpoint(phone) {
-        //        min-height: 73px;
+        min-height: 61px;
         .statsbar {
             .stat {
                 padding-bottom: 7px;
@@ -393,7 +393,6 @@
             width: 100%;
         }
     }
-
 }
 
 /*----------  our work
